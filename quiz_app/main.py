@@ -7,1165 +7,328 @@ class Question:
         
     
     def cos(self):
-        return [
-        #algorithm and heuristic
-       
-    [
-        "Why is a greedy algorithm considered a heuristic rather than a classical algorithm?",
-        [
-            "Because it always guarantees the globally optimal solution",
-            "Because it makes locally optimal choices at each step, which may not produce the overall optimal solution",
-            "Because it does not follow any steps",
-            "Because it requires human intuition"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is an example of a heuristic approach in computing?",
-        [
-            "Antivirus software scanning for patterns",
-            "Sorting numbers with bubble sort",
-            "Calculating factorials recursively",
-            "Binary search on a sorted list"
-        ],
-        "a"
-    ],
-    [
-        "The greedy algorithm solves problems by:",
-        [
-            "Trying all possible solutions simultaneously",
-            "Choosing the locally optimal option at each step",
-            "Making random guesses",
-            "Breaking tasks into pseudocode"
-        ],
-        "b"
-    ],
-    [
-        "Why might antivirus software be classified as a heuristic method?",
-        [
-            "Because it uses exact step-by-step rules to remove all malware",
-            "Because it uses pattern recognition and educated guesses to detect unknown threats",
-            "Because it compiles code",
-            "Because it only scans text files"
-        ],
-        "b"
-    ],
-    [
-        "A limitation of greedy algorithms is that:",
-        [
-            "They are always slow",
-            "They may not find the globally optimal solution despite solving problems quickly",
-            "They cannot be implemented in software",
-            "They require user input at every step"
-        ],
-        "b"
-    ],
-    [
-        "What is an algorithm?",
-        [
-            "A mental shortcut used for problem-solving",
-            "A precise set of rules or procedures for solving a problem",
-            "A guess-based method",
-            "A computer hardware component"
-        ],
-        "b"
-    ],
-    [
-        "Algorithms guarantee:",
-        [
-            "That a solution will be reached following the given steps",
-            "Fastest solution in all cases",
-            "Approximate or intuitive results",
-            "Random results"
-        ],
-        "a"
-    ],
-    [
-        "Which of the following is an everyday example of an algorithm?",
-        [
-            "Using intuition to guess answers",
-            "Following a recipe with step-by-step instructions",
-            "Walking randomly in a park",
-            "Brainstorming ideas without structure"
-        ],
-        "b"
-    ],
-    [
-        "A heuristic is best described as:",
-        [
-            "A precise step-by-step formula",
-            "A technique to quickly obtain an acceptable solution, often using intuition or exploration",
-            "A programming language",
-            "A mathematical proof"
-        ],
-        "b"
-    ],
-    [
-        "One key difference between an algorithm and a heuristic is:",
-        [
-            "Algorithms are approximate; heuristics are precise",
-            "Algorithms must be followed exactly; heuristics are general problem-solving frameworks",
-            "Heuristics require computers; algorithms do not",
-            "Heuristics guarantee correct results; algorithms do not"
-        ],
-        "b"
-    ],
-    [
-        "Heuristics are particularly useful when:",
-        [
-            "Exact solutions are known and easy to compute",
-            "Time is limited or information is incomplete",
-            "All problem steps are predefined",
-            "Problems have a single correct answer"
-        ],
-        "b"
-    ],
-    [
-        "The precision-speed trade-off in heuristics refers to:",
-        [
-            "Faster results may not be the most accurate or optimal",
-            "Slower results are always worse",
-            "Exact solutions take less time",
-            "Heuristics always produce precise results instantly"
-        ],
-        "a"
-    ],
-    [
-        "Working backwards is an example of a heuristic where:",
-        [
-            "You start solving the problem from the end goal",
-            "You guess the solution",
-            "You follow a strict algorithm",
-            "You ignore the problem constraints"
-        ],
-        "a"
-    ],
-    [
-        "Breaking a large task into smaller steps is a heuristic that:",
-        [
-            "Makes complex tasks manageable",
-            "Increases complexity",
-            "Guarantees an optimal solution",
-            "Removes the need for reasoning"
-        ],
-        "a"
-    ],
-    [
-        "Heuristics cannot be mathematically proven because:",
-        [
-            "They rely on intuition, exploration, and may not be replicable",
-            "They always produce exact results",
-            "They are a type of algorithm",
-            "They follow strict logical steps"
-        ],
-        "a"
-    ],
-    [
-        "One of the applications of heuristics is in:",
-        [
-            "Traveling Salesperson Problem",
-            "Printing documents",
-            "Storing files",
-            "Installing operating systems"
-        ],
-        "a"
-    ],
-    [
-        "The goal of heuristics in optimization problems is to:",
-        [
-            "Find a timely and acceptable solution",
-            "Guarantee the exact optimal solution always",
-            "Ignore constraints",
-            "Produce random results"
-        ],
-        "a"
-    ],
-    [
-        "Heuristics can be used when:",
-        [
-            "There is access to very little information",
-            "The problem is simple and routine",
-            "Exact formulas exist",
-            "All steps are predetermined"
-        ],
-        "a"
-    ],
-    [
-        "Which of the following is true about algorithms?",
-        [
-            "They may produce different results each time",
-            "They are suitable for precise, repeatable computations",
-            "They rely on intuition",
-            "They avoid step-by-step instructions"
-        ],
-        "b"
-    ],
-    [
-        "Heuristics are often called mental shortcuts because:",
-        [
-            "They follow strict rules",
-            "They allow quick problem-solving using experience and intuition",
-            "They always guarantee optimal results",
-            "They do not require reasoning"
-        ],
-        "b"
-    ],
-        #tsp 
-    [
-        "The Traveling Salesperson Problem (TSP) is an example of:",
-        [
-            "A sorting problem",
-            "An optimization problem",
-            "A search problem",
-            "A networking problem"
-    	],
-    ],
-    	
-        #Fermi problem
-    [
-        "What is a Fermi problem primarily designed to test?",
-        [
-            "Exact numerical calculation",
-            "Estimation and reasoning skills",
-            "Memory of formulas",
-            "Graph plotting"
-        ],
-        "b"
-    ],
-    [
-        "A key characteristic of a Fermi problem is that:",
-        [
-            "All data values are precisely known",
-            "Exact answers are often unknown and estimation is required",
-            "It requires programming knowledge",
-            "It only involves geometry"
-        ],
-        "b"
-    ],
-    [
-        "Solving a Fermi problem usually involves:",
-        [
-            "Guessing randomly",
-            "Applying step-by-step reasoning and breaking down large problems into smaller parts",
-            "Copying solutions from a textbook",
-            "Using only addition and subtraction"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is an example of a Fermi problem?",
-        [
-            "Calculating the area of a rectangle",
-            "Estimating the number of piano tuners in a city",
-            "Finding the derivative of a function",
-            "Solving a quadratic equation"
-        ],
-        "b"
-    ],
-    [
-        "Why is justification of reasoning important in Fermi problems?",
-        [
-            "Because the final answer is always exact",
-            "Because the reasoning demonstrates logical steps and approximations used to reach an estimate",
-            "Because calculators are not allowed",
-            "Because only arithmetic operations matter"
-        ],
-        "b"
-    ],
-    #fermi and non routine
-    [
-        "Which statement is true about non-routine problems and Fermi problems?",
-        [
-            "All non-routine problems are Fermi problems",
-            "All Fermi problems are non-routine problems, but not all non-routine problems are Fermi problems",
-            "Fermi problems always have exact numerical answers",
-            "Non-routine problems always use estimation"
-        ],
-        "b"
-    ],
-    [
-        "A key difference between non-routine and Fermi problems is:",
-        [
-            "Non-routine problems require estimation; Fermi problems have exact solutions",
-            "Non-routine problems test creativity; Fermi problems focus on approximate reasoning",
-            "Fermi problems are simpler than non-routine problems",
-            "There is no difference"
-        ],
-        "b"
-    ],
-    [
-        "In terms of data availability:",
-        [
-            "Non-routine problems always provide exact data; Fermi problems do not",
-            "Fermi problems provide all information; non-routine problems do not",
-            "Non-routine problems provide some or all data; Fermi problems often require assumptions and estimations",
-            "Both always provide complete data"
-        ],
-        "c"
-    ],
-    [
-        "The main objective of a Fermi problem is to:",
-        [
-            "Find an exact solution using formulas",
-            "Reach a reasonable estimate using approximation and logical decomposition",
-            "Follow standard algorithms",
-            "Test memorization skills"
-        ],
-        "b"
-    ],
-    [
-        "Which example correctly illustrates a Fermi problem as opposed to a general non-routine problem?",
-        [
-            "Design a bridge with unusual constraints",
-            "Estimate the number of piano tuners in a city",
-            "Solve a unique mathematical puzzle with given formulas",
-            "Write an essay on a topic"
-        ],
-        "b"
-    ],
-    #os related
-    [
-        "Operating systems can be classified based on the type of computer they control and the type of applications they support into how many major categories?",
-        [
-            "2",
-            "3",
-            "4",
-            "5"
-        ],
-        "c"
-    ],
-    [
-        "Which type of operating system is primarily used to control machinery, scientific instruments and industrial systems?",
-        [
-            "Batch OS",
-            "Multi-user OS",
-            "Real-Time OS",
-            "Time-Sharing OS"
-        ],
-        "c"
-    ],
-    [
-        "The most important characteristic of a Real-Time Operating System (RTOS) is:",
-        [
-            "Large storage capacity",
-            "Precise and predictable response time",
-            "Multiple graphical interfaces",
-            "Network connectivity"
-        ],
-        "b"
-    ],
-    [
-        "What is the major difference between a hard RTOS and a soft RTOS?",
-        [
-            "Hard RTOS guarantees deadlines while Soft RTOS gives priority without strict guarantees",
-            "Hard RTOS supports networking while Soft RTOS does not",
-            "Hard RTOS is multi-user",
-            "Soft RTOS is faster"
-        ],
-        "a"
-    ],
-    [
-        "Which operating system is designed for one user performing one task at a time?",
-        [
-            "Single-User Single-Tasking OS",
-            "Multi-User OS",
-            "Distributed OS",
-            "Network OS"
-        ],
-        "a"
-    ],
-    [
-        "Palm OS is an example of:",
-        [
-            "Single-User Single-Tasking OS",
-            "Multi-User OS",
-            "Distributed OS",
-            "Batch OS"
-        ],
-        "a"
-    ],
-    [
-        "Windows 98 and Mac OS are examples of:",
-        [
-            "Single-User Multi-Tasking OS",
-            "Batch OS",
-            "Distributed OS",
-            "Real-Time OS"
-        ],
-        "a"
-    ],
-    [
-        "A Multi-User Operating System allows:",
-        [
-            "One user with many tasks",
-            "Many users to use computer resources simultaneously",
-            "One process at a time",
-            "Only network access"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is a true Multi-User Operating System?",
-        [
-            "Unix",
-            "Windows 98",
-            "Palm OS",
-            "Mac OS"
-        ],
-        "a"
-    ],
-    [
-        "Which operating system environment does not allow interaction with a job during its execution?",
-        [
-            "Time-Sharing OS",
-            "Batch Processing OS",
-            "Real-Time OS",
-            "Distributed OS"
-        ],
-        "b"
-    ],
-    [
-        "In a Batch Processing Operating System, the response time is measured as:",
-        [
-            "Execution time",
-            "Turnaround time",
-            "Clock cycle",
-            "Interrupt time"
-        ],
-        "b"
-    ],
-    [
-        "Which operating system allows users to interact with their programs during execution?",
-        [
-            "Batch Processing OS",
-            "Time-Sharing OS",
-            "Single-Tasking OS",
-            "Firmware"
-        ],
-        "b"
-    ],
-    [
-        "In a Time-Sharing Operating System, users share:",
-        [
-            "Only memory",
-            "Only storage",
-            "CPU, memory and other system resources",
-            "Only printers"
-        ],
-        "c"
-    ],
-    [
-        "Which operating system is designed for applications where delayed response could result in disaster?",
-        [
-            "Batch OS",
-            "Time-Sharing OS",
-            "Real-Time OS",
-            "Single-Tasking OS"
-        ],
-        "c"
-    ],
-    [
-        "Which of the following is an example of a Real-Time Operating System application?",
-        [
-            "Word processing",
-            "Airline reservation systems",
-            "Text editing",
-            "Spreadsheet software"
-        ],
-        "b"
-    ],
-    [
-        "A multiprogramming operating system allows:",
-        [
-            "Multiple processors",
-            "Multiple active programs in memory simultaneously",
-            "Multiple users only",
-            "Multiple operating systems"
-        ],
-        "b"
-    ],
-    [
-        "Which statement is correct?",
-        [
-            "Every multiprogramming system is time-sharing",
-            "Every time-sharing system is multiprogramming",
-            "Multiprocessing and multiprogramming are identical",
-            "None of the above"
-        ],
-        "b"
-    ],
-    [
-        "Multiprocessing refers to:",
-        [
-            "Many users",
-            "Many programs",
-            "More than one independent processing unit",
-            "Many networks"
-        ],
-        "c"
-    ],
-    [
-        "In a Network Operating System, users are aware of:",
-        [
-            "Only one computer",
-            "The existence of multiple computers",
-            "No hardware resources",
-            "Only processors"
-        ],
-        "b"
-    ],
-    [
-        "A major feature of a Network Operating System is:",
-        [
-            "Remote login and file sharing",
-            "Hard real-time processing",
-            "Single-task execution",
-            "No networking support"
-        ],
-        "a"
-    ],
-    [
-        "What distinguishes a Distributed Operating System from a Network Operating System?",
-        [
-            "Users see multiple machines directly",
-            "Users perceive the system as a single computer",
-            "It has no communication capability",
-            "It does not support file sharing"
-        ],
-        "b"
-    ],
-    [
-        "In a true Distributed Operating System, users should:",
-        [
-            "Know where programs are running",
-            "Know where files are stored",
-            "Be unaware of processor and file locations",
-            "Manage processor allocation manually"
-        ],
-        "c"
-    ],
-    [
-        "Which function of an operating system is responsible for assigning the CPU to tasks?",
-        [
-            "Memory Management",
-            "Processor Management",
-            "File Management",
-            "Security Management"
-        ],
-        "b"
-    ],
-    [
-        "Memory Management is concerned with:",
-        [
-            "Allocating memory to programs and data",
-            "Managing printers",
-            "Managing networks",
-            "Managing processors"
-        ],
-        "a"
-    ],
-    [
-        "Input/Output Management involves:",
-        [
-            "Managing CPU registers",
-            "Coordinating input and output devices",
-            "Compiling programs",
-            "Managing databases"
-        ],
-        "b"
-    ],
-    [
-        "File Management is responsible for:",
-        [
-            "Allocating processors",
-            "Storing and modifying files",
-            "Executing instructions",
-            "Managing interrupts"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is NOT a major function of an Operating System?",
-        [
-            "Establishing job priorities",
-            "Interpreting commands",
-            "Manufacturing hardware",
-            "Facilitating communication between user and computer"
-        ],
-        "c"
-    ],
-    [
-        "Why do operating systems contain flaws?",
-        [
-            "Because computers are defective",
-            "Because operating systems are written by humans who make mistakes",
-            "Because processors fail",
-            "Because memory is limited"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is NOT a common consequence of operating system flaws?",
-        [
-            "System crashes",
-            "Security vulnerabilities",
-            "Peripheral device incompatibility",
-            "Automatic hardware upgrades"
-        ],
-        "d"
-    ],
-    [
-        "A security flaw in an operating system may:",
-        [
-            "Improve performance",
-            "Allow unauthorized access",
-            "Increase storage",
-            "Prevent networking"
-        ],
-        "b"
-    ],
-#problem solving
-    [
-        "A problem is best defined as:",
-        [
-            "A difficult mathematical question",
-            "A gap between the current state and the desired state",
-            "An unsolved computer error",
-            "Any situation that causes stress"
-        ],
-        "b"
-    ],
-    [
-        "Problem solving is defined as:",
-        [
-            "Finding answers quickly",
-            "Knowing what to do when you don't know what to do",
-            "Using computers to solve problems",
-            "Following instructions exactly"
-        ],
-        "b"
-    ],
-    [
-        "What must be done before attempting to find a solution to a problem?",
-        [
-            "Select a strategy",
-            "Apply trial and error",
-            "Clearly identify the problem",
-            "Gather resources"
-        ],
-        "c"
-    ],
-    [
-        "A problem-solving strategy is:",
-        [
-            "A computer program",
-            "A plan used to find a solution or overcome a challenge",
-            "A mathematical formula",
-            "A type of algorithm only"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is mentioned as a well-known problem-solving strategy?",
-        [
-            "Flowcharting",
-            "Simulation",
-            "Trial and Error",
-            "Programming"
-        ],
-        "c"
-    ],
-    [
-        "Effective problem solving requires all of the following EXCEPT:",
-        [
-            "Identifying the problem",
-            "Selecting an appropriate process",
-            "Following a suitable plan",
-            "Ignoring the cause of the problem"
-        ],
-        "d"
-    ],
-    [
-        "Problems are broadly classified into:",
-        [
-            "Simple and Complex",
-            "Technical and Non-Technical",
-            "Ill-Defined and Well-Defined",
-            "Logical and Mathematical"
-        ],
-        "c"
-    ],
-    [
-        "An ill-defined problem is characterized by:",
-        [
-            "Clear goals and clear solutions",
-            "Specific solution paths",
-            "Lack of clear goals, solution paths, or expected solutions",
-            "Only one correct answer"
-        ],
-        "c"
-    ],
-    [
-        "A well-defined problem is characterized by:",
-        [
-            "Unclear goals and outcomes",
-            "Specific goals and clearly defined solutions",
-            "No expected solution",
-            "Unlimited solution paths"
-        ],
-        "b"
-    ],
-    [
-        "Problem solving often involves:",
-        [
-            "Logical reasoning",
-            "Interpretation of meanings",
-            "Creativity and abstract thinking",
-            "All of the above"
-        ],
-        "d"
-    ],
-    [
-        "Why is it important to understand multiple problem-solving strategies?",
-        [
-            "Every problem requires the same approach",
-            "Different problems may require different approaches",
-            "Strategies eliminate all mistakes",
-            "Strategies are only useful in business"
-        ],
-        "b"
-    ],
-    [
-        "Mastering several problem-solving strategies helps individuals:",
-        [
-            "Avoid all future problems",
-            "Select appropriate solutions more effectively",
-            "Memorize solutions",
-            "Reduce creativity"
-        ],
-        "b"
-    ],
-    [
-        "The first step in the problem-solving process is:",
-        [
-            "Analyzing the problem",
-            "Gathering information",
-            "Identifying the problem",
-            "Developing solutions"
-        ],
-        "c"
-    ],
-    [
-        "Problem identification involves:",
-        [
-            "Recognizing and defining an issue that needs attention",
-            "Implementing solutions immediately",
-            "Evaluating outcomes",
-            "Writing reports"
-        ],
-        "a"
-    ],
-    [
-        "What occurs during the 'Recognize the Problem' stage?",
-        [
-            "Finding the solution",
-            "Noticing a gap between the current and desired state",
-            "Collecting data",
-            "Developing alternatives"
-        ],
-        "b"
-    ],
-    [
-        "The purpose of defining a problem is to:",
-        [
-            "Understand and clearly articulate the issue",
-            "Solve the problem instantly",
-            "Create multiple solutions",
-            "Avoid gathering information"
-        ],
-        "a"
-    ],
-    [
-        "Why is information gathered during problem identification?",
-        [
-            "To increase the size of the problem",
-            "To better understand the problem",
-            "To avoid analysis",
-            "To generate random solutions"
-        ],
-        "b"
-    ],
-    [
-        "Analyzing a problem involves:",
-        [
-            "Ignoring minor details",
-            "Breaking the problem into smaller parts to identify root causes",
-            "Choosing a solution immediately",
-            "Creating a problem statement first"
-        ],
-        "b"
-    ],
-    [
-        "The main purpose of problem analysis is to identify:",
-        [
-            "Expected profits",
-            "Root causes",
-            "Employees",
-            "Deadlines"
-        ],
-        "b"
-    ],
-    [
-        "The final step in problem identification is:",
-        [
-            "Recognizing the problem",
-            "Gathering information",
-            "Analyzing the problem",
-            "Developing a problem statement"
-        ],
-        "d"
-    ],
-    [
-        "A problem statement should be:",
-        [
-            "Long and detailed",
-            "Clear and concise",
-            "Technical and complex",
-            "Based on assumptions"
-        ],
-        "b"
-    ],
-    [
-        "Which sequence correctly represents the steps in problem identification?",
-        [
-            "Recognize → Define → Gather Information → Analyze → Problem Statement",
-            "Define → Analyze → Recognize → Gather Information → Problem Statement",
-            "Gather Information → Define → Analyze → Recognize → Problem Statement",
-            "Recognize → Analyze → Define → Problem Statement → Gather Information"
-        ],
-        "a"
-    ],
-#others
-    [
-        "What is pseudocode?",
-        [
-            "A programming language",
-            "A simple and concise sequence of English-like instructions used to solve a problem",
-            "A compiler",
-            "A flowchart symbol"
-        ],
-        "b"
-    ],
-    [
-        "Why is pseudocode commonly used before programming?",
-        [
-            "To replace source code",
-            "To help understand the problem without worrying about syntax",
-            "To compile programs",
-            "To execute programs"
-        ],
-        "b"
-    ],
-    [
-        "Which of the following is an advantage of pseudocode over flowcharts?",
-        [
-            "It requires special software",
-            "It takes more time to create",
-            "It is easier to fit on a page",
-            "It cannot represent decisions"
-        ],
-        "c"
-    ],
-    [
-        "Pseudocode is often preferred because:",
-        [
-            "It is a programming language",
-            "It closely resembles actual program code",
-            "It replaces algorithms",
-            "It executes automatically"
-        ],
-        "b"
-    ],
-    [
-        "Which control structure involves listing instructions step-by-step in order?",
-        [
-            "Condition",
-            "Repetition",
-            "Sequence",
-            "Storage"
-        ],
-        "c"
-    ],
-    [
-        "The statement 'x ← a new bulb' demonstrates which control structure?",
-        [
-            "Condition",
-            "Storage",
-            "Repetition",
-            "Sequence"
-        ],
-        "b"
-    ],
-    [
-        "The most important requirement of an algorithm is that:",
-        [
-            "It must be written in Python",
-            "Its steps must be clear and unambiguous",
-            "It must contain loops",
-            "It must contain variables"
-        ],
-        "b"
-    ],
-    [
-        "Before implementing an algorithm, it should be:",
-        [
-            "Compiled",
-            "Converted to machine code",
-            "Tested manually",
-            "Encrypted"
-        ],
-        "c"
-    ],
-    [
-        "A flaw in an algorithm is often discovered when:",
-        [
-            "It is manually tested",
-            "It is printed",
-            "It is deleted",
-            "It is stored"
-        ],
-        "a"
-    ],
-    [
-        "A test case is:",
-        [
-            "A software bug",
-            "A fixed set of input data used to test an algorithm",
-            "A compiler error",
-            "A flowchart symbol"
-        ],
-        "b"
-    ],
-    [
-        "Writing a program from an algorithm is also called:",
-        [
-            "Debugging",
-            "Simulation",
-            "Coding or Implementation",
-            "Evaluation"
-        ],
-        "c"
-    ],
-    [
-        "Source code refers to:",
-        [
-            "The algorithm only",
-            "The program itself",
-            "The operating system",
-            "The compiler"
-        ],
-        "b"
-    ],
-    [
-        "Compiling is the process of:",
-        [
-            "Testing a program",
-            "Converting a program into instructions understood by the computer",
-            "Finding bugs",
-            "Writing pseudocode"
-        ],
-        "b"
-    ],
-    [
-        "A missing semicolon in a program may cause:",
-        [
-            "A runtime error",
-            "A compile-time error",
-            "A hardware error",
-            "A network error"
-        ],
-        "b"
-    ],
-    [
-        "Running a program means:",
-        [
-            "Writing source code",
-            "Compiling the program",
-            "Executing compiled instructions",
-            "Deleting errors"
-        ],
-        "c"
-    ],
-    [
-        "If a program produces incorrect output, the cause may be:",
-        [
-            "A poor algorithm",
-            "Incorrect implementation",
-            "Instructions executed out of order",
-            "All of the above"
-        ],
-        "d"
-    ],
-    [
-        "Bugs are:",
-        [
-            "Hardware devices",
-            "Errors that cause incorrect or undesirable results",
-            "Programming languages",
-            "Flowchart symbols"
-        ],
-        "b"
-    ],
-    [
-        "Debugging refers to:",
-        [
-            "Writing pseudocode",
-            "Finding and fixing program errors",
-            "Creating algorithms",
-            "Compiling code"
-        ],
-        "b"
-    ],
-    [
-        "A collection of test cases is known as:",
-        [
-            "A test suite",
-            "A data set",
-            "A compiler",
-            "A package"
-        ],
-        "a"
-    ],
-    [
-        "Why is it useful to have other people test a program?",
-        [
-            "They may discover situations you overlooked",
-            "They can compile faster",
-            "They reduce memory usage",
-            "They replace debugging"
-        ],
-        "a"
-    ],
-    [
-        "Evaluating a solution involves determining whether:",
-        [
-            "The problem has been solved correctly",
-            "The computer is turned on",
-            "The compiler exists",
-            "The algorithm contains loops"
-        ],
-        "a"
-    ],
-    [
-        "Python is classified as a:",
-        [
-            "Low-level language",
-            "High-level interpreted language",
-            "Machine language",
-            "Assembly language"
-        ],
-        "b"
-    ],
-    [
-        "Python is designed to be highly:",
-        [
-            "Complex",
-            "Readable",
-            "Encrypted",
-            "Hardware dependent"
-        ],
-        "b"
-    ],
-    [
-        "Python programs are generally executed by:",
-        [
-            "A linker",
-            "An interpreter",
-            "A router",
-            "A kernel"
-        ],
-        "b"
-    ],
-    [
-        "Python supports which programming paradigm?",
-        [
-            "Object-Oriented Programming",
-            "Structured Programming",
-            "Functional Programming",
-            "All of the above"
-        ],
-        "d"
-    ],
-    [
-        "Python is particularly suitable for beginners because:",
-        [
-            "It has simple syntax and readability",
-            "It requires machine code",
-            "It lacks libraries",
-            "It only supports one paradigm"
-        ],
-        "a"
-    ],
-    [
-        "PEP stands for:",
-        [
-            "Python Execution Program",
-            "Python Enhancement Proposal",
-            "Programming Enhancement Package",
-            "Python Engineering Process"
-        ],
-        "b"
-    ],
-    [
-        "Which statement reflects Python's design philosophy?",
-        [
-            "Complex is better than simple",
-            "Beautiful is better than ugly",
-            "Implicit is better than explicit",
-            "Complicated is better than complex"
-        ],
-        "b"
-    ],
-    [
-        "Python follows a 'batteries included' philosophy because:",
-        [
-            "It ships with a comprehensive standard library",
-            "It uses batteries for execution",
-            "It avoids modules",
-            "It removes built-in functions"
-        ],
-        "a"
-    ],
-    [
-        "Which field commonly uses Python libraries such as NumPy and Pandas?",
-        [
-            "Data Science",
-            "Electrical Wiring",
-            "Mechanical Repair",
-            "Networking Hardware"
-        ],
-        "a"
-    ],
-    [
-        "Which Python framework is mentioned for web development?",
-        [
-            "Django",
-            "Flutter",
-            "Laravel",
-            "Spring"
-        ],
-        "a"
-    ],
-    [
-        "What is the output of the statement print('Hello, World!')?",
-        [
-            "Hello",
-            "World",
-            "Hello, World!",
-            "print"
-        ],
-        "c"
-    ]
+      return [
+        #defination and objective of os
+        [
+            "Why is an Operating System often referred to as infrastructure software?",
+            [
+                "It provides a platform upon which other software can operate",
+                "It serves as the physical foundation of the computer system",
+                "It is responsible for designing hardware infrastructure",
+                "It enables direct communication between processors and users"
+            ],
+            "a"
+        ],
+        [
+            "Which statement best describes the role of an Operating System as a host?",
+            [
+                "It executes application programs while shielding them from hardware complexities",
+                "It translates high-level languages into machine code during execution",
+                "It provides permanent storage for application programs",
+                "It controls only the input devices used by applications"
+            ],
+            "a"
+        ],
+        [
+            "The Operating System relieves application programs from managing hardware details primarily to:",
+            [
+                "Increase processor speed",
+                "Reduce the complexity of application development",
+                "Eliminate the need for device drivers",
+                "Allow applications to directly access hardware resources"
+            ],
+            "b"
+        ],
+        [
+            "When viewed as a Resource Manager, an Operating System is mainly concerned with:",
+            [
+                "Providing a user-friendly abstraction of hardware",
+                "Efficient allocation and coordination of available resources",
+                "Translating source code into executable programs",
+                "Providing internet connectivity to users"
+            ],
+            "b"
+        ],
+        [
+            "The Extended Machine view of an Operating System emphasizes its ability to:",
+            [
+                "Manage competing requests for hardware resources",
+                "Present users with a more convenient virtual environment",
+                "Optimize processor scheduling algorithms",
+                "Control the physical architecture of the machine"
+            ],
+            "b"
+        ],
+        [
+            "Which of the following best illustrates the Operating System's role in resource sharing?",
+            [
+                "Providing a mechanism through which limited resources can be coordinated among programs",
+                "Increasing the physical amount of memory available in the computer",
+                "Allowing each application unrestricted access to all hardware resources",
+                "Replacing hardware limitations with software solutions"
+            ],
+            "a"
+        ],
+        [
+            "The relationship between hardware and application software is typically mediated by:",
+            [
+                "The Operating System",
+                "The Compiler",
+                "The BIOS only",
+                "The File System"
+            ],
+            "a"
+        ],
+        [
+            "Which task is most directly associated with memory management in an Operating System?",
+            [
+                "Allocating memory resources to processes as needed",
+                "Converting data into binary representation",
+                "Expanding physical RAM capacity",
+                "Managing network transmission protocols"
+            ],
+            "a"
+        ],
+        [
+            "An Operating System's responsibility for prioritizing system requests is primarily intended to:",
+            [
+                "Ensure orderly and efficient system operation",
+                "Increase storage capacity",
+                "Reduce the need for application software",
+                "Improve monitor display quality"
+            ],
+            "a"
+        ],
+        [
+            "Which statement most accurately distinguishes the Resource Manager and Extended Machine views of an Operating System?",
+            [
+                "One focuses on efficient resource utilization, while the other focuses on user convenience",
+                "One focuses on hardware design, while the other focuses on software design",
+                "One is concerned with networking, while the other is concerned with storage",
+                "One applies to single-user systems, while the other applies to multi-user systems"
+            ],
+            "a"
+        ],
+        [
+            "The Operating System forms a platform for both system software and application software because it:",
+            [
+                "Provides fundamental services required for software execution",
+                "Contains all application software within its kernel",
+                "Eliminates the need for hardware resources",
+                "Compiles every software program before execution"
+            ],
+            "a"
+        ],
+        [
+            "Which of the following activities would NOT normally be regarded as a core function of an Operating System?",
+            [
+                "Managing file systems",
+                "Allocating memory resources",
+                "Facilitating network communication",
+                "Developing application software"
+            ],
+            "d"
+        ],
+        [
+            "In the context of operating systems, an abstraction is best described as:",
+            [
+                "The replacement of hardware with software components",
+                "The hiding of lower-level details while providing higher-level functionality",
+                "The direct exposure of hardware resources to users",
+                "The conversion of physical memory into virtual memory"
+            ],
+            "b"
+        ],
+        [
+            "Which statement best explains why operating systems use abstraction?",
+            [
+                "To eliminate the need for hardware devices",
+                "To ensure all peripheral devices are manufactured identically",
+                "To shield programs from unnecessary hardware-specific details",
+                "To allow applications to communicate directly with hardware"
+            ],
+            "c"
+        ],
+        [
+            "Device drivers are introduced by the operating system primarily because:",
+            [
+                "Peripheral device control is not standardized",
+                "Processes require independent memory spaces",
+                "File systems need protection from users",
+                "Graphical interfaces require additional hardware"
+            ],
+            "a"
+        ],
+        [
+            "According to the text, a program performing input/output operations usually interacts directly with:",
+            [
+                "The hardware controller",
+                "The device driver provided by the operating system",
+                "The file system",
+                "The command interpreter"
+            ],
+            "b"
+        ],
+        [
+            "The file abstraction provided by an operating system mainly prevents programs from having to deal directly with:",
+            [
+                "Processes",
+                "Memory allocation",
+                "Disks and storage details",
+                "User interfaces"
+            ],
+            "c"
+        ],
+        [
+            "When an operating system transforms one physical computer into multiple virtual computers, each virtual computer is associated with a:",
+            [
+                "File",
+                "Driver",
+                "Process",
+                "Resource"
+            ],
+            "c"
+        ],
+        [
+            "A process views hardware through the lens of abstraction because the operating system:",
+            [
+                "Replaces the hardware completely",
+                "Provides an abstracted representation of underlying resources",
+                "Restricts all access to hardware",
+                "Stores all hardware instructions in memory"
+            ],
+            "b"
+        ],
+        [
+            "Which of the following is NOT presented in the text as a reason for abstraction?",
+            [
+                "Providing device drivers for non-standardized peripherals",
+                "Introducing file abstractions",
+                "Enforcing security mechanisms",
+                "Increasing processor clock speed"
+            ],
+            "d"
+        ],
+        [
+            "The ability of an operating system to enforce security is linked in the text to its use of:",
+            [
+                "Resource allocation",
+                "Abstraction",
+                "Application integration",
+                "Command interpretation"
+            ],
+            "b"
+        ],
+        [
+            "In resource management, processes are described as:",
+            [
+                "Passive entities",
+                "Hardware abstractions",
+                "Active agents",
+                "System resources"
+            ],
+            "c"
+        ],
+        [
+            "According to the text, resources are best described as:",
+            [
+                "Active entities that request services",
+                "Virtual computers created by the operating system",
+                "Passive entities accessed by processes",
+                "Programs executing in memory"
+            ],
+            "c"
+        ],
+        [
+            "The primary purpose of resource management is to control:",
+            [
+                "How users interact with applications",
+                "How processes access resources",
+                "How files are displayed to users",
+                "How drivers communicate with hardware"
+            ],
+            "b"
+        ],
+        [
+            "A user is primarily concerned with the operating system's 'look and feel' through the:",
+            [
+                "Resource manager",
+                "User interface",
+                "Device drivers",
+                "Process scheduler"
+            ],
+            "b"
+        ],
+        [
+            "Which of the following is identified as an important component of the user interface?",
+            [
+                "Device driver",
+                "Memory manager",
+                "Command interpreter",
+                "Process control block"
+            ],
+            "c"
+        ],
+        [
+            "Which component would most directly help a user understand available operating system commands?",
+            [
+                "Application integration",
+                "On-line help",
+                "Resource allocation",
+                "Process abstraction"
+            ],
+            "b"
+        ],
+        [
+            "A trend toward increasingly integrated graphical user interfaces suggests that modern interfaces:",
+            [
+                "Focus exclusively on local applications",
+                "Reduce interaction among processes",
+                "Support activities involving multiple processes and networks",
+                "Eliminate command interpreters completely"
+            ],
+            "c"
+        ],
+        [
+            "Which option correctly matches an operating system goal with its purpose?",
+            [
+                "Abstraction — controlling how processes access resources",
+                "Resource management — controlling access to passive entities",
+                "User interface — creating virtual computers for processes",
+                "Abstraction — improving the appearance of graphical interfaces"
+            ],
+            "b"
+        ],
+        [
+            "A student claims that files, processes, and security are unrelated concepts. Based on the text, this claim is incorrect because all three are connected through:",
+            [
+                "Abstraction provided by the operating system",
+                "Resource allocation policies",
+                "Graphical user interfaces",
+                "Command interpretation"
+            ],
+            "a"
+        ],
+        [
+            "Which situation best demonstrates the operating system hiding hardware details?",
+            [
+                "A user opening a file without knowing its disk location",
+                "A process competing for CPU time",
+                "A scheduler allocating resources",
+                "A network connecting two computers"
+            ],
+            "a"
+        ],
+        [
+            "If a process could access hardware only through abstractions provided by the operating system, the process would primarily interact with:",
+            [
+                "Virtualized representations of resources",
+                "Raw hardware instructions",
+                "Physical device circuitry",
+                "Machine-level control signals"
+            ],
+            "a"
+        ]
 ]
         
     def mth(self):
@@ -2284,13 +1447,11 @@ class Question:
         ]
 
 
-
-
 class QuizApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.width = 580
-        self.height  =700
+        self.width = 650
+        self.height  =600
         self.bg = "#0B0F19" #background color
         
         self.current_question_index = tk.IntVar(value=0) # for tracking the current question index in the quiz_start
@@ -2304,6 +1465,7 @@ class QuizApp(tk.Tk):
         self.selected_hour = tk.StringVar(value="0")
         self.minutes = [f"{i:02d}" for i in range(0, 60, 5)]
         self.minutes.insert(1, "01") # for testing what happens on time run out
+        self.minutes.insert(2, "02")
         self.selected_min = tk.StringVar(value="10")
         self.selected_question_lenght = tk.StringVar(value="00") # the lenght of the question the user want to do
         self.question_option = [f"{i:02d}" for i in range(0, 101, 5)]
@@ -2724,6 +1886,11 @@ class QuizApp(tk.Tk):
                 self.quiz_opt_btn_2.config(text="B. " + self.question_pool[self.current_question_index.get()][1][1])#updating the 2nd option
                 self.quiz_opt_btn_3.config(text="C. " + self.question_pool[self.current_question_index.get()][1][2])#updating the 3rd option
                 self.quiz_opt_btn_4.config(text="D. " + self.question_pool[self.current_question_index.get()][1][3])#updating the 4th option
+                
+                try:
+                    self.correct_answer.config(text= f"Option {self.question_pool[self.current_question_index.get()][-1].upper()} is the correct answer")#updating the summary correct answer
+                except:#incase the user have not reach there si the app wnt crash
+                    pass
             else:
                 pass
               
@@ -2743,15 +1910,11 @@ class QuizApp(tk.Tk):
                 self.quiz_opt_btn_2.config(text="B. " + self.question_pool[self.current_question_index.get()][1][1])#updating the 2nd option
                 self.quiz_opt_btn_3.config(text="C. " + self.question_pool[self.current_question_index.get()][1][2])#updating the 3rd option
                 self.quiz_opt_btn_4.config(text="D. " + self.question_pool[self.current_question_index.get()][1][3])#updating the 4th option
-                
+                try:
+                    self.correct_answer.config(text= f"Option {self.question_pool[self.current_question_index.get()][-1].upper()} is the correct answer")#updating the summary correct answer
+                except:#incase the user have not reach there si the app wnt crash
+                    pass
             else:
-                # submit  = tk.messagebox.askyesno("Submit Quiz", "This is the last question, submit ?\nNG: Once submited, otilor!")
-                # if submit:
-                #     for i in self.quiz_frame.winfo_children():
-                #         i.destroy() #destroy all quiz frame content
-                #     self.quiz_frame.pack_forget() #hide the quiz frame
-                #     #bring on the analysis Frame
-                #     self.loadAnalysis()
                 pass
                     
         elif action == "Submit":
@@ -2761,22 +1924,20 @@ class QuizApp(tk.Tk):
                     total_answered += 1
             shouldSunbmit = tk.messagebox.askyesno("Submit", f"Are you sure you want to submit?\nYou have answered {total_answered} out of {len(self.answer_pool)}")
             if shouldSunbmit:
-                for i in self.quiz_frame.winfo_children():
-                    i.destroy() #destroy all quiz frame content
-                    self.quiz_frame.pack_forget() #hide the quiz frame
-                
-                #bring on the analysis Frame
-                self.loadAnalysis()
+                self.home(old_frame=self.quiz_frame, new_frame_method=self.loadAnalysis) # changing the current frame
                 
             
         elif action == "Quit":
             messagebox = tk.messagebox.askyesno("Quit Quiz", "Are you sure you want to quit?\nCurrent Data will be lost!")
             if messagebox:
                 for i in self.quiz_frame.winfo_children():
-                    i.destroy() #destroy all quiz frame content
+                    i.destroy() #destroy all quiz frame content 
                 self.quiz_frame.pack_forget() #hide the quiz frame
-                self.build_home_page() # Go back to the home page
                 
+                for i in self.deepAnalysisFrame.winfo_children(): #or the deepanalysis frame
+                    i.destroy()
+                self.deepAnalysisFrame.pack_forget()
+                self.build_home_page() # Go back to the home page
                 
     #for when ans is selected
     def optButtonSelected(self):
@@ -2793,10 +1954,14 @@ class QuizApp(tk.Tk):
             if i != "0":
               total_question_answered += 1
         #for increasing the correct score count
-        for i in range(len(self.question_pool)-1):
+        for i in range(len(self.question_pool)):
             print(self.answer_pool[i], self.question_pool[i][-1])
-            if (self.answer_pool[i]).upper() == (self.question_pool[i][-1]).upper():
-                total_correct_answer += 1
+            #incase the user did not attempt the question, the answer pool will have a "0" and this will cause an error when comparing it to the correct answer which is a string, so i used try except to bypass it
+            try:
+                if (self.answer_pool[i]).upper() == (self.question_pool[i][-1]).upper():
+                    total_correct_answer += 1
+            except:
+                pass
         total_allocated_duration_in_sec = int(self.selected_hour.get())*3600 + int(self.selected_min.get())*60
         duration_used =total_allocated_duration_in_sec - self.time_in_sec
         #speed and speed remaek
@@ -2843,9 +2008,7 @@ class QuizApp(tk.Tk):
             "% rel to Attempted que" : percentage_rel_to_attemp_que + " - " + remark_rel_to_attempt_que,
             "Duration Allocated" : f"{self.selected_hour.get()}hr {self.selected_min.get()}min",
             "Duration Used" : f"{self.time_formater(duration_used).split(":")[0]}hr {self.time_formater(duration_used).split(":")[1]}min {self.time_formater(duration_used).split(":")[2]} sec",
-            "speed" : speed,
-            
-            
+            "speed" : speed,     
         }
         
         #widget drawup
@@ -2861,43 +2024,181 @@ class QuizApp(tk.Tk):
         inner_frame.pack(expand=True, fill="both")
         
         for index, value in enumerate(information_to_display.keys()):
-            btn_left = tk.Label(inner_frame, text=value, font=("Segoe UI", 11), bg = self.bg, fg="white", pady=5, anchor="w")
-            btn_left.grid(row=index, column=0,pady=10, padx=10, sticky="ew")
+            btn_left = tk.Label(inner_frame, text=value, font=("Segoe UI", 11), bg = self.bg, fg="white", pady=1, anchor="w")
+            btn_left.grid(row=index, column=0,pady=5, padx=10, sticky="ew")
             inner_frame.grid_rowconfigure(index, weight=1)
             inner_frame.grid_columnconfigure(0, weight=1)
             
-            btn_right = tk.Label(inner_frame, text=information_to_display[value], justify="right",font=("Segoe UI", 13, "bold"), bg = self.bg, fg="white", pady=5, anchor="center")
-            btn_right.grid(row=index, column=1,pady=10, sticky="ew")
+            btn_right = tk.Label(inner_frame, text=information_to_display[value], justify="right",font=("Segoe UI", 13, "bold"), bg = self.bg, fg="white", pady=1, anchor="center")
+            btn_right.grid(row=index, column=1,pady=5, sticky="ew")
             inner_frame.grid_rowconfigure(index, weight=1)
             inner_frame.grid_columnconfigure(1, weight=1)
         
         #the analysis btn
         analysis_btn = tk.Button(self.analysis_frame, text="Q SUMMARY", font=("Segoe UI Semibold", 12),bg="#2563EB",  fg="#FFFFFF",padx=35, command= self.eachQuestionAnalysis)
         analysis_btn.pack(fill="x", expand=True, padx=40)
-        #the speech button
-        word_remark = tk.Label(self.analysis_frame, text=word_remark_text,font=("Segoe UI", 13, "italic"), fg="#AFCFF0", bg="#0B0F19")
+        
+        #the speech button - speed remark
+        word_remark = tk.Label(self.analysis_frame, text=word_remark_text,font=("Segoe UI", 11, "italic"), fg="#AFCFF0", bg="#0B0F19")
         word_remark.pack(fill="x", expand=True)
+        
         #the home button
-        home = tk.Button(self.analysis_frame, text="HOME", font=("Segoe UI Semibold", 12),bg="#2563EB",  fg="#FFFFFF", command= self.home)
-        home.pack(fill="x", expand=True, anchor="s",padx=40)
+        home = tk.Button(self.analysis_frame, text="HOME", font=("Segoe UI Semibold", 12),bg="#2563EB",  fg="#FFFFFF",padx=35,  command= lambda: self.home(old_frame = self.analysis_frame, new_frame_method=self.build_home_page))
+        home.pack(fill="x", expand=True,padx=40)
+        
         
     def eachQuestionAnalysis(self):
-        #remove the analysis Frame from view
-        #Bring up the new each question anaylysis frame
-        #question load up
-        #options load up (choosen one highlight green),correct ans is highlighted with a mark
-        #prev, back, home, next btns replacing the former ones
-        pass
-
-        
-        
-    #for when home btn is pressed in analyss
-    def home(self):
+        #reset the current_index and the selected option in prep fr the deepSummary
+        self.current_question_index.set(0)
+        self.selected_option.set(self.answer_pool[0])
+        print(self.answer_pool)
+        #clear the analysis frame from view
         for i in self.analysis_frame.winfo_children():
             i.destroy()
         self.analysis_frame.pack_forget()
+            
+        #create a new frame for deep analysis
+        self.deepAnalysisFrame = tk.Frame(self, padx=10, pady=10, bg=self.bg)
+        self.deepAnalysisFrame.pack(expand=True, fill="both")
         
+        #the course label
+        self.course_lbl = tk.Label(
+            self.deepAnalysisFrame, 
+            text=self.selected_course.get(), 
+            font=("Segoe UI", 15, "bold"), 
+            bg=self.bg,
+            fg="white",
+            anchor="w"
+        )
+        self.course_lbl.pack(side="top", padx=10, anchor="nw")
+
+        #question label
+        self.quiz_questioon_label = tk.Label(self.deepAnalysisFrame, text=self.question_pool[self.current_question_index.get()][0], font=("Segoe UI", 12), bg=self.bg, fg="white", justify="left", wraplength= self.width - 40, pady=15)
+        self.quiz_questioon_label.pack(fill="x")
+        self.quiz_questioon_label.bind("<Configure>", lambda event, extra = self.quiz_questioon_label: self.configureQuestionWidth(widget=  extra, event=event))
+        
+        #for the options radio buttons
+        self.quiz_option_frame = tk.Frame(self.deepAnalysisFrame, bg= self.bg)
+        self.quiz_option_frame.pack(fill="x", padx=10, pady=30)
+        #(1)
+        self.quiz_opt_btn_1 = tk.Radiobutton(
+                self.quiz_option_frame,
+                text="A. " + self.question_pool[self.current_question_index.get()][1][0],
+                value = "A",
+                variable= self.selected_option,
+                font=("Segoe UI", 11), 
+                bg=self.bg,
+                fg="white",
+                indicatoron=0,
+                bd=0,
+                selectcolor= "#008800",
+                disabledforeground= "white",
+                activebackground=self.bg,
+                activeforeground="#00ff00",
+                state="disabled")
+        self.quiz_opt_btn_1.pack(anchor="w", pady=5, padx=10)
+        #(2)
+        self.quiz_opt_btn_2 = tk.Radiobutton(
+                self.quiz_option_frame,
+                text="B. " + self.question_pool[self.current_question_index.get()][1][1],
+                value = "B",
+                variable= self.selected_option,
+                font=("Segoe UI", 11),
+                bg=self.bg,
+                fg="white",
+                indicatoron=0,
+                bd=0,
+                selectcolor= "#008800",
+                disabledforeground= "white",
+                activebackground=self.bg,
+                activeforeground="#00ff00",
+                state="disabled"
+                )
+        self.quiz_opt_btn_2.pack(anchor="w", pady=5, padx=10)
+        #(3)
+        self.quiz_opt_btn_3 = tk.Radiobutton(
+                self.quiz_option_frame,
+                text="C. " + self.question_pool[self.current_question_index.get()][1][2],
+                value = "C",
+                variable= self.selected_option,
+                font=("Segoe UI", 11),
+                bg=self.bg,
+                fg="white",
+                indicatoron=0,
+                bd=0,
+                selectcolor= "#008800",
+                disabledforeground= "white",
+                activebackground=self.bg,
+                activeforeground="#00ff00",
+                state="disabled"
+                )
+        self.quiz_opt_btn_3.pack(anchor="w", pady=5, padx=10)
+         #(4)
+        self.quiz_opt_btn_4 = tk.Radiobutton(
+                self.quiz_option_frame,
+                text="D. " + self.question_pool[self.current_question_index.get()][1][3],
+                value = "D",
+                variable= self.selected_option,
+                font=("Segoe UI", 11),
+                bg=self.bg,
+                fg="white",
+                indicatoron=0,
+                bd=0,
+                selectcolor= "#008800",
+                disabledforeground= "white",
+                activebackground=self.bg,
+                activeforeground="#00ff00",
+                state="disabled"
+                )
+        self.quiz_opt_btn_4.pack(anchor="w", pady=5, padx=10)
+        #correct answer message
+        self.correct_answer = tk.Label(self.deepAnalysisFrame, text= f"Option {self.question_pool[self.current_question_index.get()][-1].upper()} is the correct answer", bg= self.bg, fg="white", font=("Segoe UI", 11),)
+        self.correct_answer.pack(fill="x", expand=True)
+        self.correct_answer.bind("<Configure>", lambda event, extra = self.correct_answer: self.configureQuestionWidth(widget=  extra, event=event))
+        
+        #prev, back, home, next btns replacing the former ones
+        self.quiz_footer_frame = tk.Frame(self.deepAnalysisFrame, bg= self.bg)
+        self.quiz_footer_frame.pack(fill="x", expand=True)
+
+        #prev
+        self.footer_button_prev = tk.Button(self.quiz_footer_frame, text="Previous", font=("Segoe UI", 11), bg="#aaaaaa", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.prevQuiSubmitNext("Prev"))
+        self.footer_button_prev.grid(row=0, column= 0, padx=10, pady=10, sticky="ew")
+        self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
+        self.quiz_footer_frame.grid_columnconfigure(0, weight= 1)
+       
+        #back - to analysis frame
+        self.footer_button_quit = tk.Button(self.quiz_footer_frame, text="Back", font=("Segoe UI", 11), bg= "#173E94", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.home(old_frame=self.deepAnalysisFrame, new_frame_method=self.loadAnalysis))
+        self.footer_button_quit.grid(row=0, column= 1, padx=10, pady=10, sticky="ew")
+        self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
+        self.quiz_footer_frame.grid_columnconfigure(1, weight= 1)
+         
+        #home
+        self.footer_button_submit = tk.Button(self.quiz_footer_frame, text="Home", font=("Segoe UI", 11), bg="#DC2626", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.prevQuiSubmitNext("Quit"))
+        self.footer_button_submit.grid(row=0, column= 2, padx=10, pady=10, sticky="ew")
+        self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
+        self.quiz_footer_frame.grid_columnconfigure(2, weight= 1)
+        
+        #next
+        self.footer_button_next = tk.Button(self.quiz_footer_frame, text="Next", font=("Segoe UI", 11), bg="#173E94", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.home(old_frame=self.deepAnalysisFrame, new_frame_method=self.build_home_page))
+        self.footer_button_next.grid(row=0, column= 3, padx=10, pady=10, sticky="ew")
+        self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
+        self.quiz_footer_frame.grid_columnconfigure(3, weight= 1)
+        
+        
+        #for showimg current question index
+        self.quiz_footer_second_frame = tk.Frame(self.deepAnalysisFrame, bg= self.bg)
+        self.quiz_footer_second_frame.pack(anchor="s", pady=10, padx=10, fill="x", expand=True)
+        self.current_question_footer = tk.Label(self.quiz_footer_second_frame, text=f"Question {self.current_question_index.get() + 1} of {int(self.selected_question_lenght.get())}", font=("Segoe UI", 14, "bold"), bg=self.bg, fg="#94A3B8")
+        self.current_question_footer.pack(anchor="e")
+  
+    #for when a transition from a page to another need to happen
+    def home(self, old_frame, new_frame_method):
+        for i in old_frame.winfo_children():
+            i.destroy()
+        old_frame.pack_forget()
         #restart app cycle
-        self.build_home_page()
+        new_frame_method()
+        
+        
 if __name__ == "__main__":
     QuizApp().mainloop()
