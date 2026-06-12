@@ -9,427 +9,850 @@ class Question:
     def cos(self):
       return [
         #defination and objective of operating system
-        [
-            "Why is an Operating System often referred to as infrastructure software?",
-            [
-                "It provides a platform upon which other software can operate",
-                "It serves as the physical foundation of the computer system",
-                "It is responsible for designing hardware infrastructure",
-                "It enables direct communication between processors and users"
-            ],
-            "a"
-        ],
-        [
-            "Which statement best describes the role of an Operating System as a host?",
-            [
-                "It executes application programs while shielding them from hardware complexities",
-                "It translates high-level languages into machine code during execution",
-                "It provides permanent storage for application programs",
-                "It controls only the input devices used by applications"
-            ],
-            "a"
-        ],
-        [
-            "The Operating System relieves application programs from managing hardware details primarily to:",
-            [
-                "Increase processor speed",
-                "Reduce the complexity of application development",
-                "Eliminate the need for device drivers",
-                "Allow applications to directly access hardware resources"
-            ],
-            "b"
-        ],
-        [
-            "When viewed as a Resource Manager, an Operating System is mainly concerned with:",
-            [
-                "Providing a user-friendly abstraction of hardware",
-                "Efficient allocation and coordination of available resources",
-                "Translating source code into executable programs",
-                "Providing internet connectivity to users"
-            ],
-            "b"
-        ],
-        [
-            "The Extended Machine view of an Operating System emphasizes its ability to:",
-            [
-                "Manage competing requests for hardware resources",
-                "Present users with a more convenient virtual environment",
-                "Optimize processor scheduling algorithms",
-                "Control the physical architecture of the machine"
-            ],
-            "b"
-        ],
-        [
-            "Which of the following best illustrates the Operating System's role in resource sharing?",
-            [
-                "Providing a mechanism through which limited resources can be coordinated among programs",
-                "Increasing the physical amount of memory available in the computer",
-                "Allowing each application unrestricted access to all hardware resources",
-                "Replacing hardware limitations with software solutions"
-            ],
-            "a"
-        ],
-        [
-            "The relationship between hardware and application software is typically mediated by:",
-            [
-                "The Operating System",
-                "The Compiler",
-                "The BIOS only",
-                "The File System"
-            ],
-            "a"
-        ],
-        [
-            "Which task is most directly associated with memory management in an Operating System?",
-            [
-                "Allocating memory resources to processes as needed",
-                "Converting data into binary representation",
-                "Expanding physical RAM capacity",
-                "Managing network transmission protocols"
-            ],
-            "a"
-        ],
-        [
-            "An Operating System's responsibility for prioritizing system requests is primarily intended to:",
-            [
-                "Ensure orderly and efficient system operation",
-                "Increase storage capacity",
-                "Reduce the need for application software",
-                "Improve monitor display quality"
-            ],
-            "a"
-        ],
-        [
-            "Which statement most accurately distinguishes the Resource Manager and Extended Machine views of an Operating System?",
-            [
-                "One focuses on efficient resource utilization, while the other focuses on user convenience",
-                "One focuses on hardware design, while the other focuses on software design",
-                "One is concerned with networking, while the other is concerned with storage",
-                "One applies to single-user systems, while the other applies to multi-user systems"
-            ],
-            "a"
-        ],
-        [
-            "The Operating System forms a platform for both system software and application software because it:",
-            [
-                "Provides fundamental services required for software execution",
-                "Contains all application software within its kernel",
-                "Eliminates the need for hardware resources",
-                "Compiles every software program before execution"
-            ],
-            "a"
-        ],
-        [
-            "Which of the following activities would NOT normally be regarded as a core function of an Operating System?",
-            [
-                "Managing file systems",
-                "Allocating memory resources",
-                "Facilitating network communication",
-                "Developing application software"
-            ],
-            "d"
-        ],
-        [
-            "In the context of operating systems, an abstraction is best described as:",
-            [
-                "The replacement of hardware with software components",
-                "The hiding of lower-level details while providing higher-level functionality",
-                "The direct exposure of hardware resources to users",
-                "The conversion of physical memory into virtual memory"
-            ],
-            "b"
-        ],
-        [
-            "Which statement best explains why operating systems use abstraction?",
-            [
-                "To eliminate the need for hardware devices",
-                "To ensure all peripheral devices are manufactured identically",
-                "To shield programs from unnecessary hardware-specific details",
-                "To allow applications to communicate directly with hardware"
-            ],
-            "c"
-        ],
-        [
-            "Device drivers are introduced by the operating system primarily because:",
-            [
-                "Peripheral device control is not standardized",
-                "Processes require independent memory spaces",
-                "File systems need protection from users",
-                "Graphical interfaces require additional hardware"
-            ],
-            "a"
-        ],
-        [
-            "According to the text, a program performing input/output operations usually interacts directly with:",
-            [
-                "The hardware controller",
-                "The device driver provided by the operating system",
-                "The file system",
-                "The command interpreter"
-            ],
-            "b"
-        ],
-        [
-            "The file abstraction provided by an operating system mainly prevents programs from having to deal directly with:",
-            [
-                "Processes",
-                "Memory allocation",
-                "Disks and storage details",
-                "User interfaces"
-            ],
-            "c"
-        ],
-        [
-            "When an operating system transforms one physical computer into multiple virtual computers, each virtual computer is associated with a:",
-            [
-                "File",
-                "Driver",
-                "Process",
-                "Resource"
-            ],
-            "c"
-        ],
-        [
-            "A process views hardware through the lens of abstraction because the operating system:",
-            [
-                "Replaces the hardware completely",
-                "Provides an abstracted representation of underlying resources",
-                "Restricts all access to hardware",
-                "Stores all hardware instructions in memory"
-            ],
-            "b"
-        ],
-        [
-            "Which of the following is NOT presented in the text as a reason for abstraction?",
-            [
-                "Providing device drivers for non-standardized peripherals",
-                "Introducing file abstractions",
-                "Enforcing security mechanisms",
-                "Increasing processor clock speed"
-            ],
-            "d"
-        ],
-        [
-            "The ability of an operating system to enforce security is linked in the text to its use of:",
-            [
-                "Resource allocation",
-                "Abstraction",
-                "Application integration",
-                "Command interpretation"
-            ],
-            "b"
-        ],
-        [
-            "In resource management, processes are described as:",
-            [
-                "Passive entities",
-                "Hardware abstractions",
-                "Active agents",
-                "System resources"
-            ],
-            "c"
-        ],
-        [
-            "According to the text, resources are best described as:",
-            [
-                "Active entities that request services",
-                "Virtual computers created by the operating system",
-                "Passive entities accessed by processes",
-                "Programs executing in memory"
-            ],
-            "c"
-        ],
-        [
-            "The primary purpose of resource management is to control:",
-            [
-                "How users interact with applications",
-                "How processes access resources",
-                "How files are displayed to users",
-                "How drivers communicate with hardware"
-            ],
-            "b"
-        ],
-        [
-            "A user is primarily concerned with the operating system's 'look and feel' through the:",
-            [
-                "Resource manager",
-                "User interface",
-                "Device drivers",
-                "Process scheduler"
-            ],
-            "b"
-        ],
-        [
-            "Which of the following is identified as an important component of the user interface?",
-            [
-                "Device driver",
-                "Memory manager",
-                "Command interpreter",
-                "Process control block"
-            ],
-            "c"
-        ],
-        [
-            "Which component would most directly help a user understand available operating system commands?",
-            [
-                "Application integration",
-                "On-line help",
-                "Resource allocation",
-                "Process abstraction"
-            ],
-            "b"
-        ],
-        [
-            "A trend toward increasingly integrated graphical user interfaces suggests that modern interfaces:",
-            [
-                "Focus exclusively on local applications",
-                "Reduce interaction among processes",
-                "Support activities involving multiple processes and networks",
-                "Eliminate command interpreters completely"
-            ],
-            "c"
-        ],
-        [
-            "Which option correctly matches an operating system goal with its purpose?",
-            [
-                "Abstraction — controlling how processes access resources",
-                "Resource management — controlling access to passive entities",
-                "User interface — creating virtual computers for processes",
-                "Abstraction — improving the appearance of graphical interfaces"
-            ],
-            "b"
-        ],
-        [
-            "A student claims that files, processes, and security are unrelated concepts. Based on the text, this claim is incorrect because all three are connected through:",
-            [
-                "Abstraction provided by the operating system",
-                "Resource allocation policies",
-                "Graphical user interfaces",
-                "Command interpretation"
-            ],
-            "a"
-        ],
-        [
-            "Which situation best demonstrates the operating system hiding hardware details?",
-            [
-                "A user opening a file without knowing its disk location",
-                "A process competing for CPU time",
-                "A scheduler allocating resources",
-                "A network connecting two computers"
-            ],
-            "a"
-        ],
-        [
-            "If a process could access hardware only through abstractions provided by the operating system, the process would primarily interact with:",
-            [
-                "Virtualized representations of resources",
-                "Raw hardware instructions",
-                "Physical device circuitry",
-                "Machine-level control signals"
-            ],
-            "a"
-        ],
-        #type of operating system based on the type of application they support
-        [
-            "Which characteristic most accurately defines a Real-Time Operating System (RTOS)?",
-            [
-                "Tasks execute in the shortest possible time",
-                "Tasks execute within predictable timing constraints",
-                "Multiple users can access the system simultaneously",
-                "The system supports only one running application"
-            ],
-            "b"
-        ],
-        [
-            "Why is predictability more important than speed in many real-time systems?",
-            [
-                "System resources are always limited",
-                "An operation occurring too early can be as harmful as occurring too late",
-                "Real-time systems do not use processors",
-                "Predictability reduces memory consumption"
-            ],
-            "b"
-        ],
-        [
-            "What distinguishes a hard RTOS from a soft RTOS?",
-            [
-                "Hard RTOS guarantees timing requirements for critical tasks",
-                "Hard RTOS supports more users than soft RTOS",
-                "Hard RTOS contains a graphical interface while soft RTOS does not",
-                "Hard RTOS executes all tasks faster than soft RTOS"
-            ],
-            "a"
-        ],
-        [
-            "A critical task in a soft RTOS typically:",
-            [
-                "Runs only when the system is idle",
-                "Receives priority over non-critical tasks until completion",
-                "Shares equal priority with every task",
-                "Can be interrupted by any lower-priority task"
-            ],
-            "b"
-        ],
-        [
-            "Which operating system category is designed for one user performing one task at a time?",
-            [
-                "Multi-user",
-                "Single-user multitasking",
-                "Single-user single-tasking",
-                "Real-time"
-            ],
-            "c"
-        ],
-        [
-            "A user editing a document, listening to music, and browsing the web simultaneously is using a system that supports:",
-            [
-                "Single-tasking",
-                "Single-user multitasking",
-                "Hard real-time processing",
-                "Multi-user processing"
-            ],
-            "b"
-        ],
-        [
-            "What is the primary responsibility of a multi-user operating system?",
-            [
-                "Executing only one program at a time",
-                "Balancing resource allocation among multiple users",
-                "Providing real-time guarantees",
-                "Limiting access to a single administrator"
-            ],
-            "b"
-        ],
-        [
-            "Why are resources allocated separately to users in a multi-user operating system?",
-            [
-                "To increase processor speed",
-                "To prevent one user's activities from affecting others",
-                "To eliminate the need for memory management",
-                "To simplify network configuration"
-            ],
-            "b"
-        ],
-        [
-            "Which statement correctly distinguishes a multi-user operating system from a single-user operating system with network support?",
-            [
-                "Only a multi-user operating system is designed to manage multiple users as operating system users",
-                "Only a single-user operating system can support remote logins",
-                "Multi-user operating systems cannot support networking",
-                "Single-user operating systems cannot support multiple connections"
-            ],
-            "a"
-        ],
-        [
-            "Which pair of operating systems belong to different task-management categories despite both supporting a single user?",
-            [
-                "Palm OS and Windows 98",
-                "Unix and VMS",
-                "MVS and Unix",
-                "Windows 2000 and NetWare"
-            ],
-            "a"
-        ],
+        # [
+        #     "Why is an Operating System often referred to as infrastructure software?",
+        #     [
+        #         "It provides a platform upon which other software can operate",
+        #         "It serves as the physical foundation of the computer system",
+        #         "It is responsible for designing hardware infrastructure",
+        #         "It enables direct communication between processors and users"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which statement best describes the role of an Operating System as a host?",
+        #     [
+        #         "It executes application programs while shielding them from hardware complexities",
+        #         "It translates high-level languages into machine code during execution",
+        #         "It provides permanent storage for application programs",
+        #         "It controls only the input devices used by applications"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "The Operating System relieves application programs from managing hardware details primarily to:",
+        #     [
+        #         "Increase processor speed",
+        #         "Reduce the complexity of application development",
+        #         "Eliminate the need for device drivers",
+        #         "Allow applications to directly access hardware resources"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "When viewed as a Resource Manager, an Operating System is mainly concerned with:",
+        #     [
+        #         "Providing a user-friendly abstraction of hardware",
+        #         "Efficient allocation and coordination of available resources",
+        #         "Translating source code into executable programs",
+        #         "Providing internet connectivity to users"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "The Extended Machine view of an Operating System emphasizes its ability to:",
+        #     [
+        #         "Manage competing requests for hardware resources",
+        #         "Present users with a more convenient virtual environment",
+        #         "Optimize processor scheduling algorithms",
+        #         "Control the physical architecture of the machine"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which of the following best illustrates the Operating System's role in resource sharing?",
+        #     [
+        #         "Providing a mechanism through which limited resources can be coordinated among programs",
+        #         "Increasing the physical amount of memory available in the computer",
+        #         "Allowing each application unrestricted access to all hardware resources",
+        #         "Replacing hardware limitations with software solutions"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "The relationship between hardware and application software is typically mediated by:",
+        #     [
+        #         "The Operating System",
+        #         "The Compiler",
+        #         "The BIOS only",
+        #         "The File System"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which task is most directly associated with memory management in an Operating System?",
+        #     [
+        #         "Allocating memory resources to processes as needed",
+        #         "Converting data into binary representation",
+        #         "Expanding physical RAM capacity",
+        #         "Managing network transmission protocols"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "An Operating System's responsibility for prioritizing system requests is primarily intended to:",
+        #     [
+        #         "Ensure orderly and efficient system operation",
+        #         "Increase storage capacity",
+        #         "Reduce the need for application software",
+        #         "Improve monitor display quality"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which statement most accurately distinguishes the Resource Manager and Extended Machine views of an Operating System?",
+        #     [
+        #         "One focuses on efficient resource utilization, while the other focuses on user convenience",
+        #         "One focuses on hardware design, while the other focuses on software design",
+        #         "One is concerned with networking, while the other is concerned with storage",
+        #         "One applies to single-user systems, while the other applies to multi-user systems"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "The Operating System forms a platform for both system software and application software because it:",
+        #     [
+        #         "Provides fundamental services required for software execution",
+        #         "Contains all application software within its kernel",
+        #         "Eliminates the need for hardware resources",
+        #         "Compiles every software program before execution"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which of the following activities would NOT normally be regarded as a core function of an Operating System?",
+        #     [
+        #         "Managing file systems",
+        #         "Allocating memory resources",
+        #         "Facilitating network communication",
+        #         "Developing application software"
+        #     ],
+        #     "d"
+        # ],
+        # [
+        #     "In the context of operating systems, an abstraction is best described as:",
+        #     [
+        #         "The replacement of hardware with software components",
+        #         "The hiding of lower-level details while providing higher-level functionality",
+        #         "The direct exposure of hardware resources to users",
+        #         "The conversion of physical memory into virtual memory"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which statement best explains why operating systems use abstraction?",
+        #     [
+        #         "To eliminate the need for hardware devices",
+        #         "To ensure all peripheral devices are manufactured identically",
+        #         "To shield programs from unnecessary hardware-specific details",
+        #         "To allow applications to communicate directly with hardware"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "Device drivers are introduced by the operating system primarily because:",
+        #     [
+        #         "Peripheral device control is not standardized",
+        #         "Processes require independent memory spaces",
+        #         "File systems need protection from users",
+        #         "Graphical interfaces require additional hardware"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "According to the text, a program performing input/output operations usually interacts directly with:",
+        #     [
+        #         "The hardware controller",
+        #         "The device driver provided by the operating system",
+        #         "The file system",
+        #         "The command interpreter"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "The file abstraction provided by an operating system mainly prevents programs from having to deal directly with:",
+        #     [
+        #         "Processes",
+        #         "Memory allocation",
+        #         "Disks and storage details",
+        #         "User interfaces"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "When an operating system transforms one physical computer into multiple virtual computers, each virtual computer is associated with a:",
+        #     [
+        #         "File",
+        #         "Driver",
+        #         "Process",
+        #         "Resource"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "A process views hardware through the lens of abstraction because the operating system:",
+        #     [
+        #         "Replaces the hardware completely",
+        #         "Provides an abstracted representation of underlying resources",
+        #         "Restricts all access to hardware",
+        #         "Stores all hardware instructions in memory"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which of the following is NOT presented in the text as a reason for abstraction?",
+        #     [
+        #         "Providing device drivers for non-standardized peripherals",
+        #         "Introducing file abstractions",
+        #         "Enforcing security mechanisms",
+        #         "Increasing processor clock speed"
+        #     ],
+        #     "d"
+        # ],
+        # [
+        #     "The ability of an operating system to enforce security is linked in the text to its use of:",
+        #     [
+        #         "Resource allocation",
+        #         "Abstraction",
+        #         "Application integration",
+        #         "Command interpretation"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "In resource management, processes are described as:",
+        #     [
+        #         "Passive entities",
+        #         "Hardware abstractions",
+        #         "Active agents",
+        #         "System resources"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "According to the text, resources are best described as:",
+        #     [
+        #         "Active entities that request services",
+        #         "Virtual computers created by the operating system",
+        #         "Passive entities accessed by processes",
+        #         "Programs executing in memory"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "The primary purpose of resource management is to control:",
+        #     [
+        #         "How users interact with applications",
+        #         "How processes access resources",
+        #         "How files are displayed to users",
+        #         "How drivers communicate with hardware"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "A user is primarily concerned with the operating system's 'look and feel' through the:",
+        #     [
+        #         "Resource manager",
+        #         "User interface",
+        #         "Device drivers",
+        #         "Process scheduler"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which of the following is identified as an important component of the user interface?",
+        #     [
+        #         "Device driver",
+        #         "Memory manager",
+        #         "Command interpreter",
+        #         "Process control block"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "Which component would most directly help a user understand available operating system commands?",
+        #     [
+        #         "Application integration",
+        #         "On-line help",
+        #         "Resource allocation",
+        #         "Process abstraction"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "A trend toward increasingly integrated graphical user interfaces suggests that modern interfaces:",
+        #     [
+        #         "Focus exclusively on local applications",
+        #         "Reduce interaction among processes",
+        #         "Support activities involving multiple processes and networks",
+        #         "Eliminate command interpreters completely"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "Which option correctly matches an operating system goal with its purpose?",
+        #     [
+        #         "Abstraction — controlling how processes access resources",
+        #         "Resource management — controlling access to passive entities",
+        #         "User interface — creating virtual computers for processes",
+        #         "Abstraction — improving the appearance of graphical interfaces"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "A student claims that files, processes, and security are unrelated concepts. Based on the text, this claim is incorrect because all three are connected through:",
+        #     [
+        #         "Abstraction provided by the operating system",
+        #         "Resource allocation policies",
+        #         "Graphical user interfaces",
+        #         "Command interpretation"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which situation best demonstrates the operating system hiding hardware details?",
+        #     [
+        #         "A user opening a file without knowing its disk location",
+        #         "A process competing for CPU time",
+        #         "A scheduler allocating resources",
+        #         "A network connecting two computers"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "If a process could access hardware only through abstractions provided by the operating system, the process would primarily interact with:",
+        #     [
+        #         "Virtualized representations of resources",
+        #         "Raw hardware instructions",
+        #         "Physical device circuitry",
+        #         "Machine-level control signals"
+        #     ],
+        #     "a"
+        # ],
+        # #type of operating system based on the type of application they support
+        # [
+        #     "Which characteristic most accurately defines a Real-Time Operating System (RTOS)?",
+        #     [
+        #         "Tasks execute in the shortest possible time",
+        #         "Tasks execute within predictable timing constraints",
+        #         "Multiple users can access the system simultaneously",
+        #         "The system supports only one running application"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Why is predictability more important than speed in many real-time systems?",
+        #     [
+        #         "System resources are always limited",
+        #         "An operation occurring too early can be as harmful as occurring too late",
+        #         "Real-time systems do not use processors",
+        #         "Predictability reduces memory consumption"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "What distinguishes a hard RTOS from a soft RTOS?",
+        #     [
+        #         "Hard RTOS guarantees timing requirements for critical tasks",
+        #         "Hard RTOS supports more users than soft RTOS",
+        #         "Hard RTOS contains a graphical interface while soft RTOS does not",
+        #         "Hard RTOS executes all tasks faster than soft RTOS"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "A critical task in a soft RTOS typically:",
+        #     [
+        #         "Runs only when the system is idle",
+        #         "Receives priority over non-critical tasks until completion",
+        #         "Shares equal priority with every task",
+        #         "Can be interrupted by any lower-priority task"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which operating system category is designed for one user performing one task at a time?",
+        #     [
+        #         "Multi-user",
+        #         "Single-user multitasking",
+        #         "Single-user single-tasking",
+        #         "Real-time"
+        #     ],
+        #     "c"
+        # ],
+        # [
+        #     "A user editing a document, listening to music, and browsing the web simultaneously is using a system that supports:",
+        #     [
+        #         "Single-tasking",
+        #         "Single-user multitasking",
+        #         "Hard real-time processing",
+        #         "Multi-user processing"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "What is the primary responsibility of a multi-user operating system?",
+        #     [
+        #         "Executing only one program at a time",
+        #         "Balancing resource allocation among multiple users",
+        #         "Providing real-time guarantees",
+        #         "Limiting access to a single administrator"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Why are resources allocated separately to users in a multi-user operating system?",
+        #     [
+        #         "To increase processor speed",
+        #         "To prevent one user's activities from affecting others",
+        #         "To eliminate the need for memory management",
+        #         "To simplify network configuration"
+        #     ],
+        #     "b"
+        # ],
+        # [
+        #     "Which statement correctly distinguishes a multi-user operating system from a single-user operating system with network support?",
+        #     [
+        #         "Only a multi-user operating system is designed to manage multiple users as operating system users",
+        #         "Only a single-user operating system can support remote logins",
+        #         "Multi-user operating systems cannot support networking",
+        #         "Single-user operating systems cannot support multiple connections"
+        #     ],
+        #     "a"
+        # ],
+        # [
+        #     "Which pair of operating systems belong to different task-management categories despite both supporting a single user?",
+        #     [
+        #         "Palm OS and Windows 98",
+        #         "Unix and VMS",
+        #         "MVS and Unix",
+        #         "Windows 2000 and NetWare"
+        #     ],
+        #     "a"
+        # ],
+        
+        
+    # [
+    #     "Modern operating systems can be classified according to:",
+    #     [
+    #         "The programming language used to develop them",
+    #         "The nature of interaction between users and programs during processing",
+    #         "The amount of memory they require",
+    #         "The number of files they can manage"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "Which operating system environment typically requires users to submit jobs that are later collected into a queue for execution?",
+    #     [
+    #         "Real-Time OS",
+    #         "Time-Sharing OS",
+    #         "Batch Processing OS",
+    #         "Distributed OS"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "What best characterizes user involvement during job execution in a Batch Processing Operating System?",
+    #     [
+    #         "Continuous interaction throughout execution",
+    #         "Limited interaction during execution",
+    #         "No interaction during execution",
+    #         "Interaction only when errors occur"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "In a Batch Processing Operating System, the most appropriate measure of response is:",
+    #     [
+    #         "Waiting time",
+    #         "Execution time",
+    #         "Turnaround time",
+    #         "Interrupt time"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "Turnaround time in a batch environment refers to the time between:",
+    #     [
+    #         "System startup and shutdown",
+    #         "Job submission and availability of results",
+    #         "Program loading and execution",
+    #         "Interrupt generation and handling"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "A key distinction between Batch Processing and Time-Sharing Operating Systems is that:",
+    #     [
+    #         "Only batch systems use memory",
+    #         "Only time-sharing systems support processors",
+    #         "Time-sharing systems permit interaction during execution",
+    #         "Batch systems cannot process jobs"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "In a Time-Sharing Operating System, users primarily share:",
+    #     [
+    #         "Only storage devices",
+    #         "Only input devices",
+    #         "Processor, memory, and other system resources",
+    #         "Application software exclusively"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "The operating system's role in a time-sharing environment is to:",
+    #     [
+    #         "Compile user programs",
+    #         "Facilitate, control, and monitor resource sharing",
+    #         "Eliminate resource competition",
+    #         "Assign a dedicated processor to each user"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "A user editing a file while simultaneously interacting with a running program is most characteristic of:",
+    #     [
+    #         "Batch Processing",
+    #         "Time-Sharing",
+    #         "Firmware Control",
+    #         "Single-Tasking"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "The expected response time in a Time-Sharing Operating System is generally:",
+    #     [
+    #         "Several hours",
+    #         "Measured by turnaround time only",
+    #         "No more than a few seconds",
+    #         "Independent of user interaction"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "Which operating system type is specifically designed for applications where delayed responses may lead to errors or disasters?",
+    #     [
+    #         "Batch Processing OS",
+    #         "Single-Tasking OS",
+    #         "Real-Time OS",
+    #         "Time-Sharing OS"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "The defining feature of a Real-Time Operating System is its emphasis on:",
+    #     [
+    #         "Large storage capacity",
+    #         "Fast graphics rendering",
+    #         "Immediate and predictable response",
+    #         "Multi-user support"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "An airline reservation system is most appropriately associated with:",
+    #     [
+    #         "Batch Processing",
+    #         "Real-Time Processing",
+    #         "Single-User Processing",
+    #         "Offline Processing"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "Monitoring a nuclear power station requires a Real-Time Operating System primarily because:",
+    #     [
+    #         "Many users access the system simultaneously",
+    #         "Jobs must be executed in batches",
+    #         "Critical events require immediate attention",
+    #         "Large files must be processed"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "Real-Time Operating Systems are commonly designed to respond to:",
+    #     [
+    #         "Background jobs",
+    #         "External signals requiring immediate attention",
+    #         "Periodic file backups",
+    #         "User logins only"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "Which characteristic is shared by both Time-Sharing and Real-Time Operating Systems?",
+    #     [
+    #         "Users have no interaction during execution",
+    #         "Responsiveness is an important consideration",
+    #         "Jobs are always executed in batches",
+    #         "Turnaround time is the primary performance measure"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "Which pair of operating system types differs most significantly in the level of user interaction during program execution?",
+    #     [
+    #         "Batch Processing and Time-Sharing",
+    #         "Time-Sharing and Real-Time",
+    #         "Real-Time and Hybrid",
+    #         "Batch Processing and Hybrid"
+    #     ],
+    #     "a"
+    # ],
+    # [
+    #     "A system designed to process payroll at the end of each month with no user interaction during execution is most likely a:",
+    #     [
+    #         "Time-Sharing System",
+    #         "Real-Time System",
+    #         "Batch Processing System",
+    #         "Interactive System"
+    #     ],
+    #     "c"
+    # ],
+    # [
+    #     "Many modern operating systems are described as hybrids because they:",
+    #     [
+    #         "Support only one processing model at a time",
+    #         "Combine features of multiple operating system types",
+    #         "Alternate between hardware and software control",
+    #         "Operate without user intervention"
+    #     ],
+    #     "b"
+    # ],
+    # [
+    #     "Which combination is explicitly identified as being commonly found in hybrid systems?",
+    #     [
+    #         "Real-Time processing with no background tasks",
+    #         "A background batch system operating alongside another processing mode",
+    #         "Single-tasking and firmware execution",
+    #         "Hard RTOS and Soft RTOS running simultaneously"
+    #     ],
+    #     "b"
+    # ],
+    # Other Types of OS based on the Definition of the System/Environment
+    # [
+    #     "Which statement best defines a multiprogramming operating system?",
+    #     [
+    #         "A system that allows multiple processors to execute tasks simultaneously",
+    #         "A system that keeps more than one active user program in main memory at the same time",
+    #         "A system that allows multiple users to log in remotely",
+    #         "A system that distributes jobs across several computers"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "A time-sharing operating system is always:",
+    #     [
+    #         "A multiprocessing system",
+    #         "A distributed system",
+    #         "A multiprogramming system",
+    #         "A network operating system"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "Which statement about multiprogramming and time-sharing is correct?",
+    #     [
+    #         "Every multiprogramming system is a time-sharing system",
+    #         "Multiprogramming and time-sharing mean exactly the same thing",
+    #         "A time-sharing system is a multiprogramming system, but not all multiprogramming systems are time-sharing systems",
+    #         "Neither concept is related to the other"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "Which operating system type can contain multiple active user programs in memory without necessarily being time-sharing?",
+    #     [
+    #         "Only batch operating systems",
+    #         "Only real-time operating systems",
+    #         "Batch and real-time operating systems",
+    #         "Only network operating systems"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "The primary distinction between multiprogramming and multiprocessing is that multiprogramming refers to:",
+    #     [
+    #         "An operating system concept, while multiprocessing refers to a hardware configuration",
+    #         "A hardware configuration, while multiprocessing refers to an operating system concept",
+    #         "Multiple users sharing resources",
+    #         "Multiple computers sharing files"
+    #     ],
+    #     "a"
+    # ],
+
+    # [
+    #     "A multiprocessing system is characterized by the presence of:",
+    #     [
+    #         "Several active programs in memory",
+    #         "Multiple independent processing units",
+    #         "Several networked computers",
+    #         "Multiple logged-in users"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "Multiprocessing is most commonly associated with:",
+    #     [
+    #         "Handheld devices",
+    #         "Single-user desktop systems",
+    #         "Large scientific and commercial computer systems",
+    #         "Real-time embedded controllers"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "A networked computing system consists primarily of:",
+    #     [
+    #         "Several processors inside one computer",
+    #         "Several physically interconnected computers",
+    #         "Several active programs in memory",
+    #         "Several users sharing a terminal"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "In a network operating system, users are generally:",
+    #     [
+    #         "Unaware that multiple computers exist",
+    #         "Aware of multiple computers and can access remote machines",
+    #         "Restricted to local resources only",
+    #         "Unable to transfer files between computers"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "The ability to log in to another machine and copy files between systems is a characteristic of:",
+    #     [
+    #         "A network operating system",
+    #         "A batch operating system",
+    #         "A single-tasking operating system",
+    #         "A hard real-time operating system"
+    #     ],
+    #     "a"
+    # ],
+
+    # [
+    #     "In a network operating system, each machine typically:",
+    #     [
+    #         "Runs a single shared operating system",
+    #         "Has no local users",
+    #         "Runs its own local operating system",
+    #         "Depends entirely on a central processor"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "Which additional capability must a network operating system provide beyond stand-alone functionality?",
+    #     [
+    #         "Automatic processor replication",
+    #         "Communication and transfer of programs and data between connected computers",
+    #         "Conversion into a distributed system",
+    #         "Replacement of local storage devices"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "Which component is specifically required to support networking functionality?",
+    #     [
+    #         "Virtual memory manager",
+    #         "Network interface controller",
+    #         "Command interpreter",
+    #         "Bootstrap loader"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "Which capability is commonly provided by a network operating system?",
+    #     [
+    #         "Remote login",
+    #         "Automatic processor allocation",
+    #         "Hardware virtualization",
+    #         "Interrupt scheduling"
+    #     ],
+    #     "a"
+    # ],
+
+    # [
+    #     "A distributed computing system primarily differs from a networked computing system because it:",
+    #     [
+    #         "Contains only one computer",
+    #         "Automatically shares and coordinates processing loads among connected computers",
+    #         "Eliminates communication between computers",
+    #         "Requires only one processor"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "A distributed operating system must provide:",
+    #     [
+    #         "Only stand-alone functionality",
+    #         "Coordination of operations and information flow among component computers",
+    #         "Only remote file access",
+    #         "Only processor scheduling"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "From the user's perspective, a true distributed operating system appears as:",
+    #     [
+    #         "Several independent computers",
+    #         "A traditional single-processor system",
+    #         "A network operating system",
+    #         "A multiprocessor hardware complex"
+    #     ],
+    #     "b"
+    # ],
+
+    # [
+    #     "Which characteristic most clearly distinguishes a distributed operating system from a network operating system?",
+    #     [
+    #         "Distributed systems contain more computers",
+    #         "Distributed systems use remote login",
+    #         "Users are unaware of where programs execute and files are stored",
+    #         "Distributed systems do not support communication"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "In a true distributed system, determining where a user's program executes should be:",
+    #     [
+    #         "The responsibility of the user",
+    #         "Visible through network commands",
+    #         "Handled automatically by the operating system",
+    #         "Determined by the application developer"
+    #     ],
+    #     "c"
+    # ],
+
+    # [
+    #     "Which comparison is correct?",
+    #     [
+    #         "Network OS hides the existence of multiple computers, while Distributed OS exposes them",
+    #         "Both Network OS and Distributed OS completely hide the existence of multiple computers",
+    #         "Network OS exposes the existence of multiple computers, while Distributed OS attempts to hide them",
+    #         "Neither Network OS nor Distributed OS supports resource sharing"
+    #     ],
+    #     "c"
+    # ]
+
         
 
 ]
