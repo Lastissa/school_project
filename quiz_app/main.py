@@ -8,7 +8,7 @@ class Question:
     
     def cos(self):
       return [
-        #defination and objective of os
+        #defination and objective of operating system
         [
             "Why is an Operating System often referred to as infrastructure software?",
             [
@@ -328,7 +328,110 @@ class Question:
                 "Machine-level control signals"
             ],
             "a"
-        ]
+        ],
+        #type of operating system based on the type of application they support
+        [
+            "Which characteristic most accurately defines a Real-Time Operating System (RTOS)?",
+            [
+                "Tasks execute in the shortest possible time",
+                "Tasks execute within predictable timing constraints",
+                "Multiple users can access the system simultaneously",
+                "The system supports only one running application"
+            ],
+            "b"
+        ],
+        [
+            "Why is predictability more important than speed in many real-time systems?",
+            [
+                "System resources are always limited",
+                "An operation occurring too early can be as harmful as occurring too late",
+                "Real-time systems do not use processors",
+                "Predictability reduces memory consumption"
+            ],
+            "b"
+        ],
+        [
+            "What distinguishes a hard RTOS from a soft RTOS?",
+            [
+                "Hard RTOS guarantees timing requirements for critical tasks",
+                "Hard RTOS supports more users than soft RTOS",
+                "Hard RTOS contains a graphical interface while soft RTOS does not",
+                "Hard RTOS executes all tasks faster than soft RTOS"
+            ],
+            "a"
+        ],
+        [
+            "A critical task in a soft RTOS typically:",
+            [
+                "Runs only when the system is idle",
+                "Receives priority over non-critical tasks until completion",
+                "Shares equal priority with every task",
+                "Can be interrupted by any lower-priority task"
+            ],
+            "b"
+        ],
+        [
+            "Which operating system category is designed for one user performing one task at a time?",
+            [
+                "Multi-user",
+                "Single-user multitasking",
+                "Single-user single-tasking",
+                "Real-time"
+            ],
+            "c"
+        ],
+        [
+            "A user editing a document, listening to music, and browsing the web simultaneously is using a system that supports:",
+            [
+                "Single-tasking",
+                "Single-user multitasking",
+                "Hard real-time processing",
+                "Multi-user processing"
+            ],
+            "b"
+        ],
+        [
+            "What is the primary responsibility of a multi-user operating system?",
+            [
+                "Executing only one program at a time",
+                "Balancing resource allocation among multiple users",
+                "Providing real-time guarantees",
+                "Limiting access to a single administrator"
+            ],
+            "b"
+        ],
+        [
+            "Why are resources allocated separately to users in a multi-user operating system?",
+            [
+                "To increase processor speed",
+                "To prevent one user's activities from affecting others",
+                "To eliminate the need for memory management",
+                "To simplify network configuration"
+            ],
+            "b"
+        ],
+        [
+            "Which statement correctly distinguishes a multi-user operating system from a single-user operating system with network support?",
+            [
+                "Only a multi-user operating system is designed to manage multiple users as operating system users",
+                "Only a single-user operating system can support remote logins",
+                "Multi-user operating systems cannot support networking",
+                "Single-user operating systems cannot support multiple connections"
+            ],
+            "a"
+        ],
+        [
+            "Which pair of operating systems belong to different task-management categories despite both supporting a single user?",
+            [
+                "Palm OS and Windows 98",
+                "Unix and VMS",
+                "MVS and Unix",
+                "Windows 2000 and NetWare"
+            ],
+            "a"
+        ],
+        
+
 ]
         
     def mth(self):
@@ -1933,12 +2036,12 @@ class QuizApp(tk.Tk):
                 for i in self.quiz_frame.winfo_children():
                     i.destroy() #destroy all quiz frame content 
                 self.quiz_frame.pack_forget() #hide the quiz frame
-                
-                for i in self.deepAnalysisFrame.winfo_children(): #or the deepanalysis frame
-                    i.destroy()
-                self.deepAnalysisFrame.pack_forget()
-                self.build_home_page() # Go back to the home page
-                
+                try:
+                    for i in self.deepAnalysisFrame.winfo_children(): #or the deepanalysis frame
+                        i.destroy()
+                    self.deepAnalysisFrame.pack_forget()
+                    self.build_home_page() # Go back to the home page
+                except:pass
     #for when ans is selected
     def optButtonSelected(self):
         self.answer_pool[self.current_question_index.get()] = self.selected_option.get()
@@ -2173,13 +2276,13 @@ class QuizApp(tk.Tk):
         self.quiz_footer_frame.grid_columnconfigure(1, weight= 1)
          
         #home
-        self.footer_button_submit = tk.Button(self.quiz_footer_frame, text="Home", font=("Segoe UI", 11), bg="#DC2626", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.prevQuiSubmitNext("Quit"))
+        self.footer_button_submit = tk.Button(self.quiz_footer_frame, text="Home", font=("Segoe UI", 11), bg="#DC2626", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.home(old_frame=self.deepAnalysisFrame, new_frame_method=self.build_home_page))
         self.footer_button_submit.grid(row=0, column= 2, padx=10, pady=10, sticky="ew")
         self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
         self.quiz_footer_frame.grid_columnconfigure(2, weight= 1)
         
         #next
-        self.footer_button_next = tk.Button(self.quiz_footer_frame, text="Next", font=("Segoe UI", 11), bg="#173E94", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.home(old_frame=self.deepAnalysisFrame, new_frame_method=self.build_home_page))
+        self.footer_button_next = tk.Button(self.quiz_footer_frame, text="Next", font=("Segoe UI", 11), bg="#173E94", fg="white", padx=10, pady=5 ,bd=0, command=lambda: self.prevQuiSubmitNext("Next"))
         self.footer_button_next.grid(row=0, column= 3, padx=10, pady=10, sticky="ew")
         self.quiz_footer_frame.grid_rowconfigure(0, weight = 1)
         self.quiz_footer_frame.grid_columnconfigure(3, weight= 1)
