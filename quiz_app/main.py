@@ -1193,763 +1193,227 @@ class Question:
         
     def mth114(self):
         return [
-        #trigonometry
-    [
-        "If sinθ = 3/5 and θ is acute, what is cosθ?",
-        [
-            "4/5",
-            "3/4",
-            "5/4",
-            "2/5"
-        ],
-        "a"
-    ],
-
-    [
-        "If cosθ = 12/13 and θ is acute, what is sinθ?",
-        [
-            "5/13",
-            "12/5",
-            "13/5",
-            "11/13"
-        ],
-        "a"
-    ],
-
-    [
-        "A right triangle has opposite = 8 and hypotenuse = 17. What is tanθ?",
-        [
-            "8/15",
-            "15/8",
-            "8/17",
-            "15/17"
-        ],
-        "a"
-    ],
-
-    [
-        "If tanθ = 5/12 and θ is acute, what is sinθ?",
-        [
-            "5/13",
-            "12/13",
-            "13/5",
-            "5/12"
-        ],
-        "a"
-    ],
-
-    [
-        "If tanθ = 5/12 and θ is acute, what is cosθ?",
-        [
-            "12/13",
-            "5/13",
-            "13/12",
-            "12/5"
-        ],
-        "a"
-    ],
-
-    [
-        "Which identity follows directly from the Pythagorean theorem?",
-        [
-            "sin²θ + cos²θ = 1",
-            "tan²θ + cot²θ = 1",
-            "sinθ + cosθ = 1",
-            "sec²θ + csc²θ = 1"
-        ],
-        "a"
-    ],
-
-    [
-        "Which identity is obtained by dividing sin²θ + cos²θ = 1 by cos²θ?",
-        [
-            "1 + tan²θ = sec²θ",
-            "1 + cot²θ = csc²θ",
-            "sec²θ - tan²θ = 1",
-            "csc²θ - cot²θ = 1"
-        ],
-        "a"
-    ],
-
-    [
-        "Which identity is obtained by dividing sin²θ + cos²θ = 1 by sin²θ?",
-        [
-            "1 + cot²θ = csc²θ",
-            "1 + tan²θ = sec²θ",
-            "sec²θ - tan²θ = 1",
-            "sin²θ = 1 - cos²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "If sinθ = 5/13, evaluate 1 - sin²θ.",
-        [
-            "144/169",
-            "25/169",
-            "12/13",
-            "5/12"
-        ],
-        "a"
-    ],
-
-    [
-        "If cosθ = 8/17, evaluate tanθ.",
-        [
-            "15/8",
-            "8/15",
-            "17/15",
-            "15/17"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equivalent to sec²θ - 1?",
-        [
-            "tan²θ",
-            "cot²θ",
-            "sin²θ",
-            "cos²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equivalent to csc²θ - 1?",
-        [
-            "cot²θ",
-            "tan²θ",
-            "sec²θ",
-            "sin²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "If sinθ = 7/25, what is secθ?",
-        [
-            "25/24",
-            "24/25",
-            "25/7",
-            "24/7"
-        ],
-        "a"
-    ],
-
-    [
-        "If cosθ = 4/5, what is cscθ?",
-        [
-            "5/3",
-            "3/5",
-            "5/4",
-            "4/3"
-        ],
-        "a"
-    ],
-
-    [
-        "If tanθ = 3/4, what is secθ?",
-        [
-            "5/4",
-            "4/5",
-            "5/3",
-            "3/5"
-        ],
-        "a"
-    ],
-
-    [
-        "sin²θ + cos²θ equals:",
-        [
-            "1",
-            "0",
-            "tan²θ",
-            "sec²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "1 - cos²θ equals:",
-        [
-            "sin²θ",
-            "tan²θ",
-            "sec²θ",
-            "cot²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "1 - sin²θ equals:",
-        [
-            "cos²θ",
-            "sec²θ",
-            "tan²θ",
-            "cot²θ"
-        ],
-        "a"
-    ],
-
-    [
-        "If secθ = 13/12, what is tanθ?",
-        [
-            "5/12",
-            "12/5",
-            "13/5",
-            "5/13"
-        ],
-        "a"
-    ],
-
-    [
-        "If cscθ = 17/8, what is cotθ?",
-        [
-            "15/8",
-            "8/15",
-            "17/15",
-            "15/17"
-        ],
-        "a"
-    ],
-
-    [
-        "sin(A+B) equals:",
-        [
-            "sinA cosB + cosA sinB",
-            "sinA cosB - cosA sinB",
-            "cosA cosB + sinA sinB",
-            "cosA cosB - sinA sinB"
-        ],
-        "a"
-    ],
-
-    [
-        "sin(A-B) equals:",
-        [
-            "sinA cosB - cosA sinB",
-            "sinA cosB + cosA sinB",
-            "cosA cosB - sinA sinB",
-            "cosA cosB + sinA sinB"
-        ],
-        "a"
-    ],
-
-    [
-        "cos(A+B) equals:",
-        [
-            "cosA cosB - sinA sinB",
-            "cosA cosB + sinA sinB",
-            "sinA cosB + cosA sinB",
-            "sinA cosB - cosA sinB"
-        ],
-        "a"
-    ],
-
-    [
-        "cos(A-B) equals:",
-        [
-            "cosA cosB + sinA sinB",
-            "cosA cosB - sinA sinB",
-            "sinA cosB + cosA sinB",
-            "sinA cosB - cosA sinB"
-        ],
-        "a"
-    ],
+        #trig - addition and subtraction of trig ratios
 
+[
+    "Which formula should be used to evaluate sin75° exactly?",
     [
-        "tan(A+B) equals:",
-        [
-            "(tanA + tanB)/(1 - tanA tanB)",
-            "(tanA - tanB)/(1 + tanA tanB)",
-            "(tanA + tanB)/(1 + tanA tanB)",
-            "(tanA - tanB)/(1 - tanA tanB)"
-        ],
-        "a"
+        "sin(A+B)",
+        "cos(A+B)",
+        "tan(A+B)",
+        "cos2A"
     ],
+    "a"
+],
 
+[
+    "Which formula should be used to evaluate cos15° exactly?",
     [
-        "tan(A-B) equals:",
-        [
-            "(tanA - tanB)/(1 + tanA tanB)",
-            "(tanA + tanB)/(1 - tanA tanB)",
-            "(tanA - tanB)/(1 - tanA tanB)",
-            "(tanA + tanB)/(1 + tanA tanB)"
-        ],
-        "a"
+        "cos(A-B)",
+        "sin(A-B)",
+        "tan(A-B)",
+        "sin2A"
     ],
+    "a"
+],
 
+[
+    "Which exact-angle decomposition is most suitable for sin75°?",
     [
-        "sin 2θ equals:",
-        [
-            "2sinθcosθ",
-            "sin²θ-cos²θ",
-            "2tanθ/(1+tan²θ)",
-            "cos²θ-sin²θ"
-        ],
-        "a"
+        "45°+30°",
+        "60°+15°",
+        "90°-15°",
+        "120°-45°"
     ],
+    "a"
+],
 
+[
+    "Which exact-angle decomposition is most suitable for cos15°?",
     [
-        "cos 2θ equals:",
-        [
-            "cos²θ - sin²θ",
-            "2sinθcosθ",
-            "1 - sin²θ",
-            "1 - cos²θ"
-        ],
-        "a"
+        "45°-30°",
+        "60°-30°",
+        "90°-75°",
+        "75°-45°"
     ],
+    "a"
+],
 
+[
+    "In sin(A+B), which product keeps the same sign as the bracket?",
     [
-        "Which is also equal to cos2θ?",
-        [
-            "1 - 2sin²θ",
-            "2sinθcosθ",
-            "1 + 2sin²θ",
-            "2cos²θ - 1 + 2sin²θ"
-        ],
-        "a"
+        "cosA sinB",
+        "sinA cosB",
+        "Both products",
+        "Neither product"
     ],
+    "a"
+],
 
+[
+    "In sin(A-B), which product changes sign?",
     [
-        "Which is also equal to cos2θ?",
-        [
-            "2cos²θ - 1",
-            "2sinθcosθ",
-            "1 - 2cos²θ",
-            "sin²θ - cos²θ"
-        ],
-        "a"
+        "cosA sinB",
+        "sinA cosB",
+        "Both products",
+        "Neither product"
     ],
+    "a"
+],
 
+[
+    "A student writes sin(A-B)=sinAcosB+cosAsinB. What mistake was made?",
     [
-        "tan2θ equals:",
-        [
-            "2tanθ/(1-tan²θ)",
-            "2tanθ/(1+tan²θ)",
-            "(1-tan²θ)/(2tanθ)",
-            "(1+tan²θ)/(2tanθ)"
-        ],
-        "a"
+        "The second term should be negative",
+        "The first term should be negative",
+        "Both terms should be negative",
+        "No mistake"
     ],
+    "a"
+],
 
+[
+    "A student writes cos(A+B)=cosAcosB+sinAsinB. What mistake was made?",
     [
-        "Which expression is equivalent to (1-cos2θ)/2?",
-        [
-            "sin²θ",
-            "cos²θ",
-            "tan²θ",
-            "sec²θ"
-        ],
-        "a"
+        "The second term should be negative",
+        "The first term should be negative",
+        "Both terms should be negative",
+        "No mistake"
     ],
+    "a"
+],
 
+[
+    "Which pair differs only by the sign between the terms?",
     [
-        "Which expression is equivalent to (1+cos2θ)/2?",
-        [
-            "cos²θ",
-            "sin²θ",
-            "tan²θ",
-            "csc²θ"
-        ],
-        "a"
+        "cos(A+B) and cos(A-B)",
+        "sin(A+B) and cos(A+B)",
+        "sin(A-B) and tan(A-B)",
+        "cos(A-B) and tan(A+B)"
     ],
+    "a"
+],
 
+[
+    "Which pair demonstrates the rule 'sine keeps the bracket sign'?",
     [
-        "Which identity would be most useful to simplify sin²θ/(1-cos²θ)?",
-        [
-            "1-cos²θ=sin²θ",
-            "1+tan²θ=sec²θ",
-            "1+cot²θ=csc²θ",
-            "cos2θ=cos²θ-sin²θ"
-        ],
-        "a"
+        "sin(A+B) and sin(A-B)",
+        "cos(A+B) and cos(A-B)",
+        "tan(A+B) and tan(A-B)",
+        "sin(A+B) and cos(A+B)"
     ],
+    "a"
+],
 
+[
+    "The denominator of tan(A+B) is:",
     [
-        "sinθ/cosθ simplifies to:",
-        [
-            "tanθ",
-            "cotθ",
-            "secθ",
-            "cscθ"
-        ],
-        "a"
+        "1-tanA tanB",
+        "1+tanA tanB",
+        "tanA+tanB",
+        "tanA-tanB"
     ],
+    "a"
+],
 
+[
+    "The denominator of tan(A-B) is:",
     [
-        "cosθ/sinθ simplifies to:",
-        [
-            "cotθ",
-            "tanθ",
-            "secθ",
-            "cscθ"
-        ],
-        "a"
+        "1+tanA tanB",
+        "1-tanA tanB",
+        "tanA+tanB",
+        "tanA-tanB"
     ],
+    "a"
+],
 
+[
+    "If tanA=1 and tanB=1/√3, which formula is needed to find tan75°?",
     [
-        "A proof starts with sec²θ - tan²θ. It simplifies to:",
-        [
-            "1",
-            "0",
-            "sin²θ",
-            "cos²θ"
-        ],
-        "a"
+        "tan(A+B)",
+        "tan(A-B)",
+        "sin(A+B)",
+        "cos(A+B)"
     ],
+    "a"
+],
 
+[
+    "Which expression equals sin(A+B)+sin(A-B)?",
     [
-        "Which identity is most useful in proving 1 + tan²θ = sec²θ?",
-        [
-            "sin²θ + cos²θ = 1",
-            "sin2θ = 2sinθcosθ",
-            "cos(A+B)",
-            "tan(A-B)"
-        ],
-        "a"
+        "2sinAcosB",
+        "2cosAsinB",
+        "2sinAsinB",
+        "2cosAcosB"
     ],
+    "a"
+],
 
+[
+    "Which expression equals sin(A+B)-sin(A-B)?",
     [
-        "sin75° can be evaluated exactly using:",
-        [
-            "sin(45°+30°)",
-            "sin(45°-30°)",
-            "cos(45°+30°)",
-            "tan(45°+30°)"
-        ],
-        "a"
+        "2cosAsinB",
+        "2sinAcosB",
+        "2sinAsinB",
+        "2cosAcosB"
     ],
+    "a"
+],
 
+[
+    "Which expression equals cos(A-B)+cos(A+B)?",
     [
-        "cos15° can be evaluated exactly using:",
-        [
-            "cos(45°-30°)",
-            "cos(45°+30°)",
-            "sin(45°+30°)",
-            "tan(45°-30°)"
-        ],
-        "a"
+        "2cosAcosB",
+        "2sinAsinB",
+        "2sinAcosB",
+        "2cosAsinB"
     ],
-    [
-        "Which expression is equal to sin(A+B) - sin(A-B)?",
-        [
-            "2cosA sinB",
-            "2sinA cosB",
-            "2sinA sinB",
-            "2cosA cosB"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equal to sin(A+B) + sin(A-B)?",
-        [
-            "2sinA cosB",
-            "2cosA sinB",
-            "2sinA sinB",
-            "2cosA cosB"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equal to cos(A-B) + cos(A+B)?",
-        [
-            "2cosA cosB",
-            "2sinA sinB",
-            "2sinA cosB",
-            "2cosA sinB"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equal to cos(A-B) - cos(A+B)?",
-        [
-            "2sinA sinB",
-            "2cosA cosB",
-            "2sinA cosB",
-            "2cosA sinB"
-        ],
-        "a"
-    ],
-
-    [
-        "If sin(A+B) = sinA cosB + cosA sinB, the second term represents:",
-        [
-            "The contribution of A's cosine and B's sine",
-            "The contribution of both sines",
-            "The contribution of both cosines",
-            "The contribution of A's sine and B's cosine"
-        ],
-        "a"
-    ],
-
-    [
-        "A student writes cos(A+B)=cosAcosB+sinAsinB. What mistake has been made?",
-        [
-            "The sign before sinAsinB should be negative",
-            "The sign before cosAcosB should be negative",
-            "The terms should be divided",
-            "The formula is correct"
-        ],
-        "a"
-    ],
-
-    [
-        "Which pair of formulas differ only by a sign change?",
-        [
-            "sin(A+B) and sin(A-B)",
-            "sin(A+B) and cos(A+B)",
-            "cos(A+B) and tan(A+B)",
-            "sin(A-B) and tan(A-B)"
-        ],
-        "a"
-    ],
-
-    [
-        "Which pair of formulas contain identical terms but differ only by the sign between them?",
-        [
-            "cos(A+B) and cos(A-B)",
-            "sin(A+B) and cos(A+B)",
-            "tan(A+B) and sin(A+B)",
-            "tan(A-B) and cos(A-B)"
-        ],
-        "a"
-    ],
-
-    [
-        "If A=45° and B=30°, which formula would directly produce an exact value for sin75°?",
-        [
-            "sin(A+B)",
-            "cos(A+B)",
-            "tan(A+B)",
-            "cos(A-B)"
-        ],
-        "a"
-    ],
-
-    [
-        "If A=45° and B=30°, which formula would directly produce an exact value for cos15°?",
-        [
-            "cos(A-B)",
-            "sin(A+B)",
-            "tan(A+B)",
-            "sin(A-B)"
-        ],
-        "a"
-    ],
-
-    [
-        "The denominator of tan(A+B) contains:",
-        [
-            "1 - tanA tanB",
-            "1 + tanA tanB",
-            "tanA + tanB",
-            "tanA - tanB"
-        ],
-        "a"
-    ],
-
-    [
-        "The denominator of tan(A-B) contains:",
-        [
-            "1 + tanA tanB",
-            "1 - tanA tanB",
-            "tanA + tanB",
-            "tanA - tanB"
-        ],
-        "a"
-    ],
-
-    [
-        "Which identity would be most efficient for finding tan75° exactly?",
-        [
-            "tan(45°+30°)",
-            "sin(45°+30°)",
-            "cos(45°+30°)",
-            "sin2θ"
-        ],
-        "a"
-    ],
-
-    [
-        "A student wants to evaluate sin105°. Which decomposition is most useful?",
-        [
-            "sin(60°+45°)",
-            "sin(60°-45°)",
-            "sin(90°+15°)",
-            "sin(120°-15°)"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression simplifies to sinAcosB?",
-        [
-            "(sin(A+B)+sin(A-B))/2",
-            "(sin(A+B)-sin(A-B))/2",
-            "(cos(A-B)+cos(A+B))/2",
-            "(cos(A-B)-cos(A+B))/2"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression simplifies to cosAsinB?",
-        [
-            "(sin(A+B)-sin(A-B))/2",
-            "(sin(A+B)+sin(A-B))/2",
-            "(cos(A-B)+cos(A+B))/2",
-            "(cos(A-B)-cos(A+B))/2"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression simplifies to cosAcosB?",
-        [
-            "(cos(A-B)+cos(A+B))/2",
-            "(cos(A-B)-cos(A+B))/2",
-            "(sin(A+B)+sin(A-B))/2",
-            "(sin(A+B)-sin(A-B))/2"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression simplifies to sinAsinB?",
-        [
-            "(cos(A-B)-cos(A+B))/2",
-            "(cos(A-B)+cos(A+B))/2",
-            "(sin(A+B)-sin(A-B))/2",
-            "(sin(A+B)+sin(A-B))/2"
-        ],
-        "a"
-    ],
-
-    [
-        "Which product can be converted directly using the identity sin(A+B)+sin(A-B)?",
-        [
-            "sinA cosB",
-            "cosA sinB",
-            "sinA sinB",
-            "cosA cosB"
-        ],
-        "a"
-    ],
-
-    [
-        "Which product can be converted directly using the identity cos(A-B)+cos(A+B)?",
-        [
-            "cosA cosB",
-            "sinA sinB",
-            "sinA cosB",
-            "cosA sinB"
-        ],
-        "a"
-    ],
-    [
-        "When expanding cos(A+B), which product is subtracted?",
-        [
-            "sinA sinB",
-            "sinA cosB",
-            "cosA sinB",
-            "cosA cosB"
-        ],
-        "a"
-    ],
-
-    [
-        "When expanding cos(A-B), which product is added?",
-        [
-            "sinA sinB",
-            "sinA cosB",
-            "cosA sinB",
-            "cosA cosB"
-        ],
-        "a"
-    ],
-
-    [
-        "A student remembers 'sine keeps its first sign'. Which pair demonstrates this?",
-        [
-            "sin(A+B) and sin(A-B)",
-            "cos(A+B) and cos(A-B)",
-            "tan(A+B) and tan(A-B)",
-            "cos(A+B) and sin(A+B)"
-        ],
-        "a"
-    ],
+    "a"
+],
 
+[
+    "Which expression equals cos(A-B)-cos(A+B)?",
     [
-        "If sin(A+B)=1 and sin(A-B)=0, then sin(A+B)+sin(A-B) equals:",
-        [
-            "1",
-            "0",
-            "2",
-            "-1"
-        ],
-        "a"
+        "2sinAsinB",
+        "2cosAcosB",
+        "2sinAcosB",
+        "2cosAsinB"
     ],
+    "a"
+],
 
+[
+    "Which product can be obtained directly from sin(A+B)+sin(A-B)?",
     [
-        "Which formula is most useful when a product of two trigonometric functions needs to be rewritten as a sum?",
-        [
-            "Product-to-sum identities",
-            "Double-angle identities",
-            "Reciprocal identities",
-            "Pythagorean identities"
-        ],
-        "a"
+        "sinAcosB",
+        "sinAsinB",
+        "cosAcosB",
+        "cosAsinB"
     ],
+    "a"
+],
 
+[
+    "Which product can be obtained directly from cos(A-B)+cos(A+B)?",
     [
-        "Which expression is equivalent to 2sinAcosB?",
-        [
-            "sin(A+B)+sin(A-B)",
-            "sin(A+B)-sin(A-B)",
-            "cos(A-B)+cos(A+B)",
-            "cos(A-B)-cos(A+B)"
-        ],
-        "a"
+        "cosAcosB",
+        "sinAsinB",
+        "sinAcosB",
+        "cosAsinB"
     ],
+    "a"
+],
 
+[
+    "Which product can be obtained directly from cos(A-B)-cos(A+B)?",
     [
-        "Which expression is equivalent to 2cosAsinB?",
-        [
-            "sin(A+B)-sin(A-B)",
-            "sin(A+B)+sin(A-B)",
-            "cos(A-B)+cos(A+B)",
-            "cos(A-B)-cos(A+B)"
-        ],
-        "a"
+        "sinAsinB",
+        "cosAcosB",
+        "sinAcosB",
+        "cosAsinB"
     ],
-
-    [
-        "Which expression is equivalent to 2cosAcosB?",
-        [
-            "cos(A-B)+cos(A+B)",
-            "cos(A-B)-cos(A+B)",
-            "sin(A+B)+sin(A-B)",
-            "sin(A+B)-sin(A-B)"
-        ],
-        "a"
-    ],
-
-    [
-        "Which expression is equivalent to 2sinAsinB?",
-        [
-            "cos(A-B)-cos(A+B)",
-            "cos(A-B)+cos(A+B)",
-            "sin(A+B)+sin(A-B)",
-            "sin(A+B)-sin(A-B)"
-        ],
-        "a"
-    ]
+    "a"
+]
         ]
         
     def sta(self):
