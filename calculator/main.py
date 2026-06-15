@@ -291,10 +291,10 @@ class CalByOpe(Tk):
         super().__init__()
         self.is_shift_on = False #for knowing when shift is active
         self.max_calulator_view_lenght = 5 #for the max amoutn of operation the cal is allowed to show
-        self.current_display_content =  StringVar(value="0") #For holding the current text in display
-        self.current_meta_data_to_display = StringVar(value="0") #For the current mode e.g SCI, DEC, FRA, ABS
-        self.current_right_mini_info = StringVar(value="")
-        self.ans_key_value = StringVar(value="0") #for updating the value the ANS key will get
+        self.current_display_content =  StringVar(master = self, value="0") #For holding the current text in display
+        self.current_meta_data_to_display = StringVar(master = self, value="0") #For the current mode e.g SCI, DEC, FRA, ABS
+        self.current_right_mini_info = StringVar(master = self, value="")
+        self.ans_key_value = StringVar(master = self, value="0") #for updating the value the ANS key will get
         self.phi = 22/7
         self.e = math.e
         self.geometry("400x700+0+0")
@@ -467,11 +467,11 @@ class CalByOpe(Tk):
         
         # the children function content- for body
         def quad_equ_active():
-            x2_var = StringVar(value="1")
-            x_var = StringVar(value="1")
-            c_var = StringVar(value="-1")
-            solution_var = StringVar(value="Awaiting Order")
-            method_selector_var = StringVar(value="What method do you prefer?")
+            x2_var = StringVar(master = self, value="1")
+            x_var = StringVar(master = self, value="1")
+            c_var = StringVar(master = self, value="-1")
+            solution_var = StringVar(master = self, value="Awaiting Order")
+            method_selector_var = StringVar(master = self, value="What method do you prefer?")
             
             info_text = Label(advance_frame_body, text="Quadratic Equation", fg= "white", bg = self.colors()["bg"], font=("Segoe UI", 13, "bold"),)
             x2_coefficient_input = Entry(advance_frame_body, width=5, textvariable=x2_var, font=("Consolas", 12, "bold"))
@@ -529,14 +529,14 @@ class CalByOpe(Tk):
             
 
         def sim_equ_active():
-            x1_var = StringVar(value="0")
-            y1_var = StringVar(value="0")
-            z1_var = StringVar(value="0")
-            x2_var = StringVar(value="0")
-            y2_var = StringVar(value="0")
-            z2_var = StringVar(value="0")
-            solution_var = StringVar(value="Awaiting Order")
-            method_selector_var = StringVar(value="What method do you prefer?")
+            x1_var = StringVar(master = self, value="0")
+            y1_var = StringVar(master = self, value="0")
+            z1_var = StringVar(master = self, value="0")
+            x2_var = StringVar(master = self, value="0")
+            y2_var = StringVar(master = self, value="0")
+            z2_var = StringVar(master = self, value="0")
+            solution_var = StringVar(master = self, value="Awaiting Order")
+            method_selector_var = StringVar(master = self, value="What method do you prefer?")
             
             
             info_text = Label(advance_frame_body, text="Simultanous Equation", fg= "white", bg = self.colors()["bg"], font=("Segoe UI", 13, "bold"),)
