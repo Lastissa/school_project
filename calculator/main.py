@@ -284,27 +284,33 @@ make x the subject of the formula
         if method_var.get().upper() == "FIND N-TH TERM":
             pass
         
-    
-class SHiftOn:
-    def __init__(self, root, cdc, cmdtd, akv, crmi):
+   
+   
+class CalByOpe(Tk):
+    def __init__(self):
+        super().__init__()
+        self.is_shift_on = False #for knowing when shift is active
         self.max_calulator_view_lenght = 5 #for the max amoutn of operation the cal is allowed to show
-        self.current_display_content = cdc #For holding the current text in display
-        self.current_meta_data_to_display = cmdtd #For the current mode e.g SCI, DEC, FRA, ABS
-        self.current_right_mini_info = crmi
-        self.ans_key_value = akv #for updating the value the ANS key will get
+        self.current_display_content =  StringVar(value="0") #For holding the current text in display
+        self.current_meta_data_to_display = StringVar(value="0") #For the current mode e.g SCI, DEC, FRA, ABS
+        self.current_right_mini_info = StringVar(value="")
+        self.ans_key_value = StringVar(value="0") #for updating the value the ANS key will get
         self.phi = 22/7
         self.e = math.e
-    
+        self.geometry("400x700+0+0")
+        self.title("Group 1 calculator")
+        self.config(bg = self.colors()["bg"])
+        self.display()
+        self.btns()
         
-        self.root = root
-        self.is_shift_on = False #for knowing when shift is active
+        
 
     
     def display(self):
         #for display content
        
         # Top Display Area Frame
-        self.display_frame = Frame(root, bg= shift_off.colors()["btn-bg-number"])
+        self.display_frame = Frame(self, bg= self.colors()["btn-bg-number"])
         self.display_frame.pack(fill="x", padx=15, pady=15)
         #to display content
         display_content = Label(self.display_frame, textvariable= self.current_display_content, font=("Segoe UI", 32, "bold"),anchor="e", foreground= self.colors()["btn-fg"],bg= self.colors()["btn-bg-number"])
@@ -349,7 +355,7 @@ class SHiftOn:
                 ]
         self.btn_list = btn
         #btn frame
-        self.btn_frame = Frame(self.root, bg = shift_off.colors()["bg"])
+        self.btn_frame = Frame(self, bg = self.colors()["bg"])
         self.btn_frame.pack(fill="both", padx=15, pady=15, expand=True)
         #buttons
         for index, row in enumerate(btn):
@@ -427,7 +433,7 @@ class SHiftOn:
     
     #for the advance ui
     def advance(self):
-        self.advance_frame = Frame(self.root, bg = shift_off.colors()["bg"])
+        self.advance_frame = Frame(self, bg = self.colors()["bg"])
         self.advance_frame.pack(fill="both", expand=True, padx=10, pady=15)
         
         advance_frame_btns_name = [
@@ -443,18 +449,18 @@ class SHiftOn:
             self.btns()
             
         #The back  for going to the cal page
-        advance_frame_back_btn = Button(self.root, text = "Back", font=("Segoe UI", 14, "bold") , foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-danger"], anchor="n", bd= 0,command = advance_back) 
+        advance_frame_back_btn = Button(self, text = "Back", font=("Segoe UI", 14, "bold") , foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-danger"], anchor="n", bd= 0,command = advance_back) 
         advance_frame_back_btn.pack(anchor = "s", fill = "x",  padx = 3, pady = 3,expand = True)
        
         #its children 2 (button and displlay)
-        advance_frame_header = Frame(self.advance_frame,bg = shift_off.colors()["bg"])
+        advance_frame_header = Frame(self.advance_frame,bg = self.colors()["bg"])
         advance_frame_header.pack(fill = "x", expand = True, anchor = "n")
         advance_frame_body = Frame(self.advance_frame, bg = self.colors()["bg"])
         advance_frame_body.pack(fill = "both", expand = True)
 
         # the children content- for header
         for  index, name in enumerate(advance_frame_btns_name):
-            advance_frame_header_child = Button(advance_frame_header,text = name, font=("Segoe UI", 17, "bold"), bg= shift_off.colors()["btn-bg-number"], fg = "white",bd = 0, command= lambda  t=name : set_mode_life(t) )
+            advance_frame_header_child = Button(advance_frame_header,text = name, font=("Segoe UI", 17, "bold"), bg= self.colors()["btn-bg-number"], fg = "white",bd = 0, command= lambda  t=name : set_mode_life(t) )
             advance_frame_header_child.grid(row = 1, column = index, sticky = "nsew", padx  = 3 , pady = 3)
             advance_frame_header.grid_columnconfigure(index, weight = 1)
             advance_frame_header.grid_rowconfigure(1, weight= 1)
@@ -973,7 +979,7 @@ class SHiftOn:
                 try:
                     int(j.strip())
                 except:
-                    #special weaver for "-" and "." and power and nth root
+                    #special weaver for "-" and "." and power and nth self
                     if j =="-" or j == ".":
                         continue
                     #if any non number is in the current_display, dont allow the button to do anything
@@ -1083,7 +1089,7 @@ class SHiftOn:
                 if "P" in current_value:
                     return
                 else:
-                    #add p for root
+                    #add p for self
                     self.current_display_content.set(current_value + "p")
             
     def operationSpecial(self):
@@ -1206,12 +1212,12 @@ class SHiftOn:
             if len(after_p.strip()) == 0:
                 after_p = "1"
             try:
-               root =  float(after_p.strip())
+               self =  float(after_p.strip())
             except:
                 self.current_display_content.set("syntax error")
                 self.current_right_mini_info.set("")#clear all the stuff there
                 return
-            result = math.pow(float(b4_P), 1/root)
+            result = math.pow(float(b4_P), 1/self)
             result = Utility().tryFloatToInt(result)
             result = Utility().clipLenght(result, self.max_calulator_view_lenght)
             self.current_display_content.set(result)
@@ -1308,25 +1314,11 @@ class SHiftOn:
                 print(f"Er i am cooked--- {e}")                     
                     
         
-class ShiftOff(SHiftOn):
-    def __init__(self, root, cdc, cmdtd, akv, crmi):
-        super().__init__(root, cdc = cdc, cmdtd = cmdtd, akv = akv, crmi=crmi) #For getting all the self in ShiftOn
-        self.root = root  
-   
-   
+class CoverUp(CalByOpe):
+    def __init__(self):
+        super().__init__()
+        
    
 if __name__ == "__main__": 
     #Start of calculator app
-    root = Tk()
-    cdc= StringVar(value="0") #For holding the current text in display
-    cmdtd= StringVar(value="") #For the current mode e.g SCI, DEC, FRA, ABS
-    akv = StringVar(value="0") #for updating the value the ANS key will get  
-    crmi = StringVar(value="") #for tracking current expressison so as to show a brief summary
-    
-    shift_off = ShiftOff(root=root, cdc= cdc,cmdtd= cmdtd, akv= akv, crmi=crmi)
-    root.geometry("400x700+0+0")
-    root.title("Group 1 calculator")
-    root.config(bg = shift_off.colors()["bg"])
-    shift_off.display()
-    shift_off.btns()
-    root.mainloop()
+    CoverUp().mainloop()

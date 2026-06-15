@@ -1,6 +1,12 @@
 import tkinter as tk
+from pathlib import Path
+import sys
 from tkinter import messagebox
+current_dir = Path(__file__).resolve().parents[1]
+sys.path.append(str(current_dir))
 
+
+from calculator.main import CoverUp
 class Question:
     def __init__(self):
         self.format = """[["Question", ["Option 1", "Option 2", "Option 3", "Option 4"], "Answer"]]"""
@@ -852,517 +858,1098 @@ class Question:
     #     ],
     #     "c"
     # ]
+    [
+        "Which operating system function is concerned with the allocation of both main memory and other storage areas to system programs, user programs, and data?",
+        [
+            "Input/Output management",
+            "Memory management",
+            "Processor management",
+            "File management"
+        ],
+        "b"
+    ],
 
+    [
+        "The operating system's responsibility for determining and maintaining the order in which jobs are executed is known as:",
+        [
+            "Processor management",
+            "Command interpretation",
+            "Priority establishment and enforcement",
+            "Automatic job transition"
+        ],
+        "c"
+    ],
+
+    [
+        "Which operating system function is directly concerned with coordinating and assigning input and output devices while one or more programs are executing?",
+        [
+            "File management",
+            "Memory management",
+            "Input/Output management",
+            "Priority enforcement"
+        ],
+        "c"
+    ],
+
+    [
+        "A user modifies a document using a text editor. Which operating system function most directly enables this capability?",
+        [
+            "Processor management",
+            "File management",
+            "Memory management",
+            "Input/Output management"
+        ],
+        "b"
+    ],
+
+    [
+        "Which pair of responsibilities belongs to File Management according to the note?",
+        [
+            "Storage of files and modification through file manipulation routines",
+            "Storage allocation and processor scheduling",
+            "Command interpretation and software assignment",
+            "Memory allocation and security enforcement"
+        ],
+        "a"
+    ],
+
+    [
+        "The assignment of processors to different tasks is related to processor management, whereas determining the order in which jobs are executed is related to:",
+        [
+            "Memory management",
+            "Priority establishment and enforcement",
+            "Input/Output management",
+            "File management"
+        ],
+        "b"
+    ],
+
+    [
+        "A system automatically begins executing Job B immediately after Job A finishes because of:",
+        [
+            "Processor management",
+            "Automatic transition from job to job",
+            "Priority establishment",
+            "Command interpretation"
+        ],
+        "b"
+    ],
+
+    [
+        "Which operating system responsibility would most likely be involved when a user enters a command that must be translated into an action?",
+        [
+            "Interpretation of commands and instructions",
+            "File management",
+            "Priority enforcement",
+            "Processor management"
+        ],
+        "a"
+    ],
+
+    [
+        "Compilers, assemblers, utility programs, and other software are assigned to users through which operating system responsibility?",
+        [
+            "Software coordination and assignment",
+            "Memory management",
+            "Input/Output management",
+            "Automatic job transition"
+        ],
+        "a"
+    ],
+
+    [
+        "Which operating system function is most directly associated with human-computer interaction rather than resource allocation?",
+        [
+            "Processor management",
+            "Facilitating communication between the computer and the operator",
+            "Memory management",
+            "Priority establishment"
+        ],
+        "b"
+    ],
+
+    [
+        "A student claims that establishing job priorities and assigning processors are identical operating system functions. Which statement is most accurate?",
+        [
+            "Both functions determine execution order only",
+            "One determines execution order while the other assigns processing resources",
+            "Both functions belong to memory management",
+            "Both functions belong to file management"
+        ],
+        "b"
+    ],
+
+    [
+        "Which operating system function would remain relevant even if no files were being stored or modified?",
+        [
+            "File management",
+            "Processor management",
+            "Text editing support",
+            "File manipulation routines"
+        ],
+        "b"
+    ],
+
+    [
+        "The phrase 'while one or more programs are being executed' is specifically associated with:",
+        [
+            "Input/Output management",
+            "Memory management",
+            "File management",
+            "Command interpretation"
+        ],
+        "a"
+    ],
+
+    [
+        "Which responsibility extends beyond simple file storage by explicitly supporting file modification?",
+        [
+            "Processor management",
+            "Memory management",
+            "File management",
+            "Priority establishment"
+        ],
+        "c"
+    ],
+
+    [
+        "Data security and integrity are mentioned in the note as part of the operating system's role in:",
+        [
+            "Facilitating communication between the system and the operator",
+            "File management only",
+            "Processor management",
+            "Memory allocation"
+        ],
+        "a"
+    ],
+#operating system flaws
+    [
+        "Why can operating systems contain errors even after they are released?",
+        [
+            "Operating systems are written by humans who can make mistakes despite testing",
+            "Operating systems are too large to be tested before release",
+            "Only hardware manufacturers can detect software errors",
+            "Errors occur only after users install applications"
+        ],
+        "a"
+    ],
+
+    [
+        "Differences in operating system quality are attributed primarily to variations in:",
+        [
+            "Processor architecture",
+            "Software quality control and testing practices",
+            "Number of installed applications",
+            "Amount of available memory"
+        ],
+        "b"
+    ],
+
+    [
+        "Which of the following is NOT identified as a major consequence of operating system errors?",
+        [
+            "System crashes and instabilities",
+            "Security flaws",
+            "Peripheral device incompatibilities",
+            "Automatic processor upgrades"
+        ],
+        "d"
+    ],
+
+    [
+        "A system crash is most accurately described as:",
+        [
+            "A temporary slowdown caused by insufficient memory",
+            "A system becoming frozen and unresponsive",
+            "A failure to connect to a network",
+            "A printer refusing to print a document"
+        ],
+        "b"
+    ],
+
+    [
+        "According to the note, recovery from many system crashes typically requires the user to:",
+        [
+            "Reinstall the operating system",
+            "Replace the processor",
+            "Reboot the computer",
+            "Format the hard disk"
+        ],
+        "c"
+    ],
+
+    [
+        "System instability may result from:",
+        [
+            "Only bugs in the operating system",
+            "Only application programs",
+            "Both operating system bugs and programs running on the system",
+            "Only hardware failures"
+        ],
+        "c"
+    ],
+
+    [
+        "Which statement best reflects the relationship between application programs and operating system stability?",
+        [
+            "Application programs cannot affect operating system stability",
+            "Application programs may contribute to instability or even cause crashes",
+            "Application programs improve stability by default",
+            "Application programs only affect file management"
+        ],
+        "b"
+    ],
+
+    [
+        "A security flaw exists when a software error:",
+        [
+            "Causes excessive memory consumption",
+            "Prevents files from being edited",
+            "Creates an opportunity for unauthorized access",
+            "Reduces processor efficiency"
+        ],
+        "c"
+    ],
+
+    [
+        "Unauthorized intruders are most likely to exploit:",
+        [
+            "System documentation",
+            "Security flaws",
+            "Memory allocation policies",
+            "File naming conventions"
+        ],
+        "b"
+    ],
+
+    [
+        "The primary purpose of patching discovered security flaws is to:",
+        [
+            "Increase processor speed",
+            "Improve graphical performance",
+            "Maintain system security",
+            "Expand storage capacity"
+        ],
+        "c"
+    ],
+
+    [
+        "Which pair is most directly related according to the note?",
+        [
+            "Security flaw and unauthorized access",
+            "System crash and file compression",
+            "Peripheral device and processor scheduling",
+            "Testing and memory allocation"
+        ],
+        "a"
+    ],
+
+    [
+        "A flaw that prevents a printer from functioning correctly would fall under which category of operating system problems?",
+        [
+            "Security flaws",
+            "System crashes",
+            "Peripheral device compatibility issues",
+            "Priority scheduling errors"
+        ],
+        "c"
+    ],
+
+    [
+        "A user discovers that the operating system frequently freezes, requiring restarts, but no unauthorized access occurs. This situation is most closely associated with:",
+        [
+            "Security flaws",
+            "System crashes and instabilities",
+            "Peripheral incompatibility",
+            "Software patching"
+        ],
+        "b"
+    ],
+
+    [
+        "Which statement distinguishes a security flaw from a system crash?",
+        [
+            "A security flaw concerns unauthorized access, whereas a system crash concerns loss of responsiveness",
+            "A security flaw affects hardware, whereas a system crash affects software",
+            "A security flaw always causes a reboot, whereas a system crash never does",
+            "A security flaw affects printers only, whereas a system crash affects processors only"
+        ],
+        "a"
+    ],
+
+    [
+        "An operating system works correctly except that it cannot communicate properly with certain printers. This problem is best classified as:",
+        [
+            "A system instability",
+            "A security vulnerability",
+            "A peripheral device compatibility problem",
+            "A memory management failure"
+        ],
+        "c"
+    ]
         
 
 ]
         
-    def mth(self):
+    def mth114(self):
         return [
-            [
-                "What is the base of the binary number system?",
-                ["Base 2", "Base 8", "Base 10", "Base 16"],
-                "a"
-            ],
-            [
-                "What are the only two digits used in the binary number system?",
-                ["0 and 1", "0, 1, and 2", "0 through 7", "0 through 9"],
-                "a"
-            ],
-            [
-                "What is the base of the octal number system?",
-                ["Base 2", "Base 8", "Base 10", "Base 16"],
-                "b"
-            ],
-            [
-                "What are the digits used in the octal number system?",
-                ["0 and 1", "0, 1, and 2", "0 through 7", "0 through 9"],
-                "c"
-            ],
-            [
-                "What is the base of the decimal number system?",
-                ["Base 2", "Base 8", "Base 10", "Base 16"],
-                "c"
-            ],
-            [
-                "What are the digits used in the decimal number system?",
-                ["0 and 1", "0, 1, and 2", "0 through 7", "0 through 9"],
-                "d"
-            ],
-            [
-                "Which number system utilizes base 16 representations?",
-                ["Binary", "Octal", "Decimal", "Hexadecimal"],
-                "d"
-            ],
-            [
-                "What is the decimal equivalent of the binary number 101?",
-                ["3", "5", "6", "7"],
-                "b"
-            ],
-            [
-                "Convert the binary representation 1111 to its decimal equivalent.",
-                ["7", "11", "15", "16"],
-                "c"
-            ],
-            [
-                "What is the binary representation of the decimal number 8?",
-                ["100", "1000", "111", "1010"],
-                "b"
-            ],
-            [
-                "Which of the following values represents the octal equivalent of decimal 9?",
-                ["10", "11", "12", "15"],
-                "b"
-            ],
-            [
-                "What decimal value is represented by the octal number 20?",
-                ["16", "20", "24", "32"],
-                "a"
-            ],
-            [
-                "How many bits are required to represent any single octal digit in binary?",
-                ["2 bits", "3 bits", "4 bits", "8 bits"],
-                "b"
-            ],
-            [
-                "What is the binary representation of the octal number 7?",
-                ["100", "110", "111", "1000"],
-                "c"
-            ],
-            [
-                "Which of the following is not a valid number in the octal system?",
-                ["107", "764", "812", "555"],
-                "c"
-            ],
-            [
-                "Convert the decimal number 12 into binary format.",
-                ["1010", "1100", "1110", "1111"],
-                "b"
-            ],
-            [
-                "What is the sum of binary 10 and binary 01?",
-                ["10", "11", "100", "01"],
-                "b"
-            ],
-            [
-                "Which positional value represents the third digit from the right in a decimal integer?",
-                ["Ones", "Tens", "Hundreds", "Thousands"],
-                "c"
-            ],
-            [
-                "What is the highest single digit value usable in the octal system?",
-                ["6", "7", "8", "9"],
-                "b"
-            ],
-            [
-                "What system is natively utilized by computer hardware for low-level storage?",
-                ["Decimal", "Octal", "Hexadecimal", "Binary"],
-                "d"
-            ],
+        #trigonometry
+    [
+        "If sinθ = 3/5 and θ is acute, what is cosθ?",
+        [
+            "4/5",
+            "3/4",
+            "5/4",
+            "2/5"
+        ],
+        "a"
+    ],
 
-            [
-                "Which of the following is the correct solution for the inequality -3x + 5 < 11?",
-                ["x < -2", "x > -2", "x < 2", "x > 2"],
-                "b"
-            ],
-            [
-                "What is the simplified value of (8^(2/3)) * (4^(-1/2))?",
-                ["1", "2", "4", "8"],
-                "b"
-            ],
-            [
-                "If log_b(x) = y, which of the following expressions is its equivalent exponential form?",
-                ["b^x = y", "x^y = b", "b^y = x", "y^b = x"],
-                "c"
-            ],
-            [
-                "Solve the linear inequality for x: 2x - 7 >= 3.",
-                ["x <= 5", "x >= 5", "x >= 2", "x <= 2"],
-                "b"
-            ],
-            [
-                "When multiplying two identical exponential bases, what must you do with their indices?",
-                ["Multiply them", "Divide them", "Subtract them", "Add them"],
-                "d"
-            ],
-            [
-                "What is the numeric value of any non-zero base raised to the power of 0?",
-                ["0", "1", "The base itself", "Infinity"],
-                "0"
-            ],
-            [
-                "Simplify the following index expression: (x^5) / (x^2).",
-                ["x^7", "x^10", "x^3", "x^(2.5)"],
-                "c"
-            ],
-            [
-                "What is the simplified value of 5^(-2)?",
-                ["-10", "-25", "1/10", "1/25"],
-                "d"
-            ],
-            [
-                "Evaluate the expression log_10(1000).",
-                ["2", "3", "10", "100"],
-                "b"
-            ],
-            [
-                "According to logarithmic laws, what is log(A) + log(B) equivalent to?",
-                ["log(A + B)", "log(A / B)", "log(A * B)", "log(A^B)"],
-                "c"
-            ],
-            [
-                "Simplify the logarithmic term log_2(16).",
-                ["2", "4", "8", "16"],
-                "b"
-            ],
-            [
-                "What happens to the direction of an inequality sign when both sides are multiplied by -1?",
-                ["It flips", "It stays the same", "It changes to an equals sign", "It becomes undefined"],
-                "a"
-            ],
-            [
-                "Solve the quadratic inequality x^2 - 4 < 0.",
-                ["x > 2", "x < -2", "-2 < x < 2", "x < -2 or x > 2"],
-                "c"
-            ],
-            [
-                "What is the single value of log_b(1) for any valid base b?",
-                ["0", "1", "b", "Undefined"],
-                "a"
-            ],
-            [
-                "Simplify the radical expression using indices: square root of x^6.",
-                ["x^2", "x^3", "x^4", "x^12"],
-                "b"
-            ],
-            [
-                "Express log(x^4) in an expanded linear coefficient form.",
-                ["log(4x)", "4 * log(x)", "log(x) / 4", "log(x) + 4"],
-                "b"
-            ],
-            [
-                "Solve the exponential equation 3^x = 81.",
-                ["2", "3", "4", "5"],
-                "c"
-            ],
-            [
-                "What is the value of log_3(1/9)?",
-                ["2", "-2", "3", "-3"],
-                "b"
-            ],
-            [
-                "Simplify the power of a power expression: (y^3)^4.",
-                ["y^7", "y^12", "y^34", "y^1.33"],
-                "b"
-            ],
-            [
-                "Find the solution range for the linear inequality 5 - x >= 2.",
-                ["x <= 3", "x >= 3", "x <= -3", "x >= -3"],
-                "a"
-            ],
+    [
+        "If cosθ = 12/13 and θ is acute, what is sinθ?",
+        [
+            "5/13",
+            "12/5",
+            "13/5",
+            "11/13"
+        ],
+        "a"
+    ],
 
-            [
-                "A binary operation * on a set is associative if which of the following conditions holds true?",
-                ["a * b = b * a", "(a * b) * c = a * (b * c)", "a * e = a", "a * b = 0"],
-                "b"
-            ],
-            [
-                "If a binary operation is defined as a * b = a + b - 3, what is the identity element 'e'?",
-                ["0", "1", "3", "-3"],
-                "c"
-            ],
-            [
-                "Under an operation with identity element 0 where a * b = a + b + 5, what is the inverse of the element 2?",
-                ["-2", "-5", "-7", "-12"],
-                "d"
-            ],
-            [
-                "What algebraic property is demonstrated by the specific condition a * b = b * a?",
-                ["Closure", "Associativity", "Commutativity", "Distributivity"],
-                "c"
-            ],
-            [
-                "For an identity element 'e' under operation *, which property must be satisfied for all 'a'?",
-                ["a * e = 0", "a * e = e", "a * e = a", "a * e = -a"],
-                "c"
-            ],
-            [
-                "If an element 'x' has an inverse 'y' under operation *, what must x * y equal?",
-                ["0", "1", "The identity element e", "The element x"],
-                "c"
-            ],
-            [
-                "Under standard real multiplication, what is the identity element?",
-                ["-1", "0", "1", "Infinity"],
-                "c"
-            ],
-            [
-                "Under standard real addition, what is the identity element?",
-                ["-1", "0", "1", "None"],
-                "b"
-            ],
-            [
-                "What is the additive inverse of the real number 7?",
-                ["1/7", "0", "-7", "7"],
-                "c"
-            ],
-            [
-                "What is the multiplicative inverse of the non-zero real number 5?",
-                ["-5", "1/5", "0.5", "1"],
-                "b"
-            ],
-            [
-                "If a binary operation is defined as x * y = 2xy, find the value of 3 * 4.",
-                ["12", "14", "24", "48"],
-                "c"
-            ],
-            [
-                "Which mathematical operation on integers lacks an identity element?",
-                ["Addition", "Multiplication", "Subtraction", "None"],
-                "c"
-            ],
-            [
-                "If a binary operation is defined as a * b = a^b, evaluate the expression 2 * 3.",
-                ["5", "6", "8", "9"],
-                "c"
-            ],
-            [
-                "The binary operation a * b = a + b + ab is checked for identity. Find 'e'.",
-                ["-1", "0", "1", "2"],
-                "b"
-            ],
-            [
-                "Is standard division on real numbers commutative?",
-                ["Yes", "No", "Only for 0", "Only for 1"],
-                "b"
-            ],
-            [
-                "If a set is closed under an operation, where must the output of any pair belong?",
-                ["Outside the set", "Inside the set", "Positive reals", "Integers only"],
-                "b"
-            ],
-            [
-                "Evaluate (1 * 2) * 3 if the operation is defined explicitly as x * y = x + y.",
-                ["5", "6", "7", "8"],
-                "b"
-            ],
-            [
-                "Which operation satisfies associativity over the set of rational numbers?",
-                ["Subtraction", "Division", "Addition", "Exponentiation"],
-                "c"
-            ],
-            [
-                "Find the identity element for the binary operation a * b = ab/4.",
-                ["1", "2", "4", "8"],
-                "c"
-            ],
-            [
-                "What is the inverse of 3 under the operation a * b = ab/4, given identity e=4?",
-                ["4/3", "3/4", "12/3", "16/3"],
-                "d"
-            ],
+    [
+        "A right triangle has opposite = 8 and hypotenuse = 17. What is tanθ?",
+        [
+            "8/15",
+            "15/8",
+            "8/17",
+            "15/17"
+        ],
+        "a"
+    ],
 
-            [
-                "What is the exact derivative of f(x) = sin(3x) with respect to x?",
-                ["cos(3x)", "3cos(3x)", "-3cos(3x)", "3sin(3x)"],
-                "b"
-            ],
-            [
-                "Which of the following represents the fundamental circular identity for any angle theta?",
-                ["sin^2(theta) - cos^2(theta) = 1", "tan^2(theta) + 1 = sec^2(theta)", "cos^2(theta) + sin^2(theta) = 0", "1 - cot^2(theta) = csc^2(theta)"],
-                "b"
-            ],
-            [
-                "What is the indefinite integral of (4x^3 - 2x) dx?",
-                ["x^4 - x^2 + C", "12x^2 - 2 + C", "x^4 - 2x^2 + C", "4x^4 - 2x^2 + C"],
-                "a"
-            ],
-            [
-                "What is the derivative of a constant value with respect to x?",
-                ["1", "0", "The constant itself", "Undefined"],
-                "b"
-            ],
-            [
-                "Find the derivative of f(x) = x^5 using the basic power rule.",
-                ["5x", "5x^4", "x^4", "20x^3"],
-                "b"
-            ],
-            [
-                "What function is produced by differentiating cos(x)?",
-                ["sin(x)", "-sin(x)", "tan(x)", "-cos(x)"],
-                "b"
-            ],
-            [
-                "What is the basic integral of cos(x) dx?",
-                ["sin(x) + C", "-sin(x) + C", "cos(x) + C", "-cos(x) + C"],
-                "a"
-            ],
-            [
-                "Using integration rules, evaluate the indefinite integral of 1/x dx.",
-                ["x + C", "-1/x^2 + C", "ln|x| + C", "e^x + C"],
-                "c"
-            ],
-            [
-                "What is the derivative of the natural exponential function e^x?",
-                ["e^x", "xe^(x-1)", "1/e^x", "ln(x)"],
-                "a"
-            ],
-            [
-                "Evaluate the definite integral of 2x dx evaluated from x=0 to x=3.",
-                ["3", "6", "9", "12"],
-                "c"
-            ],
-            [
-                "What is the derivative of tan(x) with respect to x?",
-                ["sec(x)", "sec^2(x)", "csc^2(x)", "-sec^2(x)"],
-                "b"
-            ],
-            [
-                "Which calculus rule is explicitly used to differentiate a product of two functions?",
-                ["Chain Rule", "Quotient Rule", "Product Rule", "Power Rule"],
-                "c"
-            ],
-            [
-                "Which calculus method is used to differentiate composite functions like f(g(x))?",
-                ["Product Rule", "Chain Rule", "Quotient Rule", "Integration by parts"],
-                "b"
-            ],
-            [
-                "What is the value of the trigonometric function sin(pi/2) in radians?",
-                ["0", "0.5", "1", "-1"],
-                "c"
-            ],
-            [
-                "What is the value of cos(pi) in radians?",
-                ["1", "0", "-1", "Undefined"],
-                "c"
-            ],
-            [
-                "Convert a 180-degree angle completely into radian units.",
-                ["pi/2 radians", "pi radians", "2pi radians", "3pi/2 radians"],
-                "b"
-            ],
-            [
-                "What is the period of the standard circular function y = sin(x)?",
-                ["pi", "2pi", "pi/2", "3pi"],
-                "b"
-            ],
-            [
-                "What is the period of the standard circular function y = tan(x)?",
-                ["pi", "2pi", "pi/2", "Zero"],
-                "a"
-            ],
-            [
-                "Find the second derivative of the algebraic function f(x) = x^3.",
-                ["3x^2", "6x", "6", "0"],
-                "b"
-            ],
-            [
-                "Integration can be geometrically interpreted as finding what property under a curve?",
-                ["Slope", "Arc length", "Area", "Volume"],
-                "c"
-            ],
+    [
+        "If tanθ = 5/12 and θ is acute, what is sinθ?",
+        [
+            "5/13",
+            "12/13",
+            "13/5",
+            "5/12"
+        ],
+        "a"
+    ],
 
-            [
-                "What is the equation of a line passing through the point (2, 3) with a slope of 4?",
-                ["y = 4x + 5", "y = 4x - 5", "4y = x + 2", "y = 4x + 3"],
-                "b"
-            ],
-            [
-                "What is the slope of a straight line that runs perpendicular to the line y = -3x + 7?",
-                ["3", "-3", "1/3", "-1/3"],
-                "c"
-            ],
-            [
-                "In the standard slope-intercept form equation y = mx + c, what does 'm' represent?",
-                ["X-intercept", "Y-intercept", "Slope", "Coordinates"],
-                "c"
-            ],
-            [
-                "In the standard slope-intercept form equation y = mx + c, what does 'c' represent?",
-                ["Slope", "Y-intercept", "X-intercept", "Origin"],
-                "b"
-            ],
-            [
-                "What is the slope of a completely horizontal line plotted on a Cartesian plane?",
-                ["0", "1", "Undefined", "Infinite"],
-                "a"
-            ],
-            [
-                "What is the slope of a completely vertical line plotted on a Cartesian plane?",
-                ["0", "1", "Undefined", "-1"],
-                "c"
-            ],
-            [
-                "Find the slope of a straight line passing through the points (1, 2) and (3, 6).",
-                ["1", "2", "3", "4"],
-                "b"
-            ],
-            [
-                "What is the relationship between the slopes of two distinct parallel lines?",
-                ["They are negative reciprocals", "They multiply to -1", "They are exactly equal", "They add up to zero"],
-                "c"
-            ],
-            [
-                "Convert the slope-intercept equation y = 2x + 3 into standard linear form (Ax + By + C = 0).",
-                ["2x - y + 3 = 0", "2x + y + 3 = 0", "x - 2y + 3 = 0", "2x - y - 3 = 0"],
-                "a"
-            ],
-            [
-                "What is the y-intercept value of the straight line defined by 3x + 2y = 6?",
-                ["2", "3", "6", "0"],
-                "b"
-            ],
-            [
-                "What is the x-intercept value of the straight line defined by 4x - 2y = 8?",
-                ["2", "-4", "4", "8"],
-                "a"
-            ],
-            [
-                "Identify the equation of a line parallel to y = 5x - 2 that passes through the origin.",
-                ["y = -5x", "y = 5x", "y = x/5", "y = 5"],
-                "b"
-            ],
-            [
-                "What is the product of the slopes of two non-vertical lines that intersect perpendicularly?",
-                ["0", "1", "-1", "2"],
-                "c"
-            ],
-            [
-                "Find the midpoint of a line segment connecting the points (2, 4) and (6, 8).",
-                ["(4, 6)", "(3, 5)", "(8, 12)", "(2, 2)"],
-                "a"
-            ],
-            [
-                "Which of the following points explicitly lies on the line y = 3x + 1?",
-                ["(0, 0)", "(1, 4)", "(2, 6)", "(3, 9)"],
-                "b"
-            ],
-            [
-                "What is the equation of the horizontal line passing through the coordinate point (-5, 7)?",
-                ["x = -5", "y = 7", "y = -5", "x = 7"],
-                "b"
-            ],
-            [
-                "What is the equation of the vertical line passing through the coordinate point (3, -2)?",
-                ["x = 3", "y = -2", "x = -2", "y = 3"],
-                "a"
-            ],
-            [
-                "Find the slope of the line represented by the general linear equation 5x + y = 10.",
-                ["5", "-5", "10", "1"],
-                "b"
-            ],
-            [
-                "Calculate the distance between points (0,0) and (3,4) using the Euclidean distance formula.",
-                ["5", "7", "12", "25"],
-                "a"
-            ],
-            [
-                "What is the equation of a line with a slope of 0 that passes through the origin (0,0)?",
-                ["x = 0", "y = 0", "y = x", "y = 1"],
-                "b"
-            ]
+    [
+        "If tanθ = 5/12 and θ is acute, what is cosθ?",
+        [
+            "12/13",
+            "5/13",
+            "13/12",
+            "12/5"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity follows directly from the Pythagorean theorem?",
+        [
+            "sin²θ + cos²θ = 1",
+            "tan²θ + cot²θ = 1",
+            "sinθ + cosθ = 1",
+            "sec²θ + csc²θ = 1"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity is obtained by dividing sin²θ + cos²θ = 1 by cos²θ?",
+        [
+            "1 + tan²θ = sec²θ",
+            "1 + cot²θ = csc²θ",
+            "sec²θ - tan²θ = 1",
+            "csc²θ - cot²θ = 1"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity is obtained by dividing sin²θ + cos²θ = 1 by sin²θ?",
+        [
+            "1 + cot²θ = csc²θ",
+            "1 + tan²θ = sec²θ",
+            "sec²θ - tan²θ = 1",
+            "sin²θ = 1 - cos²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "If sinθ = 5/13, evaluate 1 - sin²θ.",
+        [
+            "144/169",
+            "25/169",
+            "12/13",
+            "5/12"
+        ],
+        "a"
+    ],
+
+    [
+        "If cosθ = 8/17, evaluate tanθ.",
+        [
+            "15/8",
+            "8/15",
+            "17/15",
+            "15/17"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to sec²θ - 1?",
+        [
+            "tan²θ",
+            "cot²θ",
+            "sin²θ",
+            "cos²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to csc²θ - 1?",
+        [
+            "cot²θ",
+            "tan²θ",
+            "sec²θ",
+            "sin²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "If sinθ = 7/25, what is secθ?",
+        [
+            "25/24",
+            "24/25",
+            "25/7",
+            "24/7"
+        ],
+        "a"
+    ],
+
+    [
+        "If cosθ = 4/5, what is cscθ?",
+        [
+            "5/3",
+            "3/5",
+            "5/4",
+            "4/3"
+        ],
+        "a"
+    ],
+
+    [
+        "If tanθ = 3/4, what is secθ?",
+        [
+            "5/4",
+            "4/5",
+            "5/3",
+            "3/5"
+        ],
+        "a"
+    ],
+
+    [
+        "sin²θ + cos²θ equals:",
+        [
+            "1",
+            "0",
+            "tan²θ",
+            "sec²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "1 - cos²θ equals:",
+        [
+            "sin²θ",
+            "tan²θ",
+            "sec²θ",
+            "cot²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "1 - sin²θ equals:",
+        [
+            "cos²θ",
+            "sec²θ",
+            "tan²θ",
+            "cot²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "If secθ = 13/12, what is tanθ?",
+        [
+            "5/12",
+            "12/5",
+            "13/5",
+            "5/13"
+        ],
+        "a"
+    ],
+
+    [
+        "If cscθ = 17/8, what is cotθ?",
+        [
+            "15/8",
+            "8/15",
+            "17/15",
+            "15/17"
+        ],
+        "a"
+    ],
+
+    [
+        "sin(A+B) equals:",
+        [
+            "sinA cosB + cosA sinB",
+            "sinA cosB - cosA sinB",
+            "cosA cosB + sinA sinB",
+            "cosA cosB - sinA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "sin(A-B) equals:",
+        [
+            "sinA cosB - cosA sinB",
+            "sinA cosB + cosA sinB",
+            "cosA cosB - sinA sinB",
+            "cosA cosB + sinA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "cos(A+B) equals:",
+        [
+            "cosA cosB - sinA sinB",
+            "cosA cosB + sinA sinB",
+            "sinA cosB + cosA sinB",
+            "sinA cosB - cosA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "cos(A-B) equals:",
+        [
+            "cosA cosB + sinA sinB",
+            "cosA cosB - sinA sinB",
+            "sinA cosB + cosA sinB",
+            "sinA cosB - cosA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "tan(A+B) equals:",
+        [
+            "(tanA + tanB)/(1 - tanA tanB)",
+            "(tanA - tanB)/(1 + tanA tanB)",
+            "(tanA + tanB)/(1 + tanA tanB)",
+            "(tanA - tanB)/(1 - tanA tanB)"
+        ],
+        "a"
+    ],
+
+    [
+        "tan(A-B) equals:",
+        [
+            "(tanA - tanB)/(1 + tanA tanB)",
+            "(tanA + tanB)/(1 - tanA tanB)",
+            "(tanA - tanB)/(1 - tanA tanB)",
+            "(tanA + tanB)/(1 + tanA tanB)"
+        ],
+        "a"
+    ],
+
+    [
+        "sin 2θ equals:",
+        [
+            "2sinθcosθ",
+            "sin²θ-cos²θ",
+            "2tanθ/(1+tan²θ)",
+            "cos²θ-sin²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "cos 2θ equals:",
+        [
+            "cos²θ - sin²θ",
+            "2sinθcosθ",
+            "1 - sin²θ",
+            "1 - cos²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which is also equal to cos2θ?",
+        [
+            "1 - 2sin²θ",
+            "2sinθcosθ",
+            "1 + 2sin²θ",
+            "2cos²θ - 1 + 2sin²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which is also equal to cos2θ?",
+        [
+            "2cos²θ - 1",
+            "2sinθcosθ",
+            "1 - 2cos²θ",
+            "sin²θ - cos²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "tan2θ equals:",
+        [
+            "2tanθ/(1-tan²θ)",
+            "2tanθ/(1+tan²θ)",
+            "(1-tan²θ)/(2tanθ)",
+            "(1+tan²θ)/(2tanθ)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to (1-cos2θ)/2?",
+        [
+            "sin²θ",
+            "cos²θ",
+            "tan²θ",
+            "sec²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to (1+cos2θ)/2?",
+        [
+            "cos²θ",
+            "sin²θ",
+            "tan²θ",
+            "csc²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity would be most useful to simplify sin²θ/(1-cos²θ)?",
+        [
+            "1-cos²θ=sin²θ",
+            "1+tan²θ=sec²θ",
+            "1+cot²θ=csc²θ",
+            "cos2θ=cos²θ-sin²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "sinθ/cosθ simplifies to:",
+        [
+            "tanθ",
+            "cotθ",
+            "secθ",
+            "cscθ"
+        ],
+        "a"
+    ],
+
+    [
+        "cosθ/sinθ simplifies to:",
+        [
+            "cotθ",
+            "tanθ",
+            "secθ",
+            "cscθ"
+        ],
+        "a"
+    ],
+
+    [
+        "A proof starts with sec²θ - tan²θ. It simplifies to:",
+        [
+            "1",
+            "0",
+            "sin²θ",
+            "cos²θ"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity is most useful in proving 1 + tan²θ = sec²θ?",
+        [
+            "sin²θ + cos²θ = 1",
+            "sin2θ = 2sinθcosθ",
+            "cos(A+B)",
+            "tan(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "sin75° can be evaluated exactly using:",
+        [
+            "sin(45°+30°)",
+            "sin(45°-30°)",
+            "cos(45°+30°)",
+            "tan(45°+30°)"
+        ],
+        "a"
+    ],
+
+    [
+        "cos15° can be evaluated exactly using:",
+        [
+            "cos(45°-30°)",
+            "cos(45°+30°)",
+            "sin(45°+30°)",
+            "tan(45°-30°)"
+        ],
+        "a"
+    ],
+    [
+        "Which expression is equal to sin(A+B) - sin(A-B)?",
+        [
+            "2cosA sinB",
+            "2sinA cosB",
+            "2sinA sinB",
+            "2cosA cosB"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equal to sin(A+B) + sin(A-B)?",
+        [
+            "2sinA cosB",
+            "2cosA sinB",
+            "2sinA sinB",
+            "2cosA cosB"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equal to cos(A-B) + cos(A+B)?",
+        [
+            "2cosA cosB",
+            "2sinA sinB",
+            "2sinA cosB",
+            "2cosA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equal to cos(A-B) - cos(A+B)?",
+        [
+            "2sinA sinB",
+            "2cosA cosB",
+            "2sinA cosB",
+            "2cosA sinB"
+        ],
+        "a"
+    ],
+
+    [
+        "If sin(A+B) = sinA cosB + cosA sinB, the second term represents:",
+        [
+            "The contribution of A's cosine and B's sine",
+            "The contribution of both sines",
+            "The contribution of both cosines",
+            "The contribution of A's sine and B's cosine"
+        ],
+        "a"
+    ],
+
+    [
+        "A student writes cos(A+B)=cosAcosB+sinAsinB. What mistake has been made?",
+        [
+            "The sign before sinAsinB should be negative",
+            "The sign before cosAcosB should be negative",
+            "The terms should be divided",
+            "The formula is correct"
+        ],
+        "a"
+    ],
+
+    [
+        "Which pair of formulas differ only by a sign change?",
+        [
+            "sin(A+B) and sin(A-B)",
+            "sin(A+B) and cos(A+B)",
+            "cos(A+B) and tan(A+B)",
+            "sin(A-B) and tan(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which pair of formulas contain identical terms but differ only by the sign between them?",
+        [
+            "cos(A+B) and cos(A-B)",
+            "sin(A+B) and cos(A+B)",
+            "tan(A+B) and sin(A+B)",
+            "tan(A-B) and cos(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "If A=45° and B=30°, which formula would directly produce an exact value for sin75°?",
+        [
+            "sin(A+B)",
+            "cos(A+B)",
+            "tan(A+B)",
+            "cos(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "If A=45° and B=30°, which formula would directly produce an exact value for cos15°?",
+        [
+            "cos(A-B)",
+            "sin(A+B)",
+            "tan(A+B)",
+            "sin(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "The denominator of tan(A+B) contains:",
+        [
+            "1 - tanA tanB",
+            "1 + tanA tanB",
+            "tanA + tanB",
+            "tanA - tanB"
+        ],
+        "a"
+    ],
+
+    [
+        "The denominator of tan(A-B) contains:",
+        [
+            "1 + tanA tanB",
+            "1 - tanA tanB",
+            "tanA + tanB",
+            "tanA - tanB"
+        ],
+        "a"
+    ],
+
+    [
+        "Which identity would be most efficient for finding tan75° exactly?",
+        [
+            "tan(45°+30°)",
+            "sin(45°+30°)",
+            "cos(45°+30°)",
+            "sin2θ"
+        ],
+        "a"
+    ],
+
+    [
+        "A student wants to evaluate sin105°. Which decomposition is most useful?",
+        [
+            "sin(60°+45°)",
+            "sin(60°-45°)",
+            "sin(90°+15°)",
+            "sin(120°-15°)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression simplifies to sinAcosB?",
+        [
+            "(sin(A+B)+sin(A-B))/2",
+            "(sin(A+B)-sin(A-B))/2",
+            "(cos(A-B)+cos(A+B))/2",
+            "(cos(A-B)-cos(A+B))/2"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression simplifies to cosAsinB?",
+        [
+            "(sin(A+B)-sin(A-B))/2",
+            "(sin(A+B)+sin(A-B))/2",
+            "(cos(A-B)+cos(A+B))/2",
+            "(cos(A-B)-cos(A+B))/2"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression simplifies to cosAcosB?",
+        [
+            "(cos(A-B)+cos(A+B))/2",
+            "(cos(A-B)-cos(A+B))/2",
+            "(sin(A+B)+sin(A-B))/2",
+            "(sin(A+B)-sin(A-B))/2"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression simplifies to sinAsinB?",
+        [
+            "(cos(A-B)-cos(A+B))/2",
+            "(cos(A-B)+cos(A+B))/2",
+            "(sin(A+B)-sin(A-B))/2",
+            "(sin(A+B)+sin(A-B))/2"
+        ],
+        "a"
+    ],
+
+    [
+        "Which product can be converted directly using the identity sin(A+B)+sin(A-B)?",
+        [
+            "sinA cosB",
+            "cosA sinB",
+            "sinA sinB",
+            "cosA cosB"
+        ],
+        "a"
+    ],
+
+    [
+        "Which product can be converted directly using the identity cos(A-B)+cos(A+B)?",
+        [
+            "cosA cosB",
+            "sinA sinB",
+            "sinA cosB",
+            "cosA sinB"
+        ],
+        "a"
+    ],
+    [
+        "When expanding cos(A+B), which product is subtracted?",
+        [
+            "sinA sinB",
+            "sinA cosB",
+            "cosA sinB",
+            "cosA cosB"
+        ],
+        "a"
+    ],
+
+    [
+        "When expanding cos(A-B), which product is added?",
+        [
+            "sinA sinB",
+            "sinA cosB",
+            "cosA sinB",
+            "cosA cosB"
+        ],
+        "a"
+    ],
+
+    [
+        "A student remembers 'sine keeps its first sign'. Which pair demonstrates this?",
+        [
+            "sin(A+B) and sin(A-B)",
+            "cos(A+B) and cos(A-B)",
+            "tan(A+B) and tan(A-B)",
+            "cos(A+B) and sin(A+B)"
+        ],
+        "a"
+    ],
+
+    [
+        "If sin(A+B)=1 and sin(A-B)=0, then sin(A+B)+sin(A-B) equals:",
+        [
+            "1",
+            "0",
+            "2",
+            "-1"
+        ],
+        "a"
+    ],
+
+    [
+        "Which formula is most useful when a product of two trigonometric functions needs to be rewritten as a sum?",
+        [
+            "Product-to-sum identities",
+            "Double-angle identities",
+            "Reciprocal identities",
+            "Pythagorean identities"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to 2sinAcosB?",
+        [
+            "sin(A+B)+sin(A-B)",
+            "sin(A+B)-sin(A-B)",
+            "cos(A-B)+cos(A+B)",
+            "cos(A-B)-cos(A+B)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to 2cosAsinB?",
+        [
+            "sin(A+B)-sin(A-B)",
+            "sin(A+B)+sin(A-B)",
+            "cos(A-B)+cos(A+B)",
+            "cos(A-B)-cos(A+B)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to 2cosAcosB?",
+        [
+            "cos(A-B)+cos(A+B)",
+            "cos(A-B)-cos(A+B)",
+            "sin(A+B)+sin(A-B)",
+            "sin(A+B)-sin(A-B)"
+        ],
+        "a"
+    ],
+
+    [
+        "Which expression is equivalent to 2sinAsinB?",
+        [
+            "cos(A-B)-cos(A+B)",
+            "cos(A-B)+cos(A+B)",
+            "sin(A+B)+sin(A-B)",
+            "sin(A+B)-sin(A-B)"
+        ],
+        "a"
+    ]
         ]
         
     def sta(self):
@@ -1973,7 +2560,7 @@ class Question:
         ]
 
 
-class QuizApp(tk.Tk):
+class QuizApp(tk.Tk, Question):
     def __init__(self):
         super().__init__()
         self.width = 650
@@ -1986,14 +2573,14 @@ class QuizApp(tk.Tk):
 
 
         self.courses = ["COS 102","MTH 114", "STA 112" ] # course for the dropdown menu
-        self.selected_course = tk.StringVar(value=self.courses[0]) #for the dropwown in the welcome page
+        self.selected_course = tk.StringVar(master = self,value=self.courses[0]) #for the dropwown in the welcome page
         self.hours = [f"{x:02d}" for x in range(5)]#4 hour max
-        self.selected_hour = tk.StringVar(value="0")
+        self.selected_hour = tk.StringVar(master = self,value="0")
         self.minutes = [f"{i:02d}" for i in range(0, 60, 5)]
         self.minutes.insert(1, "01") # for testing what happens on time run out
         self.minutes.insert(2, "02")
-        self.selected_min = tk.StringVar(value="10")
-        self.selected_question_lenght = tk.StringVar(value="00") # the lenght of the question the user want to do
+        self.selected_min = tk.StringVar(master = self,value="10")
+        self.selected_question_lenght = tk.StringVar(master = self,value="00") # the lenght of the question the user want to do
         self.question_option = [f"{i:02d}" for i in range(0, 101, 5)]
         
         
@@ -2243,9 +2830,9 @@ class QuizApp(tk.Tk):
         
     def questionFilter(self):#scrutinizing the pool to select question from  based on selected course
         self.allQuestionBeforeFilter = [] #this is to first bring in all the question from the course without shufffling or giving a fuck about lenght
-        if self.selected_course.get() == "COS 102":self.allQuestionBeforeFilter.extend(Question().cos())
-        elif self.selected_course.get() == "MTH 114":self.allQuestionBeforeFilter.extend(Question().mth())
-        elif self.selected_course.get() == "STA 112":self.allQuestionBeforeFilter.extend(Question().sta())
+        if self.selected_course.get() == "COS 102":self.allQuestionBeforeFilter.extend(self.cos())
+        elif self.selected_course.get() == "MTH 114":self.allQuestionBeforeFilter.extend(self.mth114())
+        elif self.selected_course.get() == "STA 112":self.allQuestionBeforeFilter.extend(self.sta())
         if len(self.allQuestionBeforeFilter) < int(self.selected_question_lenght.get()):
             return False
         self.question_pool = [] # this will house the question displayed to the user for the duration of the quiz
@@ -2276,7 +2863,11 @@ class QuizApp(tk.Tk):
             anchor="w"
         )
         self.course_lbl.pack(side="left", padx=10)
-        
+        #cal btn
+        self.cal = tk.Button(self.quiz_header_frame, text="Calculator", font=("Segoe UI", 10), bg="#aaaaaa", fg="white", padx=10, pady=5 ,bd=0, command=lambda: CoverUp().mainloop())
+
+        self.cal = tk.Button(self.quiz_header_frame, text="calc", font=("Segoe UI", 9), bg="green", fg="white", padx=10, pady=5 ,bd=0, command=lambda: CoverUp().mainloop())
+        self.cal.pack(side="left", padx=10)
         #right: Duration Title
         self.duration_countdown_display()
     
@@ -2463,8 +3054,8 @@ class QuizApp(tk.Tk):
                     for i in self.deepAnalysisFrame.winfo_children(): #or the deepanalysis frame
                         i.destroy()
                     self.deepAnalysisFrame.pack_forget()
-                    self.build_home_page() # Go back to the home page
-                except:pass
+                except Exception as e:pass
+                self.build_home_page() # Go back to the home page
     #for when ans is selected
     def optButtonSelected(self):
         self.answer_pool[self.current_question_index.get()] = self.selected_option.get()
