@@ -6,8 +6,9 @@ current_dir = Path(__file__).resolve().parent
 sys.path.append(str(current_dir))
 
 
-from calculator.main import CoverUp 
-from quiz_app.main import QuizApp, Question
+from calculator import CoverUp 
+from quiz_app import QuizApp
+from utility import Question
 
 
 class ScrollableFrame(tkinter.Frame):

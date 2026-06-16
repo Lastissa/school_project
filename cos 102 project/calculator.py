@@ -287,7 +287,7 @@ make x the subject of the formula
    
    
 class CalByOpe(Tk):
-    def __init__(self):
+    def __init__(self, width_pos, height_pos):
         super().__init__()
         self.is_shift_on = False #for knowing when shift is active
         self.max_calulator_view_lenght = 5 #for the max amoutn of operation the cal is allowed to show
@@ -297,7 +297,7 @@ class CalByOpe(Tk):
         self.ans_key_value = StringVar(master = self, value="0") #for updating the value the ANS key will get
         self.phi = 22/7
         self.e = math.e
-        self.geometry("400x700+0+0")
+        self.geometry(f"400x700+{width_pos}+{height_pos}")
         self.title("Group 1 calculator")
         self.config(bg = self.colors()["bg"])
         self.display()
@@ -1315,8 +1315,8 @@ class CalByOpe(Tk):
                     
         
 class CoverUp(CalByOpe):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, width_pos = 0, height_pos = 0):
+        super().__init__(width_pos = width_pos, height_pos = height_pos)
         
    
 if __name__ == "__main__": 
