@@ -1,4 +1,3 @@
-from calculator import Utility
 
 #the questions for quiz app - i used AI to generate question to save time and more pool to randomize from
 class Question:
@@ -2393,71 +2392,71 @@ class Question:
             #     ["0.01", "0.05", "0.10", "0.20"],
             #     "b"
             # ],
-            # [
-            #     "What is the expected mean current if the measurements are uniformly distributed between 0 and 20 mA?",
-            #     ["5 mA", "10 mA", "15 mA", "20 mA"],
-            #     "b"
-            # ],
-            # [
-            #     "Which standard distribution is famously characterized by a bell-shaped, symmetric curve around its mean?",
-            #     ["Uniform distribution", "Poisson distribution", "Geometric distribution", "Normal distribution"],
-            #     "d"
-            # ],
-            # [
-            #     "What notation is universally used to denote a normal distribution with mean mu and variance sigma^2?",
-            #     ["U(mu, sigma^2)", "N(mu, sigma^2)", "P(lambda)", "B(n, p)"],
-            #     "b"
-            # ],
-            # [
-            #     "For any normal random variable, what is the approximate probability that X lies within one standard deviation of the mean?",
-            #     ["0.5000", "0.6827", "0.9545", "0.9973"],
-            #     "b"
-            # ],
-            # [
-            #     "For any normal random variable, what is the approximate probability that X lies within two standard deviations of the mean?",
-            #     ["0.6827", "0.8500", "0.9545", "0.9973"],
-            #     "c"
-            # ],
-            # [
-            #     "For any normal random variable, what is the approximate probability that X lies within three standard deviations of the mean?",
-            #     ["0.6827", "0.9545", "0.9900", "0.9973"],
-            #     "d"
-            # ],
-            # [
-            #     "What transformation formula is used to create a standard normal random variable Z from a normal variable X?",
-            #     ["Z = (X - mu) / sigma", "Z = (X - sigma) / mu", "Z = X - mu", "Z = (X - mu) / sigma^2"],
-            #     "a"
-            # ],
-            # [
-            #     "What are the expected mean and variance values of the transformed standard normal variable Z?",
-            #     ["Mean=1, Variance=0", "Mean=0, Variance=1", "Mean=mu, Variance=sigma", "Mean=0, Variance=0"],
-            #     "b"
-            # ],
-            # [
-            #     "If the amount of recycling newspaper is normally distributed with mean 28 pounds and standard deviation 2, what is sigma?",
-            #     ["1 pound", "2 pounds", "4 pounds", "28 pounds"],
-            #     "b"
-            # ],
-            # [
-            #     "The cumulative distribution function of a standard normal random variable is commonly denoted by which symbol?",
-            #     ["f(x)", "p(x)", "Phi(z)", "Lambda(x)"],
-            #     "c"
-            # ],
-            # [
-            #     "What is the range of real values allowed for the variable x in a standard normal distribution pdf?",
-            #     ["From 0 to infinity", "From negative infinity to positive infinity", "From alpha to beta", "From -1 to +1"],
-            #     "b"
-            # ],
-            # [
-            #     "If a wire current measurement has a mean of 10 mA and variance of 4, what is the standard deviation?",
-            #     ["2 mA", "4 mA", "10 mA", "16 mA"],
-            #     "a"
-            # ],
-            # [
-            #     "The continuous uniform distribution is used when an event is described as being what over an interval?",
-            #     ["Highly skewed", "Equally likely", "Normally centered", "Exponentially decaying"],
-            #     "b"
-            # ],
+            [
+                "What is the expected mean current if the measurements are uniformly distributed between 0 and 20 mA?",
+                ["5 mA", "10 mA", "15 mA", "20 mA"],
+                "b"
+            ],
+            [
+                "Which standard distribution is famously characterized by a bell-shaped, symmetric curve around its mean?",
+                ["Uniform distribution", "Poisson distribution", "Geometric distribution", "Normal distribution"],
+                "d"
+            ],
+            [
+                "What notation is universally used to denote a normal distribution with mean mu and variance sigma^2?",
+                ["U(mu, sigma^2)", "N(mu, sigma^2)", "P(lambda)", "B(n, p)"],
+                "b"
+            ],
+            [
+                "For any normal random variable, what is the approximate probability that X lies within one standard deviation of the mean?",
+                ["0.5000", "0.6827", "0.9545", "0.9973"],
+                "b"
+            ],
+            [
+                "For any normal random variable, what is the approximate probability that X lies within two standard deviations of the mean?",
+                ["0.6827", "0.8500", "0.9545", "0.9973"],
+                "c"
+            ],
+            [
+                "For any normal random variable, what is the approximate probability that X lies within three standard deviations of the mean?",
+                ["0.6827", "0.9545", "0.9900", "0.9973"],
+                "d"
+            ],
+            [
+                "What transformation formula is used to create a standard normal random variable Z from a normal variable X?",
+                ["Z = (X - mu) / sigma", "Z = (X - sigma) / mu", "Z = X - mu", "Z = (X - mu) / sigma^2"],
+                "a"
+            ],
+            [
+                "What are the expected mean and variance values of the transformed standard normal variable Z?",
+                ["Mean=1, Variance=0", "Mean=0, Variance=1", "Mean=mu, Variance=sigma", "Mean=0, Variance=0"],
+                "b"
+            ],
+            [
+                "If the amount of recycling newspaper is normally distributed with mean 28 pounds and standard deviation 2, what is sigma?",
+                ["1 pound", "2 pounds", "4 pounds", "28 pounds"],
+                "b"
+            ],
+            [
+                "The cumulative distribution function of a standard normal random variable is commonly denoted by which symbol?",
+                ["f(x)", "p(x)", "Phi(z)", "Lambda(x)"],
+                "c"
+            ],
+            [
+                "What is the range of real values allowed for the variable x in a standard normal distribution pdf?",
+                ["From 0 to infinity", "From negative infinity to positive infinity", "From alpha to beta", "From -1 to +1"],
+                "b"
+            ],
+            [
+                "If a wire current measurement has a mean of 10 mA and variance of 4, what is the standard deviation?",
+                ["2 mA", "4 mA", "10 mA", "16 mA"],
+                "a"
+            ],
+            [
+                "The continuous uniform distribution is used when an event is described as being what over an interval?",
+                ["Highly skewed", "Equally likely", "Normally centered", "Exponentially decaying"],
+                "b"
+            ],
             [
                 "The total area under the standard normal curve to the left of its mean of 0 is equal to what value?",
                 ["0.0", "0.25", "0.50", "1.00"],
@@ -2465,110 +2464,4 @@ class Question:
             ]
         ]
 
-
-#this class is to handle the advance part of the calculator like solving quadraric equation and the other
-class CustomMth(Utility):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.divisors_purpose = "For getting all the possible numbers that can divide a number e.g dvisor of 4 is [1,2,4]"
-        self.quad_factorization_equ_prod_sum_purpose = "return and/or print the possible two nmbers that can be the product and sum of a quadratic expressiom e.g prod of x,y = 2 and sum = 3, x,y = [2,1]"
-      
-    def divisors(self, number: int, only_positive_number=False, display=True):
-        divisors = []
-        for i in range(1, number + 1):
-            if number % i == 0:
-                # Check repeat
-                if number % i not in divisors:
-                    divisors.append(i)  # +ve value
-                    if only_positive_number == False:
-                        divisors.append(i * -1)  # -ve value
-        if display == True:
-            print(f" all the possbile values are: {divisors}-\thint: set display as false to stop the default printing")
-        return divisors
-        
-    def quad_factorization_equ_prod_sum(self, x2_coef, x_coef, c_coef, all_possible_values=False):
-        # check if the product is decimal
-        product = float(x2_coef) * float(c_coef)
-        is_decimal = product != int(product)
-      
-        # its a decimal, terminate
-        if is_decimal:
-            return TypeError("only integer are allowed")
-      
-        product_abs = abs(int(product))
-        divisors = self.divisors(product_abs, display=False)
-        two_number_whoose_prod_and_sum_matters = []  # [x, y]
-        all_possible_products = []
-        
-        for i in divisors:
-            for j in divisors:
-                to_add = [i, j]
-                to_add.sort()
-                if to_add not in all_possible_products:
-                    all_possible_products.append(to_add)
-                
-                    # check if to_add values sum and add match with the product and x_coeficient
-                    multiply_works = to_add[0] * to_add[1] == product
-                    sum_works = to_add[0] + to_add[1] == float(x_coef) 
-                    
-                    if multiply_works == True and sum_works == True:
-                        to_add.sort()
-                        two_number_whoose_prod_and_sum_matters = to_add
-                    
-        if all_possible_values == True:
-            all_possible_products.sort()
-            for i in all_possible_products:
-                if i == two_number_whoose_prod_and_sum_matters:
-                    print(f"{i} = MATCH")
-                print(i)
-            return two_number_whoose_prod_and_sum_matters
-        
-        return two_number_whoose_prod_and_sum_matters  # a list
-
-    def quad_factorization_method_solution(self, x2, x, c):
-        middle_coeficents = self.quad_factorization_equ_prod_sum(x2, x, c, all_possible_values=True)
-        
-        # if anything is wrong with this list, just raise some error
-        if type(middle_coeficents) != type([]) or len(middle_coeficents) != 2:
-            toReturn = f"""
-Factorization method wont wont,\nTry other method
-"""
-            return toReturn
-        else:
-            mid_coef_1 = middle_coeficents[0]
-            mid_coef_2 = middle_coeficents[1]
-            
-            mid_coef_1_symbol = "-" if mid_coef_1 < 0 else "+"
-            mid_coef_1_value = abs(mid_coef_1)
-            
-            mid_coef_2_symbol = "-" if mid_coef_2 < 0 else "+"
-            mid_coef_2_value = abs(mid_coef_2)
-            
-            x2_symbol = "-" if float(x2) < 0 else "+"
-            x2_value = self.tryFloatToInt(abs(float(x2)))
-            
-            x_symbol = "-" if float(x) < 0 else "+"
-            x_value = self.tryFloatToInt(abs(float(x)))
-            
-            c_symbol = "-" if float(c) < 0 else "+"
-            c_value = self.tryFloatToInt(abs(float(c)))
-            
-            result = f"""
-USING MY FAV; FACTORIZATION METHOD.
-
-{x2}x² {x_symbol}{x_value}x {c_symbol}{c_value} 
-product of two number = = {int(float(x2) * float(c))}
-sum of same two num = {x}
-best fit two numbers = {mid_coef_1} & {mid_coef_2}
-replace {x}x with {mid_coef_1}x {mid_coef_2_symbol} {mid_coef_2_value}x
-
-=> {x2}x² {mid_coef_1_symbol} {mid_coef_1_value}x {mid_coef_2_symbol} {mid_coef_2_value}x {c_symbol}{c_value}
-
-From here , group it and factorize it.
-        """
-            return result
-            # testing_output = [self.tryFloatToInt(x2), mid_coef_1_value, mid_coef_2_value, c_value]
-            # print(testing_output)
-
-     
-   
+ 

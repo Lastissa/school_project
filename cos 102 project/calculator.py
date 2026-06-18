@@ -2,12 +2,11 @@ from tkinter import *
 from tkinter import ttk,messagebox
 import math
 
-#i used the try and exceot incase the file want to be put in place
-try: from utility import CustomMth
-except: pass
-
 
 history = [] # A list for catching every equal
+syntax_error = "syntax error"
+limit_error = "Limit Error"
+infinity_error = "infinity"
 #for extra hand i migth both in cal and quiz app need and i dont want to torepeat the code like checking if something is into or float
 class Utility:
     def __init__(self):
@@ -88,14 +87,16 @@ class Utility:
             print(f"{e} - Error main clip function")
             return value
     
-    def isErrorPresent(self, stringVar : StringVar):#for checking wether error is in the display
-        if "syntax error" in stringVar.get() or "Limit Error" in stringVar.get() or "infinity" in stringVar.get() or "inf" in stringVar.get():
+    def isErrorPresentInCalculator(self, stringVar : StringVar):#for checking wether error is in the display
+        if syntax_error in stringVar.get() or limit_error in stringVar.get() or infinity_error in stringVar.get() or "inf" in stringVar.get():
             stringVar.set("0")
+            return True
+        elif  "Ans" == stringVar.get()[-3:]:#only for use by the delete btn
             return True
         else:
             return False
     
-    def isAddSubMulDivPresent(self, stringVar : StringVar):
+    def isAddSubMulDivPresentInCalculator(self, stringVar : StringVar):
         if "add" in stringVar.get() == "sub" == stringVar.get() or "mul" == stringVar.get() or "div" == stringVar.get():
             stringVar.set("0")
             return True
@@ -107,46 +108,19 @@ class Utility:
             
             StringVar.set(str(eval(StringVar.get())))
             return True
+        
         except Exception as e:
             print(f"unable to eval --- {e}")
             return False
         
     def quadratic_solving(self, method_var: StringVar,x2:str, x: str, c: str, stringVar : StringVar):
-        for_faster_clipping = lambda number : Utility().clipLenght(Utility().tryFloatToInt(number), 3)
+        for_faster_clipping = lambda number : self.clipLenght(self.tryFloatToInt(number), 3)
         x2_clip = for_faster_clipping(x2) #String
         x_clip =  for_faster_clipping(x)#String
         c_clip =  for_faster_clipping(c)#String
         if method_var.get().upper() == "FORMULA METHOD":
             try:
-                #breakdown of working
-                first0 = -1 * float(x) #-b
-                first1 = float(x)**2 #b ^ 2
-                second0 = float(x2) * 4*float(c) # 4ac
-                sqrt = math.sqrt(first1 - second0) #sqrt(b^2 - 4ac)
-                second1 = 2*float(x2) # 2a - denominator
-                
-                final_num_negative = (first0 - sqrt ) / second1
-                final_num_positive = (first0 + sqrt ) / second1
-                print([final_num_negative, final_num_positive])
-                #use the formual method
-                result =  f"""
-USING FORMULA METHOD
-=> -b +/- √(b² - 4ac)   / 2a
-where a = {x2_clip}, b = {x_clip} and c = {c_clip}
-replacing the value => 
-numerator = {for_faster_clipping(first0)} ± √({x_clip}² - 4*{x2_clip}*{c_clip})
-denominator = 2*{x2_clip}
-
-simplify => {for_faster_clipping(first0)} ± √{for_faster_clipping(first1 - second0)} / {for_faster_clipping(second1)}
-simplify => {for_faster_clipping(first0)} ± {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
-X =  {for_faster_clipping(first0)} + {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
-or 
-X = {for_faster_clipping(first0)} - {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
-
-result => x = {for_faster_clipping(final_num_negative)} OR {for_faster_clipping(final_num_positive)}
-
-x = {for_faster_clipping(final_num_negative)},{for_faster_clipping(final_num_positive)}
-"""
+                result = CustomMth().quad_formula_method_solution(x2_clip, x_clip, c_clip, clip_lenght=3)
                 return stringVar.set(result)
             except Exception as e:
                 print(f"{e} -- quad form method no work" )
@@ -175,103 +149,8 @@ x = {for_faster_clipping(final_num_negative)},{for_faster_clipping(final_num_pos
         y2_clip = for_faster_clipping(y2)
         z2_clip = for_faster_clipping(z2)
         
-        if method_var.get().upper() == "SUBSTITUTION METHOD":
-            try:
-                sub_of_the_form = ["unknown", "unknown"] #[the actual value, the index wether first equ or second equ]
-                if float(x1) != 0:
-                    sub_of_the_form = [float(x1), 0]
-                elif float(y1) != 0:
-                    sub_of_the_form = [float(y1), 0]
-                elif float(x2) != 0:
-                    sub_of_the_form = [float(x2), 1]
-                elif float(y2) != 0:
-                    sub_of_the_form = [float(y2), 1]
-                    
-                if sub_of_the_form[1] == 0 :#the order still stay cos i got the subject from the first equ
-                    first_equation = [float(x1), float(y1), float(z1)]
-                    second_equation = [float(x2), float(y2), float(z2)]
-                elif  sub_of_the_form[1] == 1 :#the order flip cos i got the subject from the second equ
-                    first_equation = [float(x2), float(y2), float(z2)]
-                    second_equation = [float(x1), float(y1), float(z1)]
-                else:
-                    result = "You dey whine, how can all value be zero"
-                    return stringVar.set(result)
-
-                
-                #i have gotten the order right, now solving
-                #for flipping symbol
-                flip = {"+": "-", "-": "+"}
-                #get the symbol infront of each value
-                first_equation_symbol = []
-                second_equation_symbol = []   
-                for i in first_equation:
-                    if str(i)[0] == "-": first_equation_symbol.append("-")
-                    else:first_equation_symbol.append("+")  
-                          
-                for i in second_equation:
-                    if str(i)[0] == "-": second_equation_symbol.append("-")
-                    else:second_equation_symbol.append("+")        
-                
-                #first, try to get the 3rd equ
-                if first_equation[0] == 1: # since its one , dont do div
-                    third_equ = f"""{flip[first_equation_symbol[1]]}{for_faster_clipping(abs(first_equation[1]))}y {first_equation_symbol[2]} {for_faster_clipping(abs(first_equation[2]))}""" #+y + z vibes
-                    continutation = f"""x = {third_equ} --equation 3
-Sub equation(3) for x in equation {(sub_of_the_form[1] + 1)%2+1}
-=> {for_faster_clipping(second_equation[0])}({third_equ.strip()}) {second_equation_symbol[1]} {for_faster_clipping(abs(second_equation[1]))}y = {for_faster_clipping(second_equation[2])}"""
-
-                    remove_bracket = [second_equation[0] * first_equation[1]*-1, second_equation[0]*first_equation[2]] # [x2(y1), x2(z1)]
-                    continutation = f"""
-{continutation}
-=> {for_faster_clipping((remove_bracket[0]))} + {for_faster_clipping(remove_bracket[1])}  {second_equation_symbol[1]} {for_faster_clipping(abs(second_equation[1]))}y = {for_faster_clipping(second_equation[2])}
-"""
-                    simplify = eval(f"{for_faster_clipping((remove_bracket[0]))} + {for_faster_clipping(remove_bracket[1])}")
-                    continutation = f"""{continutation}
-=> {for_faster_clipping(simplify)} {second_equation_symbol[1]} {for_faster_clipping(abs(second_equation[1]))}y = {for_faster_clipping(second_equation[2])}
-"""                 
-                    continutation = f"""
-{continutation}
-=> {for_faster_clipping(second_equation[1])}y =  {for_faster_clipping(second_equation[2])} + {simplify * -1}
-"""
-                    y_result = eval(f"{second_equation[2]} + {self.tryFloatToInt(simplify * -1)}")
-                    continutation = f"""
-{continutation}
-=> y = {for_faster_clipping(y_result)}                  
-"""
-                    continutation =f"""
-{continutation}
-=> sub {for_faster_clipping(y_result)} for y in equation 3
-x = {for_faster_clipping(y_result * eval(f"{flip[first_equation_symbol[1]]}{abs(first_equation[1])}"))}
-"""
-                
-                elif first_equation[0] == 0:#this mean, the 3rd equ will just use y and the other
-                    third_equ = f""""""
-                else: # a proper sub method with div and all
-                    pass
-                    pass
-                
-                result = f"""
-USING SUBSTITUTION METHOD
-from equation {sub_of_the_form[1] + 1} =>
-make x the subject of the formula
-{continutation}
-"""
-
-                return stringVar.set(result)
-            except Exception as e:
-                print(e)
-                result = "Errror, please check other method"
-                return stringVar.set(result)
-        elif method_var.get().upper() == "ELIMINATION METHOD":
-            try:
-                result = """
-    USING ELIMINATION METHOD
-    """
-                
-                return stringVar.set(result)
-            except Exception as e:
-                print(e)
-                messagebox.showerror("Error", "please check other method")
-        
+        if 1 == 2:
+            pass
         else:
             print("no method choosen")
             result = "Please select a method"
@@ -280,7 +159,144 @@ make x the subject of the formula
         if method_var.get().upper() == "FIND N-TH TERM":
             pass
         
-   
+#this class is to handle the advance part of the calculator like solving quadraric equation and the other
+class CustomMth(Utility):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.divisors_purpose = "For getting all the possible numbers that can divide a number e.g dvisor of 4 is [1,2,4]"
+        self.quad_factorization_equ_prod_sum_purpose = "return and/or print the possible two nmbers that can be the product and sum of a quadratic expressiom e.g prod of x,y = 2 and sum = 3, x,y = [2,1]"
+        self.quad_factorization_method_solution_purpose = "return a string that solve quadratic equatiion"
+      
+    def divisors(self, number: int, only_positive_number=False, display=True):
+        divisors = []
+        for i in range(1, number + 1):
+            if number % i == 0:
+                # Check repeat
+                if number % i not in divisors:
+                    divisors.append(i)  # +ve value
+                    if only_positive_number == False:
+                        divisors.append(i * -1)  # -ve value
+        if display == True:
+            print(f" all the possbile values are: {divisors}-\thint: set display as false to stop the default printing")
+        return divisors
+        
+    def quad_factorization_equ_prod_sum(self, x2_coef, x_coef, c_coef, all_possible_values=False):
+        # check if the product is decimal
+        product = float(x2_coef) * float(c_coef)
+        is_decimal = product != int(product)
+      
+        # its a decimal, terminate
+        if is_decimal:
+            return TypeError("only integer are allowed")
+      
+        product_abs = abs(int(product))
+        divisors = self.divisors(product_abs, display=False)
+        two_number_whoose_prod_and_sum_matters = []  # [x, y]
+        all_possible_products = []
+        
+        for i in divisors:
+            for j in divisors:
+                to_add = [i, j]
+                to_add.sort()
+                if to_add not in all_possible_products:
+                    all_possible_products.append(to_add)
+                
+                    # check if to_add values sum and add match with the product and x_coeficient
+                    multiply_works = to_add[0] * to_add[1] == product
+                    sum_works = to_add[0] + to_add[1] == float(x_coef) 
+                    
+                    if multiply_works == True and sum_works == True:
+                        to_add.sort()
+                        two_number_whoose_prod_and_sum_matters = to_add
+                    
+        if all_possible_values == True:
+            all_possible_products.sort()
+            for i in all_possible_products:
+                if i == two_number_whoose_prod_and_sum_matters:
+                    print(f"{i} = MATCH")
+                print(i)
+            return two_number_whoose_prod_and_sum_matters
+        
+        return two_number_whoose_prod_and_sum_matters  # a list
+
+    def quad_factorization_method_solution(self, x2, x, c):
+        middle_coeficents = self.quad_factorization_equ_prod_sum(x2, x, c, all_possible_values=True)
+        
+        # if anything is wrong with this list, just raise some error
+        if type(middle_coeficents) != type([]) or len(middle_coeficents) != 2:
+            toReturn = f"""
+Factorization method wont wont,\nTry other method
+"""
+            return toReturn
+        else:
+            mid_coef_1 = middle_coeficents[0]
+            mid_coef_2 = middle_coeficents[1]
+            
+            mid_coef_1_symbol = "-" if mid_coef_1 < 0 else "+"
+            mid_coef_1_value = abs(mid_coef_1)
+            
+            mid_coef_2_symbol = "-" if mid_coef_2 < 0 else "+"
+            mid_coef_2_value = abs(mid_coef_2)
+            
+            x2_symbol = "-" if float(x2) < 0 else "+"
+            x2_value = self.tryFloatToInt(abs(float(x2)))
+            
+            x_symbol = "-" if float(x) < 0 else "+"
+            x_value = self.tryFloatToInt(abs(float(x)))
+            
+            c_symbol = "-" if float(c) < 0 else "+"
+            c_value = self.tryFloatToInt(abs(float(c)))
+            
+            result = f"""
+USING MY FAV; FACTORIZATION METHOD.
+
+{x2}x² {x_symbol}{x_value}x {c_symbol}{c_value} 
+product of two number = = {int(float(x2) * float(c))}
+sum of same two num = {x}
+best fit two numbers = {mid_coef_1} & {mid_coef_2}
+replace {x}x with {mid_coef_1}x {mid_coef_2_symbol} {mid_coef_2_value}x
+
+=> {x2}x² {mid_coef_1_symbol} {mid_coef_1_value}x {mid_coef_2_symbol} {mid_coef_2_value}x {c_symbol}{c_value}
+
+From here , group it and factorize it.
+        """
+            return result
+            # testing_output = [self.tryFloatToInt(x2), mid_coef_1_value, mid_coef_2_value, c_value]
+            # print(testing_output)
+
+    def quad_formula_method_solution(self, x2, x, c, clip_lenght : int):
+        for_faster_clipping = lambda number : self.clipLenght(self.tryFloatToInt(number), clip_lenght)
+        #breakdown of working
+        first0 = -1 * float(x) #-b
+        first1 = float(x)**2 #b ^ 2
+        second0 = float(x2) * 4*float(c) # 4ac
+        sqrt = math.sqrt(first1 - second0) #sqrt(b^2 - 4ac)
+        second1 = 2*float(x2) # 2a - denominator
+        
+        final_num_negative = (first0 - sqrt ) / second1
+        final_num_positive = (first0 + sqrt ) / second1
+        print([final_num_negative, final_num_positive])
+        #use the formual method
+        result =  f"""
+USING FORMULA METHOD
+=> -b +/- √(b² - 4ac)   / 2a
+where a = {x2}, b = {x} and c = {c}
+replacing the value => 
+numerator = {for_faster_clipping(first0)} ± √({x}² - 4*{x2}*{c})
+denominator = 2*{x2}
+
+simplify => {for_faster_clipping(first0)} ± √{for_faster_clipping(first1 - second0)} / {for_faster_clipping(second1)}
+simplify => {for_faster_clipping(first0)} ± {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
+X =  {for_faster_clipping(first0)} + {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
+or 
+X = {for_faster_clipping(first0)} - {for_faster_clipping(sqrt)} / {for_faster_clipping(second1)}
+
+result => x = {for_faster_clipping(final_num_negative)} OR {for_faster_clipping(final_num_positive)}
+
+x = {for_faster_clipping(final_num_negative)},{for_faster_clipping(final_num_positive)}
+"""
+        return result
+  
    
 class CalByOpe(Tk):
     def __init__(self, width_pos, height_pos):
@@ -296,28 +312,30 @@ class CalByOpe(Tk):
         self.geometry(f"400x700+{width_pos}+{height_pos}")
         self.title("Group 1 calculator")
         self.config(bg = self.colors()["bg"])
+        
+        
+        #load the buttons and the display into memory
         self.display()
         self.btns()
         
-        
 
-    
     def display(self):
         #for display content
        
         # Top Display Area Frame
         self.display_frame = Frame(self, bg= self.colors()["btn-bg-number"])
         self.display_frame.pack(fill="x", padx=15, pady=15)
+        
         #to display content
         display_content = Label(self.display_frame, textvariable= self.current_display_content, font=("Segoe UI", 32, "bold"),anchor="e", foreground= self.colors()["btn-fg"],bg= self.colors()["btn-bg-number"])
         display_content.pack(expand=True, fill="both", padx=10, pady=10)
         #to display meta data
         metadata = Label(self.display_frame, textvariable= self.current_meta_data_to_display, font=("Consolas", 8), foreground= self.colors()["btn-fg"], bg= self.colors()["btn-bg-number"])
         metadata.pack(anchor="sw")
+        #to display right hand mini frame
         rightMiniInfo = Label(self.display_frame, textvariable= self.current_right_mini_info, font=("Consolas", 10), foreground= self.colors()["btn-fg"], bg= self.colors()["btn-bg-number"])
         rightMiniInfo.pack(anchor="e", pady=3)
         
-    
     def display_wipeout(self):
         for i in self.display_frame.winfo_children():
             i.destroy()
@@ -327,7 +345,7 @@ class CalByOpe(Tk):
             btn =  [
                     ["SHIFT", "Sciⁿ","Fra", "bin", "10ⁿ"],    #1st
                     # ["∫X", "∫∫X", "nPr",   "//"],   #2nd
-                    ["sin⁻¹", "cos⁻¹","tan⁻¹" ,"Ln", "Antilog"],#3rd
+                    ["sin⁻¹", "cos⁻¹","tan⁻¹" ,"ln", "Antilog"],#3rd
                     ["√", "∛", "ʸ√", "x!", "|x|"],         #4th
                     ["π", "ClrA",  "M+", "M-", "MC"],            #5th
                     ['7', '8', '9', 'Del', "AC"],   #6th
@@ -354,7 +372,7 @@ class CalByOpe(Tk):
         self.btn_frame = Frame(self, bg = self.colors()["bg"])
         self.btn_frame.pack(fill="both", padx=15, pady=15, expand=True)
         #buttons
-        for index, row in enumerate(btn):
+        for index, row in enumerate(self.btn_list):
             for inner_index, column in enumerate(row):
                 #for targeting numbers
                 try:
@@ -639,21 +657,7 @@ class CalByOpe(Tk):
                 pass
                 
             
-        
-        # for index, name in enumerate(advance_frame_btns_name):
-        #     if name == "back":
-        #         advance_frame_btns =  Button(self.advance_frame,text= name,  foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-danger"], anchor="n", bd= 0)
-        #         advance_frame_btns.grid(row=index, sticky="nsew", padx= 3, pady=3)
-        #         self.advance_frame.grid_rowconfigure(index, weight=1)
-        #         self.advance_frame.grid_columnconfigure(0, weight=1)
-        #         continue
-            
-        #     advance_frame_btns = Button(self.advance_frame,text= name, foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-symbol"])
-        #     advance_frame_btns.grid(row=index, padx=3, pady=3, sticky="nsew")
-        #     self.advance_frame.grid_rowconfigure(index, weight=1)
-        #     self.advance_frame.grid_columnconfigure(0, weight=1)
-
-
+        quad_equ_active()
             
 
     def colors(self):
@@ -683,7 +687,7 @@ class CalByOpe(Tk):
             self.btns()
 
     def operationDot(self):
-        Utility().isErrorPresent(self.current_display_content)
+        Utility().isErrorPresentInCalculator(self.current_display_content)
         current_value = self.current_display_content.get()
         if "." in current_value:
             pass
@@ -692,15 +696,20 @@ class CalByOpe(Tk):
             
     #for appening to what is already in the current_value_display_content
     def operationNumber(self, digit):
-        Utility().isErrorPresent(self.current_display_content)
+        Utility().isErrorPresentInCalculator(self.current_display_content)
         old_digit = self.current_display_content.get()
+        
         try:
             if int(old_digit) == 0:
                 old_digit = ""
         except:
-            pass    
-        
-        self.current_display_content.set(old_digit + digit)
+            pass  
+          
+        #check Ans was the last present
+        if old_digit[-3:] == "Ans":
+            self.current_display_content.set(old_digit +"*" + digit)
+        else:
+            self.current_display_content.set(old_digit + digit)
 
 
     #for clearing all the value in current_display_content or removing one from it
@@ -711,12 +720,17 @@ class CalByOpe(Tk):
         if digit == "ClrA":
             self.ans_key_value.set("0")
             self.current_display_content.set("0")
+            
         elif digit.strip() == "Del":
             old_value = self.current_display_content.get()
             if len(old_value) == 1:
                 self.current_display_content.set("0")
-            elif Utility().isErrorPresent(self.current_display_content) :
-                pass         
+            elif Utility().isErrorPresentInCalculator(self.current_display_content) :
+                #only for when the issue is Ans as then the content wont auto clear
+                if self.current_display_content.get() == "Ans":
+                    self.current_display_content.set("0") 
+                else:
+                    self.current_display_content.set(self.current_display_content.get()[:-3])        
             else:
                 self.current_display_content.set(old_value[0:-1])
             #check if fraction is active
@@ -818,7 +832,7 @@ class CalByOpe(Tk):
                     output = ""
                     while True:
                         if check_infinite.count(str(decimal_part_of_current_value)) > 1: # for checking if the float repeat since sometimes, som decinal cannot be converted to binary
-                            output = "infinity"
+                            output = infinity_error
                             break
                         decimal_part_of_current_value = decimal_part_of_current_value * 2 #doubling the decinal part so as to split the int and mantissa
                         
@@ -988,11 +1002,11 @@ class CalByOpe(Tk):
             if digit == "x!":
                 try:
                     if float(current_value) < 0:#fac acnnot be -ve
-                        self.current_display_content.set("syntax error")
+                        self.current_display_content.set(syntax_error)
                         pass
                     #as per factorial input cannot exceed 2147483647 , i have to set limit
                     elif float(current_value) > 2147483647:
-                        self.current_display_content.set("Limit Error")   
+                        self.current_display_content.set(limit_error)   
                     else:
                         output = Utility().tryFloatToInt(float(current_value))
                         output = math.factorial(output)
@@ -1003,8 +1017,8 @@ class CalByOpe(Tk):
                         self.current_display_content.set(str(output))
                         self.ans_key_value.set(str(output))
                 except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
-                    else:self.current_display_content.set("Limit Error")
+                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                    else:self.current_display_content.set(limit_error)
                     print(f"{e} - Error - Error aab")
             elif digit == "|x|":
                 try:
@@ -1012,7 +1026,7 @@ class CalByOpe(Tk):
                     self.current_display_content.set(output)
                     self.ans_key_value.set(str(output))
                 except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
+                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                     print(f"{e} - error 099")
                     
             elif digit == "xⁿ":
@@ -1031,9 +1045,9 @@ class CalByOpe(Tk):
                     self.current_display_content.set(new_current_value)
                     self.ans_key_value.set(str(new_current_value))
                 except OverflowError:
-                    self.current_display_content.set("Limit Error")
+                    self.current_display_content.set(limit_error)
                 except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
+                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                     print(f"{e} - error dsfcdfc")
                     
             elif digit == "x³":
@@ -1044,9 +1058,9 @@ class CalByOpe(Tk):
                         self.current_display_content.set(new_current_value)
                         self.ans_key_value.set(str(new_current_value))
                     except OverflowError:
-                        self.current_display_content.set("Limit Error")
+                        self.current_display_content.set(limit_error)
                     except Exception as e:
-                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
+                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                         print(f"{e} - error dsfcdfc")
                         
             elif digit == "√":
@@ -1062,7 +1076,7 @@ class CalByOpe(Tk):
                     self.ans_key_value.set(str(new_current_value))
                 
                 except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
+                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                     print(f"{e} - error dsfcdfc")
                     
             elif digit == "∛":
@@ -1077,7 +1091,7 @@ class CalByOpe(Tk):
                     self.current_display_content.set(new_current_value)
                     self.ans_key_value.set(str(new_current_value))
                 except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set("syntax error")
+                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                     print(f"{e} - error dsfcdfc")
                     
             elif digit == "ʸ√":
@@ -1094,11 +1108,11 @@ class CalByOpe(Tk):
         self.advance()
 
     def operationExp(self):
-        Utility().isErrorPresent(self.current_display_content)
+        Utility().isErrorPresentInCalculator(self.current_display_content)
         #to clear off the content in the right mini
         self.current_right_mini_info.set("")
         #checking if E exist before so i wont add a new E
-        if "E" in self.current_display_content.get():
+        if "E" in self.current_display_content.get() or "b" in self.current_display_content.get():
             pass
         #checking if =-*/ is in the value before a second E can be used
         # elif self.current_display_content.get().split("E"):
@@ -1108,14 +1122,26 @@ class CalByOpe(Tk):
             self.current_display_content.set(self.current_display_content.get() + "E")
 
     def operationTRRIG(self, digit):
-        #to clear off the content in the right mini
-        self.current_right_mini_info.set("")
+        Utility().isErrorPresentInCalculator(self.current_display_content)
+        # #to clear off the content in the right mini
+        # self.current_right_mini_info.set("")
+        
         #Check if the incoming text is a number
         try:
             current_value = float(self.current_display_content.get())
+            after_edit_string = Utility().tryFloatToInt(current_value)
         except:
-            print("Current Value is text")
-            return
+            #call operationEqualTo to resolve it
+            #check if what caused the issue was P,p,Ans,phi
+            after_edit_string = self.operationCustomEval(self.current_display_content.get()).strip("*")
+            after_editing = eval(after_edit_string)
+            if type(after_editing + 1) == type(""): 
+                print("Current Value is text, trig cant work")
+                return
+            else:
+                print("it was text, but customeval turned it to number")
+                current_value = after_editing
+        
         #the text is a number
         if digit == "Sin":
             result = str(math.sin(math.radians(current_value)))
@@ -1129,7 +1155,6 @@ class CalByOpe(Tk):
             result = str(math.tan(math.radians(current_value)))
             
         
-        
         if digit == "sin⁻¹":
             result = str(math.degrees(math.asin(current_value)))
            
@@ -1137,36 +1162,61 @@ class CalByOpe(Tk):
         elif digit == "cos⁻¹":
             result = str(math.degrees(math.acos(current_value)))
             
-            
+        
+        
         elif digit == "tan⁻¹":
             result = str(math.degrees(math.acos(current_value)))
+            
+        elif digit == "ln":
+            pass
         
       #if its int, to remove the unnnesary float
         result = Utility().clipLenght(result,self.max_calulator_view_lenght) # clip lenght
         result = Utility().tryFloatToInt(float(result)) #checking for whole number
-        self.current_display_content.set(result)
-        self.ans_key_value.set(result)
-  
         
         #update the current right mini info
         if digit == "Sin" or digit == "Cos" or digit == "Tan":
-            self.current_right_mini_info.set(f"{digit} {result}°")
+            self.current_right_mini_info.set(f"{digit} ({after_edit_string})°")
         else:
-            self.current_right_mini_info.set(f"{digit} {result}")
+            self.current_right_mini_info.set(f"{digit} ({after_edit_string})")
         
+        self.current_display_content.set(result)
+        self.ans_key_value.set(result)
          
  
     def operationANS(self):
-        int_or_float = Utility().tryFloatToInt(self.ans_key_value.get())
-        self.current_display_content.set(Utility().clipLenght(int_or_float, self.max_calulator_view_lenght))
-        if "float" in self.current_meta_data_to_display.get():
-            self.current_meta_data_to_display.set("float")
+        Utility().isErrorPresentInCalculator(self.current_display_content)
+        if self.current_display_content.get() == "0":
+            self.current_display_content.set("Ans")
         else:
-            self.current_meta_data_to_display.set("")
+            self.current_display_content.set(self.current_display_content.get() + "Ans")
+            
+        # int_or_float = Utility().tryFloatToInt(self.ans_key_value.get())
+        # self.current_display_content.set(Utility().clipLenght(int_or_float, self.max_calulator_view_lenght)) # this is the literal value of ans
         
-     
+        
+        # if "float" in self.current_meta_data_to_display.get():
+        #     self.current_meta_data_to_display.set("float")
+        # else:
+        #     self.current_meta_data_to_display.set("")
+        
+    def operationCustomEval(self, expression : str) -> str:
+        exp_stripped = expression.strip()
+
+        #Ans is spotted
+        exp_stripped = exp_stripped.replace("Ans", f"*{self.ans_key_value.get()}")
+        
+        #upper P
+        exp_stripped = exp_stripped.replace("P", "**")
+        
+        #lower p
+        exp_stripped = exp_stripped.replace("P", "**(1/")
+            
+        return exp_stripped
+    
+        
     def operationEQUALTO(self):
-        if Utility().isErrorPresent(self.current_display_content):
+        if Utility().isErrorPresentInCalculator(self.current_display_content):
             return
         
         #check if p is present, this mean we have to perform power
@@ -1175,7 +1225,7 @@ class CalByOpe(Tk):
             after_P = self.current_display_content.get().split("P")[1].strip()
             print([b4_P, "p", after_P])
             if len(b4_P) == 0:#nothing was before p which is almost impossible cos zero suppose dey front
-                self.current_display_content.set("syntax error")
+                self.current_display_content.set(syntax_error)
                 self.current_right_mini_info.set("")#clear all the stuff there
                 return
             #no syntax error
@@ -1184,7 +1234,7 @@ class CalByOpe(Tk):
             try:
                power =  float(after_P.strip())
             except:
-                self.current_display_content.set("syntax error")
+                self.current_display_content.set(syntax_error)
                 self.current_right_mini_info.set("")#clear all the stuff there
                 return
             result = math.pow(float(b4_P), power)
@@ -1201,7 +1251,7 @@ class CalByOpe(Tk):
             after_p = self.current_display_content.get().split("p")[1].strip()
             print([b4_P, "p", after_p])
             if len(b4_P) == 0:#nothing was before p which is almost impossible cos zero suppose dey front
-                self.current_display_content.set("syntax error")
+                self.current_display_content.set(syntax_error)
                 self.current_right_mini_info.set("")#clear all the stuff there
                 return
             #no syntax error
@@ -1210,7 +1260,7 @@ class CalByOpe(Tk):
             try:
                self =  float(after_p.strip())
             except:
-                self.current_display_content.set("syntax error")
+                self.current_display_content.set(syntax_error)
                 self.current_right_mini_info.set("")#clear all the stuff there
                 return
             result = math.pow(float(b4_P), 1/self)
@@ -1309,6 +1359,7 @@ class CalByOpe(Tk):
             except Exception as e:
                 print(f"Er i am cooked--- {e}")                     
                     
+      
         
 class CoverUp(CalByOpe):
     def __init__(self, width_pos = 0, height_pos = 0):
