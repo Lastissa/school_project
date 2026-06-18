@@ -12,7 +12,6 @@ from utility import Question
 
 
 class ScrollableFrame(tkinter.Frame):
-    """A reusable modern scrollable frame container."""
     def __init__(self, container, *args, **kwargs):
         super().__init__(container, *args, **kwargs)
         
@@ -64,7 +63,7 @@ class AlllProjects(tkinter.Tk):
         self.text_primary = "#ffffff"  
         self.text_muted = "#a1a1aa"    
         self.accent_color = "#6366f1"  
-        self.project_location = [str(i).split("\\")[-1] for i in current_dir.glob("*/") if "." not in str(i)]
+        self.project_location = ["calculator", "Quiz app"]
 
         self.config(bg=self.bg_main)
         
@@ -126,10 +125,10 @@ class AlllProjects(tkinter.Tk):
         for i in self.winfo_children():
             i.destroy()
         self.back_btn = tkinter.Button(
-        self, # or self.home_frame, depending on where you want it placed
-        text="← Back to Dashboard",
-        bg="#27272a",          # Zinc dark gray background
-        fg="#ffffff",          # Crisp white text
+        self,
+        text="Back to Dashboard",
+        bg="#27272a",         
+        fg="#ffffff",         
         activebackground="#3f3f46", 
         activeforeground="#ffffff",
         bd=0,                  

@@ -2,23 +2,16 @@ from tkinter import *
 from tkinter import ttk,messagebox
 import math
 
-app_documentation = """
-the app is splitted into two frame on the main window(i said main window cos we have other window for solving cal involving extensive equation)
-the two frame contains - display and bottom
+#i used the try and exceot incase the file want to be put in place
+try: from utility import CustomMth
+except: pass
 
-"""
-mapping = {
-    "*": "mul",
-    "+" : "add",
-     "-" : "sub",
-    "/" : "div"
-}
-history = []
+
+history = [] # A list for catching every equal
 #for extra hand i migth both in cal and quiz app need and i dont want to torepeat the code like checking if something is into or float
 class Utility:
     def __init__(self):
         pass
-    
     def tryFloatToInt(self, value):
         try:#incase anything go wrong
             #if its int, to remove the unnnesary float
@@ -39,7 +32,6 @@ class Utility:
             try:
                 #to check if the number is a decimal
                 dot_index = str_value.index(".")
-                
                 if lenght == dot_index: # if there will be a trailing decimal right at the end after the first lenght have been selected
                     print("req lenght is on the decimal")
                     integer = int(str_value[:lenght])
@@ -95,18 +87,21 @@ class Utility:
         except Exception as e:
             print(f"{e} - Error main clip function")
             return value
+    
     def isErrorPresent(self, stringVar : StringVar):#for checking wether error is in the display
         if "syntax error" in stringVar.get() or "Limit Error" in stringVar.get() or "infinity" in stringVar.get() or "inf" in stringVar.get():
             stringVar.set("0")
             return True
         else:
             return False
+    
     def isAddSubMulDivPresent(self, stringVar : StringVar):
         if "add" in stringVar.get() == "sub" == stringVar.get() or "mul" == stringVar.get() or "div" == stringVar.get():
             stringVar.set("0")
             return True
         else:
             return False
+    
     def tryEval(self, StringVar : StringVar):
         try:
             
@@ -123,13 +118,13 @@ class Utility:
         c_clip =  for_faster_clipping(c)#String
         if method_var.get().upper() == "FORMULA METHOD":
             try:
-                
                 #breakdown of working
                 first0 = -1 * float(x) #-b
                 first1 = float(x)**2 #b ^ 2
                 second0 = float(x2) * 4*float(c) # 4ac
+                sqrt = math.sqrt(first1 - second0) #sqrt(b^2 - 4ac)
                 second1 = 2*float(x2) # 2a - denominator
-                sqrt = math.sqrt(first1 - second0)
+                
                 final_num_negative = (first0 - sqrt ) / second1
                 final_num_positive = (first0 + sqrt ) / second1
                 print([final_num_negative, final_num_positive])
@@ -155,18 +150,19 @@ x = {for_faster_clipping(final_num_negative)},{for_faster_clipping(final_num_pos
                 return stringVar.set(result)
             except Exception as e:
                 print(f"{e} -- quad form method no work" )
-                if ZeroDivisionError:
+                
+                if ZeroDivisionError == True:
                     result = "Zero Spotted in the wrong place!!!"
                     return stringVar.set(result)
-                result = "Invalid inputs spotted!!!"
-                return stringVar.set(result)
-                
+                else:
+                    #an error that is caused by me or the user
+                    result = "uhm, i'm lost here"
+                    return stringVar.set(result)
                 
         elif method_var.get().strip().upper() == "FACTORIZATION METHOD":
-            result =  "Stil in progress, explore other method."
+            result =  CustomMth().quad_factorization_method_solution(x2_clip, x_clip, c_clip)
             return stringVar.set(result)
-            # try:
-                # product_of_two_num = for_faster_clipping((float(c)*float(x2)))
+            
         else:
             result = "Error: Method not selected"
             return stringVar.set(result)
@@ -292,7 +288,7 @@ class CalByOpe(Tk):
         self.is_shift_on = False #for knowing when shift is active
         self.max_calulator_view_lenght = 5 #for the max amoutn of operation the cal is allowed to show
         self.current_display_content =  StringVar(master = self, value="0") #For holding the current text in display
-        self.current_meta_data_to_display = StringVar(master = self, value="0") #For the current mode e.g SCI, DEC, FRA, ABS
+        self.current_meta_data_to_display = StringVar(master = self, value="") #For the current mode e.g SCI, DEC, FRA, ABS
         self.current_right_mini_info = StringVar(master = self, value="")
         self.ans_key_value = StringVar(master = self, value="0") #for updating the value the ANS key will get
         self.phi = 22/7
