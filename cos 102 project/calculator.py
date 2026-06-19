@@ -1107,7 +1107,7 @@ class CalByOpe(Tk):
                 self.show_warning("potential syntax error in view")  
         except Exception as e:
             self.current_display_content.set(syntax_error)  
-            print(f"here bro - {e}")
+            print(f"Almost impossible but here bro - {e}")
             
     def operationSpecial(self):
         self.btn_frame.pack_forget()
