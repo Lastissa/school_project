@@ -104,11 +104,9 @@ class Utility:
             return False
     
     def tryEval(self, StringVar : StringVar):
-        try:
-            
+        try: 
             StringVar.set(str(eval(StringVar.get())))
             return True
-        
         except Exception as e:
             print(f"unable to eval --- {e}")
             return False
@@ -297,7 +295,6 @@ x = {for_faster_clipping(final_num_negative)},{for_faster_clipping(final_num_pos
 """
         return result
   
-   
 class CalByOpe(Tk):
     def __init__(self, width_pos, height_pos):
         super().__init__()
@@ -782,13 +779,14 @@ class CalByOpe(Tk):
         else:
             self.current_display_content.set("Error - 001")
 
-
     def operationMode(self, digit):
+        Utility().isErrorPresentInCalculator(self.current_display_content)
         #to clear off the content in the right mini
         self.current_right_mini_info.set("")
         #check if what we are getting is a number(or some special chars), if not - ignore the keypress
         try:
             current_value = self.current_display_content.get()
+            custom_evaled = self.operationCustomEval(current_value) #brb
             #for standard form presentation
             if "Sci"  in digit:
                 #check if sci exist in the mode
@@ -796,9 +794,8 @@ class CalByOpe(Tk):
                     #try to return it back to normal decimal
                     try:
                         #remove the sci and return back to normal decimal
-                        current_value = self.current_display_content.get()
-                        new_value = float(current_value)                        
-                        new_value = Utility().clipLenght(float(new_value), self.max_calulator_view_lenght)
+                        new_value = float(custom_evaled)                        
+                        new_value = Utility().clipLenght(new_value, self.max_calulator_view_lenght)
                         self.current_display_content.set(new_value)
                         self.current_meta_data_to_display.set(" ".join(self.current_meta_data_to_display.get().split("sci")))
                     except Exception as e:
@@ -870,7 +867,8 @@ class CalByOpe(Tk):
                     self.current_meta_data_to_display.set(self.current_meta_data_to_display.get() + " bin")
                     
         except Exception as e:
-            print(f"exception : {e}")
+            print(f"exception here pal: {e}")
+            self.show_warning(f"{e}")
             pass #This mean we did not get a float value
     
     def operationAdd_Sub_Mul_Div(self, digit):
@@ -981,29 +979,26 @@ class CalByOpe(Tk):
     def xRelated(self, digit):
         try:
             Utility().isErrorPresentInCalculator(self.current_display_content)
-            #to clear off the content in the right mini
+            #to clear off the content in the right mini cos the incoming xRelated need to be displayed
             self.current_right_mini_info.set("")
             #try to eval the current values
-            Utility().tryEval(self.current_display_content)
-            
+            Utility().tryEval(self.current_display_content)#try do a quiz eval and pass it to the current display
             #check if any key that is not a number is present
             proceed = True
             for i in self.btn_list:
                 for j in i:
-                    try:
+                    try: # i only want numbers except some exception exist
                         int(j.strip())
                     except:
-                        #special weaver for "-" and "." and power and nth root and ans
+                        #special weaver for "-", "." and power and nth root and ans
                         if j =="-" or j == "." or j == "P" or j == "p" or j == "Ans":
                             continue
                         #if any non number is in the current_display, dont allow the button to do anything
                         if j in self.current_display_content.get():
-                    
                                 proceed = False
             if proceed:
                 current_value = self.current_display_content.get().strip()
                 current_value = self.operationCustomEval(current_value)
-                print(f"heyyy {current_value}")
                 current_value = eval(current_value)
                 current_value = str(current_value)
 
@@ -1028,7 +1023,7 @@ class CalByOpe(Tk):
                     except Exception as e:
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                         else:self.current_display_content.set(limit_error)
-                        print(f"{e} - Error - Error aab")
+                        print(f"{e} - Error - Error in factorial")
                 elif digit == "|x|":
                     try:
                         output = abs(Utility().tryFloatToInt(float(current_value)))
@@ -1036,7 +1031,7 @@ class CalByOpe(Tk):
                         self.ans_key_value.set(str(output))
                     except Exception as e:
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                        print(f"{e} - error 099")
+                        print(f"{e} - Error - Error in abs")
                         
                 elif digit == "xⁿ":
                     #check if P exist in the current display
@@ -1057,7 +1052,7 @@ class CalByOpe(Tk):
                         self.current_display_content.set(limit_error)
                     except Exception as e:
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                        print(f"{e} - error dsfcdfc")
+                        print(f"{e} - Error - Error in x sqrt")
                         
                 elif digit == "x³":
                         try:
@@ -1070,38 +1065,35 @@ class CalByOpe(Tk):
                             self.current_display_content.set(limit_error)
                         except Exception as e:
                             if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                            print(f"{e} - error dsfcdfc")
+                            print(f"{e} - Error - Error in x cbrt")
                             
                 elif digit == "√":
                     try:
                         new_current_value = math.sqrt(float(current_value))
                         if int(str(new_current_value).split(".")[1]) == 0:
                             new_current_value = str(new_current_value).split(".")[0]
-                            print("value is a int")
                         else:
                             new_current_value = str(new_current_value)[:4]
-                            print("value is a float")
+                            
                         self.current_display_content.set(new_current_value)
                         self.ans_key_value.set(str(new_current_value))
                     
                     except Exception as e:
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                        print(f"{e} - error dsfcdfc")
+                        print(f"{e} - - Error - Error in sqrt")
                         
                 elif digit == "∛":
                     try:
                         new_current_value = math.cbrt(float(current_value))
                         if int(str(new_current_value).split(".")[1]) == 0:
                             new_current_value = str(new_current_value).split(".")[0]
-                            print("value is a int")
                         else:
                             new_current_value = str(new_current_value)[:4]
-                            print("value is a float")
                         self.current_display_content.set(new_current_value)
                         self.ans_key_value.set(str(new_current_value))
                     except Exception as e:
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                        print(f"{e} - error dsfcdfc")
+                        print(f"{e} - Error - Error in cbrt")
                         
                 elif digit == "ʸ√":
                     #check if p exist in the current display
@@ -1116,6 +1108,7 @@ class CalByOpe(Tk):
         except Exception as e:
             self.current_display_content.set(syntax_error)  
             print(f"here bro - {e}")
+            
     def operationSpecial(self):
         self.btn_frame.pack_forget()
         self.display_frame.pack_forget()
