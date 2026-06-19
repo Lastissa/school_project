@@ -307,7 +307,6 @@ class CalByOpe(Tk):
         self.current_meta_data_to_display = StringVar(master = self, value="") #For the current mode e.g SCI, DEC, FRA, ABS
         self.current_right_mini_info = StringVar(master = self, value="")
         self.ans_key_value = StringVar(master = self, value="0") #for updating the value the ANS key will get
-        self.phi = 22/7
         self.e = math.e
         self.geometry(f"400x700+{width_pos}+{height_pos}")
         self.title("Group 1 calculator")
@@ -335,19 +334,24 @@ class CalByOpe(Tk):
         #to display right hand mini frame
         rightMiniInfo = Label(self.display_frame, textvariable= self.current_right_mini_info, font=("Consolas", 10), foreground= self.colors()["btn-fg"], bg= self.colors()["btn-bg-number"])
         rightMiniInfo.pack(anchor="e", pady=3)
+        #placeholder for the future error
+        self.placeholder = Label(self.display_frame, text= "", bg= self.colors()["btn-bg-number"], fg = "white", font= ("Segoe UI", 10, "bold"))
+        self.placeholder.pack(anchor="sw", padx=3, pady=1)
         
-    def display_wipeout(self):
-        for i in self.display_frame.winfo_children():
+    def wipeout(self, widget, destroy_fully = False):
+        for i in widget.winfo_children():
             i.destroy()
+        if destroy_fully == True:
+            widget.destroy()
             
     def btns(self):
         if self.is_shift_on:
             btn =  [
-                    ["SHIFT", "Sciⁿ","Fra", "bin", "10ⁿ"],    #1st
+                    ["SHIFT", "Sciⁿ","Fra", "bin", "Rad"],    #1st
                     # ["∫X", "∫∫X", "nPr",   "//"],   #2nd
                     ["sin⁻¹", "cos⁻¹","tan⁻¹" ,"ln", "Antilog"],#3rd
                     ["√", "∛", "ʸ√", "x!", "|x|"],         #4th
-                    ["π", "ClrA",  "M+", "M-", "MC"],            #5th
+                    ["10ⁿ", "ClrA",  "M+", "M-", "MC"],            #5th
                     ['7', '8', '9', 'Del', "AC"],   #6th
                     ['4', '5', '6',  '*',   "/"],   #7th
                     ['1', '2', '3',  '+',   "-"],   #8th
@@ -356,11 +360,11 @@ class CalByOpe(Tk):
                     ]
         else:
             btn = [
-                ["SHIFT", "Sciⁿ","Fra",  "bin", "10ⁿ"],     #1st
+                ["SHIFT", "Sciⁿ","Fra",  "bin", "Rad"],     #1st
                 # ["y'", "y''", "nCr", "//"],       #2nd
                 ["Sin", "Cos", "Tan", "ln", "Log"],   #3rd
                 ["x²", "x³", "xⁿ", "x!", "+/-"],       #4th
-                ["π", "ClrA", "M+", "M-", "MC"],          #5th
+                ["10ⁿ", "ClrA", "M+", "M-", "MC"],          #5th
                 ['7', '8', '9', 'Del', "AC"],   #6th
                 ['4', '5', '6',  '*',   "/"],   #7th
                 ['1', '2', '3',  '+',   "-"],   #8th
@@ -441,9 +445,6 @@ class CalByOpe(Tk):
                 self.btn_frame.grid_rowconfigure(index, weight=1)
                 self.btn_frame.grid_columnconfigure(inner_index, weight=1)
   
-    def btns_wipeout(self):
-        self.btn_frame.pack_forget()
-    
     
     #for the advance ui
     def advance(self):
@@ -670,27 +671,52 @@ class CalByOpe(Tk):
     "btn-bg-special" : "#0000FF",
     "btn-fg": "#e0e0e0",
     "btn-bg-m": "#3A6D18",
-}
+}   
+    
+    def show_warning(self, text : str) -> Label:
+        try:
+            self.placeholder.pack_forget() # remve that temp place holder
+        except: pass
+        
+        try:
+            self.warning_label.bind()
+            self.warning_label.after(2000, lambda: [self.clear_warning(), self.placeholder.pack(anchor="sw", padx=3, pady=1)])
+            return 
+        except: pass
+        
+        self.warning_label =  Label(self.display_frame, text= text, bg="red", fg = "white", font= ("Segoe UI", 10, "bold"))
+        self.warning_label.pack(anchor="sw", padx=3, pady=1)
+        self.warning_label.after(2000, lambda: [self.clear_warning(), self.placeholder.pack(anchor="sw", padx=3, pady=1)])
+    
+    def clear_warning(self):
+        try:#check if warning_labelb dey n picture
+            for i in self.warning_label.winfo_children():
+                i.destroy()
+            self.warning_label.destroy()
+        except:
+            pass
+        
         #Operations
+    
     def operationShift(self):
         current_state = self.current_meta_data_to_display.get().lower().split("shift")
         #this mean shift exist in the text before so removing it now
         if len(current_state)> 1:
             self.current_meta_data_to_display.set((" ".join(current_state)).strip())
             self.is_shift_on = False
-            self.btns_wipeout()
+            self.wipeout(self.btn_frame, destroy_fully=True)
             self.btns()
         else:
             self.current_meta_data_to_display.set(self.current_meta_data_to_display.get() + " shift")
             self.is_shift_on = True
-            self.btns_wipeout()
+            self.wipeout(self.btn_frame, destroy_fully=True)
             self.btns()
 
     def operationDot(self):
         Utility().isErrorPresentInCalculator(self.current_display_content)
         current_value = self.current_display_content.get()
         if "." in current_value:
-            pass
+            self.show_warning("Potential Syntax Error")
         else:
             self.current_display_content.set(current_value + ".")
             
@@ -698,12 +724,9 @@ class CalByOpe(Tk):
     def operationNumber(self, digit):
         Utility().isErrorPresentInCalculator(self.current_display_content)
         old_digit = self.current_display_content.get()
-        
         try:
-            if int(old_digit) == 0:
-                old_digit = ""
-        except:
-            pass  
+            if int(old_digit) == 0: old_digit = ""
+        except: pass  
           
         #check Ans was the last present
         if old_digit[-3:] == "Ans":
@@ -758,8 +781,7 @@ class CalByOpe(Tk):
         #if its not Del or AC or ClrA
         else:
             self.current_display_content.set("Error - 001")
-        
-        
+
 
     def operationMode(self, digit):
         #to clear off the content in the right mini
@@ -903,20 +925,7 @@ class CalByOpe(Tk):
             self.current_display_content.set(result) #update the display too
             self.current_meta_data_to_display.set(mapping[digit])
             return
-        
-        
-        # elif mapping[digit] in self.current_meta_data_to_display.get():
-        #     print("the button is active in meta")
-        #     #when  expression is going to happen 
-        #     #tht digit dey there, so perform operation with collecting result from the ans 
-        #     new_value = eval(f"{float(self.ans_key_value)}{digit}{float(self.current_display_content.get())}") #operating the ans + new value
-        #     new_value = Utility().tryFloatToInt(new_value) #cleaning it
-        #     new_value = Utility().clipLenght(new_value, self.max_calulator_view_lenght)
-        #     self.ans_key_value = str(new_value) # setting the new ans key
-        #     self.current_right_mini_info.set("")#since we are done, clear
-        #     self.current_meta_data_to_display.set("".join(self.current_meta_data_to_display.get().split(mapping[digit])).strip())
-        #     self.current_display_content.set(new_value)
-        
+
         #first key press
         else:
           
@@ -935,28 +944,21 @@ class CalByOpe(Tk):
             except Exception as e:
                 print(f"Error {e}- Not a number that can be solved come check, rare to show -opeyemi")
     
-    def operationPhi(self):
-        #to clear off the content in the right mini
-        self.current_right_mini_info.set("")
-        if self.current_display_content.get().strip() == "0":
-            self.current_display_content.set("π")
-        elif self.current_display_content.get()[-1] == "π":
-            pass
-        else:
-            self.current_display_content.set(self.current_display_content.get() + "π")
+    def operationRAD(self):
+       pass
     
-    def operationEuler(self):
-        pass
     
     def operationPlusMinus(self):
+        Utility().isErrorPresentInCalculator(self.current_display_content)
         #to clear off the content in the right mini
         self.current_right_mini_info.set("")
         #check if any key that is not a number is present
+        
         proceed = True
         for i in self.btn_list:
             for j in i:
                 
-                if j == "-":#create special treatment for -
+                if j == "-" or j == "Ans":#create special treatment for - and Ans
                     continue
                 try:
                     int(j.strip())
@@ -977,82 +979,76 @@ class CalByOpe(Tk):
                 self.ans_key_value.set("-" + current_value)
          
     def xRelated(self, digit):
-        #to clear off the content in the right mini
-        self.current_right_mini_info.set("")
-        #try to eval the current values
-        Utility().tryEval(self.current_display_content)
-        
-        #check if any key that is not a number is present
-        proceed = True
-        for i in self.btn_list:
-            for j in i:
-                try:
-                    int(j.strip())
-                except:
-                    #special weaver for "-" and "." and power and nth self
-                    if j =="-" or j == ".":
-                        continue
-                    #if any non number is in the current_display, dont allow the button to do anything
-                    if j in self.current_display_content.get():
-                
-                            proceed = False
-        if proceed:
-            current_value = self.current_display_content.get().strip()
-
-            if digit == "x!":
-                try:
-                    if float(current_value) < 0:#fac acnnot be -ve
-                        self.current_display_content.set(syntax_error)
-                        pass
-                    #as per factorial input cannot exceed 2147483647 , i have to set limit
-                    elif float(current_value) > 2147483647:
-                        self.current_display_content.set(limit_error)   
-                    else:
-                        output = Utility().tryFloatToInt(float(current_value))
-                        output = math.factorial(output)
-                        output = Utility().tryFloatToInt(output)
-                        print(output)
-                        output = Utility().clipLenght(output, self.max_calulator_view_lenght)
-                        print(output)
-                        self.current_display_content.set(str(output))
-                        self.ans_key_value.set(str(output))
-                except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                    else:self.current_display_content.set(limit_error)
-                    print(f"{e} - Error - Error aab")
-            elif digit == "|x|":
-                try:
-                    output = abs(Utility().tryFloatToInt(float(current_value)))
-                    self.current_display_content.set(output)
-                    self.ans_key_value.set(str(output))
-                except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                    print(f"{e} - error 099")
-                    
-            elif digit == "xⁿ":
-                #check if P exist in the current display
-                if "P" in current_value:
-                    return
-                else:
-                    #add P for power
-                    self.current_display_content.set(current_value + "P")
-                    
-            elif digit == "x²":
-                try:
-                    new_current_value = math.pow(float(current_value), 2)
-                    new_current_value = Utility().tryFloatToInt(new_current_value)
-                    new_current_value = Utility().clipLenght(new_current_value, self.max_calulator_view_lenght)
-                    self.current_display_content.set(new_current_value)
-                    self.ans_key_value.set(str(new_current_value))
-                except OverflowError:
-                    self.current_display_content.set(limit_error)
-                except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                    print(f"{e} - error dsfcdfc")
-                    
-            elif digit == "x³":
+        try:
+            Utility().isErrorPresentInCalculator(self.current_display_content)
+            #to clear off the content in the right mini
+            self.current_right_mini_info.set("")
+            #try to eval the current values
+            Utility().tryEval(self.current_display_content)
+            
+            #check if any key that is not a number is present
+            proceed = True
+            for i in self.btn_list:
+                for j in i:
                     try:
-                        new_current_value = math.pow(float(current_value), 3)
+                        int(j.strip())
+                    except:
+                        #special weaver for "-" and "." and power and nth root and ans
+                        if j =="-" or j == "." or j == "P" or j == "p" or j == "Ans":
+                            continue
+                        #if any non number is in the current_display, dont allow the button to do anything
+                        if j in self.current_display_content.get():
+                    
+                                proceed = False
+            if proceed:
+                current_value = self.current_display_content.get().strip()
+                current_value = self.operationCustomEval(current_value)
+                print(f"heyyy {current_value}")
+                current_value = eval(current_value)
+                current_value = str(current_value)
+
+                if digit == "x!":
+                    try:
+                        if float(current_value) < 0:#fac acnnot be -ve
+                            self.current_display_content.set(syntax_error)
+                            pass
+                        #as per factorial input cannot exceed 2147483647 , i have to set limit
+                        elif float(current_value) > 2147483647:
+                            self.current_display_content.set(limit_error)   
+                        else:
+                            
+                            output = Utility().tryFloatToInt(float(current_value))
+                            output = math.factorial(output)
+                            output = Utility().tryFloatToInt(output)
+                            print(output)
+                            output = Utility().clipLenght(output, self.max_calulator_view_lenght)
+                            print(output)
+                            self.current_display_content.set(str(output))
+                            self.ans_key_value.set(str(output))
+                    except Exception as e:
+                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                        else:self.current_display_content.set(limit_error)
+                        print(f"{e} - Error - Error aab")
+                elif digit == "|x|":
+                    try:
+                        output = abs(Utility().tryFloatToInt(float(current_value)))
+                        self.current_display_content.set(output)
+                        self.ans_key_value.set(str(output))
+                    except Exception as e:
+                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                        print(f"{e} - error 099")
+                        
+                elif digit == "xⁿ":
+                    #check if P exist in the current display
+                    if "P" in current_value:
+                        return
+                    else:
+                        #add P for power
+                        self.current_display_content.set(current_value + "P")
+                        
+                elif digit == "x²":
+                    try:
+                        new_current_value = math.pow(float(current_value), 2)
                         new_current_value = Utility().tryFloatToInt(new_current_value)
                         new_current_value = Utility().clipLenght(new_current_value, self.max_calulator_view_lenght)
                         self.current_display_content.set(new_current_value)
@@ -1063,45 +1059,63 @@ class CalByOpe(Tk):
                         if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
                         print(f"{e} - error dsfcdfc")
                         
-            elif digit == "√":
-                try:
-                    new_current_value = math.sqrt(float(current_value))
-                    if int(str(new_current_value).split(".")[1]) == 0:
-                        new_current_value = str(new_current_value).split(".")[0]
-                        print("value is a int")
-                    else:
-                        new_current_value = str(new_current_value)[:4]
-                        print("value is a float")
-                    self.current_display_content.set(new_current_value)
-                    self.ans_key_value.set(str(new_current_value))
-                
-                except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                    print(f"{e} - error dsfcdfc")
+                elif digit == "x³":
+                        try:
+                            new_current_value = math.pow(float(current_value), 3)
+                            new_current_value = Utility().tryFloatToInt(new_current_value)
+                            new_current_value = Utility().clipLenght(new_current_value, self.max_calulator_view_lenght)
+                            self.current_display_content.set(new_current_value)
+                            self.ans_key_value.set(str(new_current_value))
+                        except OverflowError:
+                            self.current_display_content.set(limit_error)
+                        except Exception as e:
+                            if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                            print(f"{e} - error dsfcdfc")
+                            
+                elif digit == "√":
+                    try:
+                        new_current_value = math.sqrt(float(current_value))
+                        if int(str(new_current_value).split(".")[1]) == 0:
+                            new_current_value = str(new_current_value).split(".")[0]
+                            print("value is a int")
+                        else:
+                            new_current_value = str(new_current_value)[:4]
+                            print("value is a float")
+                        self.current_display_content.set(new_current_value)
+                        self.ans_key_value.set(str(new_current_value))
                     
-            elif digit == "∛":
-                try:
-                    new_current_value = math.cbrt(float(current_value))
-                    if int(str(new_current_value).split(".")[1]) == 0:
-                        new_current_value = str(new_current_value).split(".")[0]
-                        print("value is a int")
+                    except Exception as e:
+                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                        print(f"{e} - error dsfcdfc")
+                        
+                elif digit == "∛":
+                    try:
+                        new_current_value = math.cbrt(float(current_value))
+                        if int(str(new_current_value).split(".")[1]) == 0:
+                            new_current_value = str(new_current_value).split(".")[0]
+                            print("value is a int")
+                        else:
+                            new_current_value = str(new_current_value)[:4]
+                            print("value is a float")
+                        self.current_display_content.set(new_current_value)
+                        self.ans_key_value.set(str(new_current_value))
+                    except Exception as e:
+                        if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
+                        print(f"{e} - error dsfcdfc")
+                        
+                elif digit == "ʸ√":
+                    #check if p exist in the current display
+                    if "P" in current_value:
+                        return
                     else:
-                        new_current_value = str(new_current_value)[:4]
-                        print("value is a float")
-                    self.current_display_content.set(new_current_value)
-                    self.ans_key_value.set(str(new_current_value))
-                except Exception as e:
-                    if "p" in self.current_display_content.get() or "P" in self.current_display_content.get():self.current_display_content.set(syntax_error)
-                    print(f"{e} - error dsfcdfc")
-                    
-            elif digit == "ʸ√":
-                #check if p exist in the current display
-                if "P" in current_value:
-                    return
-                else:
-                    #add p for self
-                    self.current_display_content.set(current_value + "p")
+                        #add p for self
+                        self.current_display_content.set(current_value + "p")
             
+            else:
+                self.show_warning("potential syntax error in view")  
+        except Exception as e:
+            self.current_display_content.set(syntax_error)  
+            print(f"here bro - {e}")
     def operationSpecial(self):
         self.btn_frame.pack_forget()
         self.display_frame.pack_forget()
@@ -1133,7 +1147,7 @@ class CalByOpe(Tk):
         except:
             #call operationEqualTo to resolve it
             #check if what caused the issue was P,p,Ans,phi
-            after_edit_string = self.operationCustomEval(self.current_display_content.get()).strip("*")
+            after_edit_string = self.operationCustomEval(self.current_display_content.get())
             after_editing = eval(after_edit_string)
             if type(after_editing + 1) == type(""): 
                 print("Current Value is text, trig cant work")
@@ -1191,14 +1205,7 @@ class CalByOpe(Tk):
         else:
             self.current_display_content.set(self.current_display_content.get() + "Ans")
             
-        # int_or_float = Utility().tryFloatToInt(self.ans_key_value.get())
-        # self.current_display_content.set(Utility().clipLenght(int_or_float, self.max_calulator_view_lenght)) # this is the literal value of ans
         
-        
-        # if "float" in self.current_meta_data_to_display.get():
-        #     self.current_meta_data_to_display.set("float")
-        # else:
-        #     self.current_meta_data_to_display.set("")
         
     def operationCustomEval(self, expression : str) -> str:
         exp_stripped = expression.strip()
@@ -1209,10 +1216,21 @@ class CalByOpe(Tk):
         #upper P
         exp_stripped = exp_stripped.replace("P", "**")
         
-        #lower p
-        exp_stripped = exp_stripped.replace("P", "**(1/")
+        #lower p and also to check where number ends  
+        if "p" in exp_stripped:
+            for index, i in enumerate(exp_stripped.split("p")[1]):
+                if i.isdigit() == False:
+                    temp_list = list(exp_stripped)
+                    temp_list.insert(len(exp_stripped.split("p")[0]) + 1+ index, ")")
+                    exp_stripped = temp_list 
+                    break # everything will keep working until we have double small p then all hell will break loose
+            #incase the ending value was still a number, the isdigit trick will  not work
+            if ")" not in exp_stripped:
+                exp_stripped = exp_stripped + ")"
+        exp_stripped = exp_stripped.replace("p", "**(1/")
+
             
-        return exp_stripped
+        return exp_stripped.lstrip("*")
     
         
     def operationEQUALTO(self):
