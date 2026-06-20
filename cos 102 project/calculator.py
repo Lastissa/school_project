@@ -783,7 +783,7 @@ class CalByOpe(Tk):
         #check if what we are getting is a number(or some special chars), if not - ignore the keypress
         try:
             current_value = self.current_display_content.get()
-            custom_evaled = self.operationCustomEval(current_value) #brb
+            custom_evaled = self.operationCustomEval(current_value)
             #for standard form presentation
             if "Sci"  in digit:
                 #check if sci exist in the mode
@@ -869,79 +869,16 @@ class CalByOpe(Tk):
             pass #This mean we did not get a float value
     
     def operationAdd_Sub_Mul_Div(self, digit):
-        #to clear off the content in the right mini
-        if "shift" in self.current_meta_data_to_display.get():
-            self.current_meta_data_to_display.set("shift")
-        else:
-            self.current_meta_data_to_display.set("")
-        
-        #check if binary is active, if so, raise a messagebox saying not allowed
-        if "bin" in self.current_meta_data_to_display.get():
-            #return it back to decimal
-            self.current_display_content.set(str(int(self.current_display_content.get().split(".")[0], 2)))
-            self.current_right_mini_info.set(digit)
-            self.current_meta_data_to_display.set(("".join(self.current_meta_data_to_display.get().split("bin"))).strip()) #for removing bin from the meta data
-            return
-        elif "sci" in self.current_meta_data_to_display.get():
-             self.current_right_mini_info.set(digit)
-             self.current_display_content.set(str(float(self.current_display_content.get())))
-             self.current_meta_data_to_display.set(("".join(self.current_meta_data_to_display.get().split("sci"))).strip()) #for removing sci from the meta data
-             return
-        elif "fraction" in self.current_meta_data_to_display.get():
-            self.current_right_mini_info.set(digit)
-            self.current_display_content.set(str(eval(self.current_display_content.get())))
-            self.current_meta_data_to_display.set(("".join(self.current_meta_data_to_display.get().split("fraction"))).strip()) #for removing sci from the meta data
-            return
-        
-        # #This wont affect the workflow of what will happen nxt
-        # #if the button is nt hot and active (not in right mini infot) but was pressed before adn its a member is here, still perform its operation but silently
-        # if "add" in self.current_meta_data_to_display.get() or "sub" in self.current_meta_data_to_display.get() or "mul" in self.current_meta_data_to_display.get() or "div" in self.current_meta_data_to_display.get():
-        #     if "sub" in self.current_display_content.get():
-        #         self.ans_key_value.set(f"self.ans_key_value.get()-{self.current_display_content.get()}")
-        #     elif "mul" in self.current_display_content.get():
-        #         self.ans_key_value.set(f"self.ans_key_value.get()*{self.current_display_content.get()}")
-        #     elif "div" in self.current_display_content.get():
-        #         self.ans_key_value.set(f"self.ans_key_value.get()/{self.current_display_content.get()}")
-        #     elif "add" in self.current_display_content.get():
-        #         self.ans_key_value.set(f"self.ans_key_value.get()+{self.current_display_content.get()}")
+        #to clear off the content in the right mini inxase the likes of sci, fraction is present
+        if "shift" in self.current_meta_data_to_display.get(): self.current_meta_data_to_display.set("shift")
+        else: self.current_meta_data_to_display.set("")
 
+        #after clearing the right mini, add the btn pressed
+        self.current_display_content.set(self.current_display_content.get() + digit)
         
         
-        #this mean the button have been pressed before so do the needful
-        if digit in self.current_right_mini_info.get():
-            old_ans = self.ans_key_value.get()
-            current_val = self.current_display_content.get()
-            expression = old_ans + digit + current_val
-            result = eval(expression)
-            print("button pressed before")
-            print(expression)
-            result = Utility().tryFloatToInt(float(result))
-            self.ans_key_value.set(str(result)) #update the answer stringvar
-            self.current_display_content.set(result) #update the display too
-            self.current_meta_data_to_display.set(mapping[digit])
-            return
-
-        #first key press
-        else:
-          
-            #make sure its a number that can be solved and set the ans key to the value collected
-            try:
-                tester = float(self.current_display_content.get()) + 2.6 # to check if its a num that can be solved
-                self.ans_key_value.set(self.current_display_content.get())#Overide the ans value with this new one
-                # expression = self.ans_key_value.get()+digit+self.current_display_content.get()
-                
-                self.current_right_mini_info.set(digit) #set the digit in the right
-                self.current_meta_data_to_display.set(mapping[digit]) #set it in meta data
-                # self.ans_key_value.set(str(eval(expression))) #update the ans
-                print("first key press")
-                print(self.ans_key_value.get())
-                self.current_display_content.set("0") # clear the currrent content
-            except Exception as e:
-                print(f"Error {e}- Not a number that can be solved come check, rare to show -opeyemi")
-    
     def operationRAD(self):
        pass
-    
     
     def operationPlusMinus(self):
         Utility().isErrorPresentInCalculator(self.current_display_content)
@@ -953,7 +890,7 @@ class CalByOpe(Tk):
         for i in self.btn_list:
             for j in i:
                 
-                if j == "-" or j == "Ans":#create special treatment for - and Ans
+                if j == "-" or j == "Ans"or j or j == ".":#create special treatment for - and Ans
                     continue
                 try:
                     int(j.strip())
@@ -966,6 +903,7 @@ class CalByOpe(Tk):
         
         if proceed:
             current_value = self.current_display_content.get()
+            current_value = self.operationCustomEval(current_value)
             if current_value[0] == "-":
                 self.current_display_content.set(current_value[1:])
                 self.ans_key_value.set(current_value[:1])
@@ -1145,21 +1083,45 @@ class CalByOpe(Tk):
                 print("it was text, but customeval turned it to number")
                 current_value = after_editing
         
+        #for catching maths error faster
+        mth_error = lambda error : [print(f"show btn exception  - {error}"), self.show_warning("Math Error, Potential syntax error")]
+        
         #the text is a number
         if digit == "Sin":
-            result = str(math.sin(math.radians(current_value)))
+            #to capture the error of breaks after 180 deg
+            result = math.sin(math.radians(current_value))
+            if abs(result) < 1e-10:result = "0"
+            else: result = str(round(result, 10))
                 
             
         elif digit == "Cos":
-            result = str(math.cos(math.radians(current_value)))
+            #to capture the error of breaks after 180 deg
+            result = math.cos(math.radians(current_value))
+            if abs(result) < 1e-10:result = "0"
+            else: result = str(round(result, 10))
              
             
         elif digit == "Tan":
-            result = str(math.tan(math.radians(current_value)))
+            #tan still ened fixing
+            numerator_sin = 0
+            #cal for sin cos i dont trust the defalt tan
+            numerator_sin = math.sin(math.radians(current_value))
+            if abs(numerator_sin) < 1e-10:numerator_sin = 0
+            else: numerator_sin = round(numerator_sin, 10)
             
-        #for catching maths error faster
-        mth_error = lambda error : [print(f"Log btn exception  - {error}"), self.show_warning("Math Error, Potential syntax error")]
-        if digit == "sin⁻¹":
+            denominator_cos = 0
+            #cal for cos cos i dont trust the defalt tan
+            denominator_cos = math.sin(math.radians(current_value))
+            if abs(denominator_cos) < 1e-10:denominator_cos = 0
+            else: denominator_cos = round(denominator_cos, 10)
+            
+            try:
+                result = numerator_sin / denominator_cos
+            except ZeroDivisionError:
+                mth_error("Div by zero not allowed")
+                return
+            
+        elif digit == "sin⁻¹":
             try:
                 result = str(math.degrees(math.asin(current_value)))
             except Exception as e: 
@@ -1176,7 +1138,7 @@ class CalByOpe(Tk):
         
         elif digit == "tan⁻¹":
             try:
-                result = str(math.degrees(math.acos(current_value)))
+                result = str(math.degrees(math.atan(current_value)))
             except Exception as e: 
                 mth_error(e)
                 return
@@ -1193,7 +1155,8 @@ class CalByOpe(Tk):
             except Exception as e: 
                 mth_error(e)
                 return
-      #if its int, to remove the unnnesary float
+            
+        #if its int, to remove the unnnesary float
         result = Utility().clipLenght(result,self.max_calulator_view_lenght) # clip lenght
         result = Utility().tryFloatToInt(float(result)) #checking for whole number
         
@@ -1205,6 +1168,7 @@ class CalByOpe(Tk):
         else:
             self.current_right_mini_info.set(f"{digit} ({after_edit_string})")
         
+        
         self.current_display_content.set(result)
         self.ans_key_value.set(result)
          
@@ -1215,8 +1179,7 @@ class CalByOpe(Tk):
         else:
             self.current_display_content.set(self.current_display_content.get() + "Ans")
             
-        
-        
+
     def operationCustomEval(self, expression : str) -> str:
         exp_stripped = expression.strip()
 
