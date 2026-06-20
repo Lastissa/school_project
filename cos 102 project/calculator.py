@@ -378,12 +378,10 @@ class CalByOpe(Tk):
                 #for targeting numbers
                 try:
                     int(column.strip()) + 2 #if this works, it show its a number
-                    
                     buttons = Button(self.btn_frame, text= column, font=("Segoe UI semibold", 14), bd=0, foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-number"], command= lambda t=column:self.operationNumber(digit=t))
                     buttons.grid(row= index, column=inner_index, padx=3, pady=3, sticky= "nsew")
                     continue
-                except:
-                    pass
+                except: pass
                 #for targeting history and advance btn
                 if column.upper() == "HISTORY":
                     buttons = Button(self.btn_frame, text= column, font=("Segoe UI", 14, "bold"), bd=0, foreground= self.colors()["btn-fg"], background= self.colors()["btn-bg-special"])
@@ -418,10 +416,6 @@ class CalByOpe(Tk):
                 command = None #rm soon
                 if column == ".":
                     command =self.operationDot
-                elif column == "π":
-                    command = self.operationPhi
-                elif column == "e":
-                    command = self.operationEuler
                 elif column == "+" or column == "-" or column =="*" or column == "/":
                     command = lambda t=column : self.operationAdd_Sub_Mul_Div(t)
                 elif column == "+/-":
@@ -430,7 +424,7 @@ class CalByOpe(Tk):
                     command = lambda t=column : self.xRelated(t)
                 elif column == "10ⁿ":
                     command = self.operationExp
-                elif column == "Sin" or column == "Cos" or column == "Tan" or column == "sin⁻¹" or column == "cos⁻¹" or column == "tan⁻¹":
+                elif column == "Sin" or column == "Cos" or column == "Tan" or column == "sin⁻¹" or column == "cos⁻¹" or column == "tan⁻¹" or column == "Log" or column == "ln":
                     command = lambda t=column : self.operationTRRIG(t)
                 elif column == "Ans":
                     command = self.operationANS
@@ -670,18 +664,21 @@ class CalByOpe(Tk):
     "btn-bg-m": "#3A6D18",
 }   
     
-    def show_warning(self, text : str) -> Label:
+    def show_warning(self, text : str, is_info = False) -> Label:
         try:
-            self.placeholder.pack_forget() # remve that temp place holder
+            self.placeholder.pack_forget() # remve that temp place holder so i can mount the warning 
         except: pass
         
         try:
-            self.warning_label.bind()
+            self.warning_label.bind()#just to check if the warning label is in view so i can know wether to remove it
+            #to cleart the warning label after two seconds and add the placeholder back
             self.warning_label.after(2000, lambda: [self.clear_warning(), self.placeholder.pack(anchor="sw", padx=3, pady=1)])
             return 
         except: pass
         
-        self.warning_label =  Label(self.display_frame, text= text, bg="red", fg = "white", font= ("Segoe UI", 10, "bold"))
+        #only comes up if self.warning_label.bind() raise an error as it show it does not exist as i need to mout it
+        if is_info == True: self.warning_label = Label(self.display_frame, text= text, bg="green", fg = "#eeeeee", font= ("Segoe UI", 10, "bold"))
+        else:   self.warning_label =  Label(self.display_frame, text= text, bg="red", fg = "white", font= ("Segoe UI", 10, "bold"))
         self.warning_label.pack(anchor="sw", padx=3, pady=1)
         self.warning_label.after(2000, lambda: [self.clear_warning(), self.placeholder.pack(anchor="sw", padx=3, pady=1)])
     
@@ -977,6 +974,7 @@ class CalByOpe(Tk):
                 self.ans_key_value.set("-" + current_value)
          
     def xRelated(self, digit):
+        print(digit)
         try:
             Utility().isErrorPresentInCalculator(self.current_display_content)
             #to clear off the content in the right mini cos the incoming xRelated need to be displayed
@@ -1036,6 +1034,7 @@ class CalByOpe(Tk):
                 elif digit == "xⁿ":
                     #check if P exist in the current display
                     if "P" in current_value:
+                        self.show_warning("Potential Error In View")
                         return
                     else:
                         #add P for power
@@ -1098,11 +1097,12 @@ class CalByOpe(Tk):
                 elif digit == "ʸ√":
                     #check if p exist in the current display
                     if "P" in current_value:
+                        self.show_warning("Potential Error In View - Rroot")
                         return
                     else:
                         #add p for self
                         self.current_display_content.set(current_value + "p")
-            
+                    
             else:
                 self.show_warning("potential syntax error in view")  
         except Exception as e:
@@ -1120,11 +1120,7 @@ class CalByOpe(Tk):
         self.current_right_mini_info.set("")
         #checking if E exist before so i wont add a new E
         if "E" in self.current_display_content.get() or "b" in self.current_display_content.get():
-            pass
-        #checking if =-*/ is in the value before a second E can be used
-        # elif self.current_display_content.get().split("E"):
-        #     print(self.current_display_content.get().split("E"))
-            
+          self.show_warning("not allowed!")     
         else:
             self.current_display_content.set(self.current_display_content.get() + "E")
 
@@ -1161,22 +1157,42 @@ class CalByOpe(Tk):
         elif digit == "Tan":
             result = str(math.tan(math.radians(current_value)))
             
-        
+        #for catching maths error faster
+        mth_error = lambda error : [print(f"Log btn exception  - {error}"), self.show_warning("Math Error, Potential syntax error")]
         if digit == "sin⁻¹":
-            result = str(math.degrees(math.asin(current_value)))
+            try:
+                result = str(math.degrees(math.asin(current_value)))
+            except Exception as e: 
+                mth_error(e)
+                return
            
             
         elif digit == "cos⁻¹":
-            result = str(math.degrees(math.acos(current_value)))
-            
+            try:result = str(math.degrees(math.acos(current_value)))
+            except Exception as e: 
+                mth_error(e)
+                return
         
         
         elif digit == "tan⁻¹":
-            result = str(math.degrees(math.acos(current_value)))
+            try:
+                result = str(math.degrees(math.acos(current_value)))
+            except Exception as e: 
+                mth_error(e)
+                return
             
+        elif digit == "Log":
+            try:
+                result = math.log(current_value, 10)
+            except Exception as e:
+                mth_error(e)
+                return
         elif digit == "ln":
-            pass
-        
+            try:
+                result = math.log(current_value, math.e)
+            except Exception as e: 
+                mth_error(e)
+                return
       #if its int, to remove the unnnesary float
         result = Utility().clipLenght(result,self.max_calulator_view_lenght) # clip lenght
         result = Utility().tryFloatToInt(float(result)) #checking for whole number
@@ -1184,13 +1200,14 @@ class CalByOpe(Tk):
         #update the current right mini info
         if digit == "Sin" or digit == "Cos" or digit == "Tan":
             self.current_right_mini_info.set(f"{digit} ({after_edit_string})°")
+        elif digit == "Log":
+            self.current_right_mini_info.set(f"Log base 10 ({after_edit_string})")
         else:
             self.current_right_mini_info.set(f"{digit} ({after_edit_string})")
         
         self.current_display_content.set(result)
         self.ans_key_value.set(result)
          
- 
     def operationANS(self):
         Utility().isErrorPresentInCalculator(self.current_display_content)
         if self.current_display_content.get() == "0":
@@ -1227,148 +1244,25 @@ class CalByOpe(Tk):
     
         
     def operationEQUALTO(self):
-        if Utility().isErrorPresentInCalculator(self.current_display_content):
-            return
-        
-        #check if p is present, this mean we have to perform power
-        if len(self.current_display_content.get().split("P")) > 1:
-            b4_P = self.current_display_content.get().split("P")[0].strip()
-            after_P = self.current_display_content.get().split("P")[1].strip()
-            print([b4_P, "p", after_P])
-            if len(b4_P) == 0:#nothing was before p which is almost impossible cos zero suppose dey front
-                self.current_display_content.set(syntax_error)
-                self.current_right_mini_info.set("")#clear all the stuff there
-                return
-            #no syntax error
-            if len(after_P.strip()) == 0:
-                after_P = "1"
-            try:
-               power =  float(after_P.strip())
-            except:
-                self.current_display_content.set(syntax_error)
-                self.current_right_mini_info.set("")#clear all the stuff there
-                return
-            result = math.pow(float(b4_P), power)
-            result = Utility().tryFloatToInt(result)
-            result = Utility().clipLenght(result, self.max_calulator_view_lenght)
-            self.current_display_content.set(result)
-            self.ans_key_value.set(result)
-            print("taking care of nth power")
-            return
-               
-        #check if p is present, this mean we have to perform power
-        if len(self.current_display_content.get().split("p")) > 1:
-            b4_P = self.current_display_content.get().split("p")[0].strip()
-            after_p = self.current_display_content.get().split("p")[1].strip()
-            print([b4_P, "p", after_p])
-            if len(b4_P) == 0:#nothing was before p which is almost impossible cos zero suppose dey front
-                self.current_display_content.set(syntax_error)
-                self.current_right_mini_info.set("")#clear all the stuff there
-                return
-            #no syntax error
-            if len(after_p.strip()) == 0:
-                after_p = "1"
-            try:
-               self =  float(after_p.strip())
-            except:
-                self.current_display_content.set(syntax_error)
-                self.current_right_mini_info.set("")#clear all the stuff there
-                return
-            result = math.pow(float(b4_P), 1/self)
-            result = Utility().tryFloatToInt(result)
-            result = Utility().clipLenght(result, self.max_calulator_view_lenght)
-            self.current_display_content.set(result)
-            self.ans_key_value.set(result)
-            print("taking care of nth ")
-            return
-            
-        
-        #p is not present, P too is not present
-        if self.current_right_mini_info.get() == "+" or self.current_right_mini_info.get() == "-" or self.current_right_mini_info.get() == "*" or self.current_right_mini_info.get() == "/":
-            #just finish up by performing that operatiton and returning the ans as new ans value
-            try:
-                current_value = float(self.current_display_content.get())
-                expression = f"{current_value}{self.current_right_mini_info.get()}{self.ans_key_value.get()}"
-                print("equl to pressed when =-/* is active")
-                print(expression)
-                output =eval(expression)
-                output = Utility().tryFloatToInt(output)
-                output = Utility().clipLenght(output, self.max_calulator_view_lenght)
-                self.ans_key_value.set(output) #ioveride the former ans value
-                self.current_display_content.set(output)
-                self.current_right_mini_info.set("")#empty it out
-                
-                #to clear off the content in the right mini
-                if "shift" in self.current_meta_data_to_display.get():
-                    self.current_meta_data_to_display.set("shift")
-                else:
-                    self.current_meta_data_to_display.set("")
-                return
-                
-            except Exception as e:
-                print(f"{e} - errorcode Equal to")
-                return
-
-        #if its just normal number or the expression can be eval quick
         try:
-            output = eval(self.current_display_content.get())
-            output = float(output)
-            output = Utility().tryFloatToInt(output)
-            output = Utility().clipLenght(output, self.max_calulator_view_lenght)
-
-            self.ans_key_value.set(output) #ioveride the former ans value
-            self.current_display_content.set(output)
-            print("jsut a float or eval fit run am sharp sharp")
-            #to clear off the content in the right mini
-            if "shift" in self.current_meta_data_to_display.get():
-                self.current_meta_data_to_display.set("shift")
-            else:
-                self.current_meta_data_to_display.set("")
+            Utility().isErrorPresentInCalculator(self.current_display_content)
+            current_value = self.current_display_content.get()
+            current_value = self.operationCustomEval(current_value)
+            current_value = eval(current_value)
+            clip_lenght = Utility().clipLenght(current_value, self.max_calulator_view_lenght)
+            clip_lenght = Utility().tryFloatToInt(float(clip_lenght))
+            self.ans_key_value.set(str(clip_lenght))
+            self.show_warning(f"Ans updated with {clip_lenght}", is_info=True)
+            self.current_display_content.set(str(clip_lenght))
+        except ZeroDivisionError:
+            self.current_display_content.set(limit_error)
+            self.show_warning("zero division not allowed")
         except Exception as e:
-            #its not a float, it have something unusual inside
-            print(f"Not a float,jst a warning - {e}")
-            analysis = list(self.current_display_content.get()) # split every single one
-            toSolve = ""
-            for index, i in enumerate(analysis, start=1):
-                try:#check if its a number
-                    tester = float(i) + 2 
-                    toSolve += i
-                except:
-                    # not a number
-                    #for pi 
-                    if i == "π":
-                        if  index == 1 and len(analysis) == 1:#its at the first and its the only one
-                            toSolve += f"{math.pi}"
-                        elif index == 1 and len(analysis) > 1: #it was the first and there are other values too
-                            toSolve += f"{math.pi}*"
-                            continue
-                        elif index == len(analysis): # at the end
-                            toSolve += f"*{math.pi}"
-                            continue
-                        else:#it is in the middle
-                            toSolve +=  f"*{math.pi}*"
-                    #for dot
-                    if i == ".":
-                        toSolve += "."
-                
-            print(toSolve)
-            # messagebox.showinfo("operation", toSolve)
-            try:
-                output = eval(toSolve.lstrip("0"))#had to strip the front zero cos eval no allow am   
-                print(output)
-                output = Utility().clipLenght(float(output), self.max_calulator_view_lenght)
-                self.current_display_content.set(output) #update the current val
-                self.ans_key_value.set(output) # update the ans value
-                print("success is 1")
-                
-                #to clear off the content in the right mini
-                if "shift" in self.current_meta_data_to_display.get():
-                    self.current_meta_data_to_display.set("shift")
-                else:
-                    self.current_meta_data_to_display.set("")
-                    
-            except Exception as e:
-                print(f"Er i am cooked--- {e}")                     
+            print(f"error spotted in = - {e}")
+            self.current_display_content.set(syntax_error)
+        
+            
+     
                     
       
         
